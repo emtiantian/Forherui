@@ -1,3 +1,6 @@
+//除了微信企业号管理接口（为了与微信企业号管理一致 使用与之相同的命名）外一律驼峰命名
+
+
 1.登录
 
 url：		/user/login
@@ -54,7 +57,7 @@ url:		/picture/show
 					pictureWidth：图片宽
 					pictureHeight:图片高 
 					info：图片编辑信息列表
-						top：相对高度
+						top：相对顶部高度
 						left：相对左侧位置
 						author：作者
 						title：标题
@@ -65,32 +68,617 @@ url:		/picture/show
 示例：
 详见:接口示例.js	
 
-3.图片编辑
+4.图片标注编辑/添加
 
-url:		/picture/edit
+url:		/picture/infoEdit
 
 请求方式:	post
 
 参数：		lineId：线路id(int)
 			machineId:机器id(int)
+			pictureId：图片id(int)
+			info:(图片编辑信息)json
+				top：相对高度
+				left：相对左侧位置
+				author：作者
+				title：标题
+				descr：内容
+				id：标注id			
 
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
-				picture:图片列表
-					id：pictureid
-					url：图片url
-					pictureWidth：图片宽
-					pictureHeight:图片高 
-					info：图片编辑信息列表
-						top：相对高度
-						left：相对左侧位置
-						author：作者
-						title：标题
-						descr：内容
-						id：标注id
+				success：是否修改成功（boolean）
 
 						
 示例：
 详见:接口示例.js	
+
+
+5.图片标注刪除
+
+url:		/picture/infoDelete
+
+请求方式:	post
+
+参数：		lineId：线路id(int)
+			machineId:机器id(int)
+			pictureId：图片id(int)
+			infoId:图片标注id(int)
+				
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否删除成功（boolean）
+
+						
+示例：
+详见:接口示例.js	
+
+
+6.图片统计
+
+url:		/picture/count
+
+请求方式:	post
+
+参数：		lineId：线路id(int)
+			machineId:机器id(int)
+			startTime:开始时间(time)
+			endTime:结束时间(time)					
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				time：时间
+					pictuerNum:图片数目
+						infoNum：标注数目
+						
+示例：
+详见:接口示例.js	
+
+7.线路设备列表
+
+url:		/line/lineList
+
+请求方式:	post
+
+参数：		userId：用户id（int）(""就是当前用户)		
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				line：线路(json)
+					lineId:线路id
+					lineName:线路名字
+					machine:机器（json）
+						machineId:机器id
+						machineName:机器名字
+					
+						
+示例：
+详见:接口示例.js	
+
+8.用户接收图片列表
+
+url:		/user/pictureAllow
+
+请求方式:	post
+
+参数：		userId：用户id（int）(""就是当前用户)	
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				line：线路(json)
+					lineId:线路id
+					lineName:线路名字
+					machine:机器（json）
+						machineId:机器id
+						machineName:机器名字
+					
+						
+示例：
+详见:接口示例.js	
+
+
+9.微信绑定/修改
+
+url:		user/weChat
+
+请求方式:	post
+
+参数：		userId：用户id（int）
+			weChatId:用户微信id（int）
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+					
+						
+示例：
+详见:接口示例.js	
+
+
+10.修改密码
+
+url:		user/editPwd
+
+请求方式:	post
+
+参数：		userId：用户id（int）
+			oldPwd: 用户旧密码（string）
+			newPwd：用户新密码（string）
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+					
+						
+示例：
+详见:接口示例.js	
+
+
+
+11.微信部门列表
+
+url:		weChat/department/list
+
+请求方式:	post
+
+参数：		departmentId：部门id（int）			
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				department	部门列表数据。（以部门的order字段从小到大排列）
+				id	部门id
+				name	部门名称
+				parentid	父亲部门id。根部门为1
+				order	在父部门中的次序值。order值小的排序靠前。
+					
+						
+示例：
+详见:接口示例.js	
+
+
+
+12.微信部门修改
+
+url:		weChat/department/edit
+
+请求方式:	post
+
+参数：		department：部门（json）
+				id	是	部门id
+				name	否	更新的部门名称。长度限制为1~64个字节，字符不能包括\:*?"<>｜。修改部门名称时指定该参数
+				parentid	否	父亲部门id。根部门id为1
+				order	否	在父部门中的次序值。order值小的排序靠前。			
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+					
+						
+示例：
+详见:接口示例.js	
+
+
+
+13.微信部门删除
+
+url:		weChat/department/delete
+
+请求方式:	post
+
+参数：		departmentId：部门id（int）				
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+					
+						
+示例：
+详见:接口示例.js	
+
+
+
+13.微信部门创建
+
+url:		weChat/department/create
+
+请求方式:	post
+
+参数：		department：部门（int）				
+				name	是	部门名称。长度限制为1~64个字节，字符不能包括\:*?"<>｜
+				parentid	是	父亲部门id。根部门id为1
+				order	否	在父部门中的次序值。order值小的排序靠前。
+				id	否	部门id，整型。指定时必须大于1，不指定时则自动生成
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+				id：	创建的部门id（int）	
+						
+示例：
+详见:接口示例.js	
+
+
+
+14.微信成员创建
+
+url:		weChat/user/create
+
+请求方式:	post
+
+参数：		user：用户（json）				
+				userid	是	成员UserID。对应管理端的帐号，企业内必须唯一。不区分大小写，长度为1~64个字节
+				name	是	成员名称。长度为1~64个字节
+				department	是	成员所属部门id列表,不超过20个
+				position	否	职位信息。长度为0~64个字节
+				mobile	否	手机号码。企业内必须唯一，mobile/weixinid/email三者不能同时为空
+				gender	否	性别。1表示男性，2表示女性
+				email	否	邮箱。长度为0~64个字节。企业内必须唯一
+				weixinid	否	微信号。企业内必须唯一。（注意：是微信号，不是微信的名字）
+				avatar_mediaid	否	成员头像的mediaid，通过多媒体接口上传图片获得的mediaid
+				extattr	否	扩展属性。扩展属性需要在WEB管理端创建后才生效，否则忽略未知属性的赋值
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）				
+						
+示例：
+详见:接口示例.js	
+
+
+
+15.微信成员更新
+
+url:		weChat/user/edit
+
+请求方式:	post
+
+参数：		user：用户（json）				
+				userid	是	成员UserID。对应管理端的帐号，企业内必须唯一。长度为1~64个字节
+				name	否	成员名称。长度为0~64个字节
+				department	否	成员所属部门id列表，不超过20个
+				position	否	职位信息。长度为0~64个字节
+				mobile	否	手机号码。企业内必须唯一，mobile/weixinid/email三者不能同时为空
+				gender	否	性别。1表示男性，2表示女性
+				email	否	邮箱。长度为0~64个字节。企业内必须唯一
+				weixinid	否	微信号。企业内必须唯一。（注意：是微信号，不是微信的名字）
+				enable	否	启用/禁用成员。1表示启用成员，0表示禁用成员
+				avatar_mediaid	否	成员头像的mediaid，通过多媒体接口上传图片获得的mediaid
+				extattr	否	扩展属性。扩展属性需要在WEB管理端创建后才生效，否则忽略未知属性的赋值
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）				
+						
+示例：
+详见:接口示例.js	
+
+
+
+16.微信成员删除（批量）
+
+url:		weChat/user/delete
+
+请求方式:	post
+
+参数：		user：成员UserID列表，对应管理端的帐号（json）		
+				"useridlist": 成员列表(arra)	
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）				
+						
+示例：
+详见:接口示例.js	
+
+
+17.微信成员列表（批量）
+
+url:		weChat/user/list
+
+请求方式:	post
+
+参数：		userid:	是	成员UserID。对应管理端的帐号（int）（可选）
+			department:	 	按部门查找成员（json）	（可选）	
+				department_id	是	获取的部门id
+				fetch_child	否	1/0：是否递归获取子部门下面的成员
+				status	否	0获取全部成员，1获取已关注成员列表，2获取禁用成员列表，4获取未关注成员列表。status可叠加，未填写则默认为4
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				userlist:成员列表(json)
+					userid	成员UserID。对应管理端的帐号
+					name	成员名称
+					department	成员所属部门id列表
+					position	职位信息
+					mobile	手机号码
+					gender	性别。0表示未定义，1表示男性，2表示女性
+					email	邮箱
+					weixinid	微信号
+					avatar	头像url。注：如果要获取小图将url最后的"/0"改成"/64"即可
+					status	关注状态: 1=已关注，2=已冻结，4=未关注
+					extattr	扩展属性				
+						
+示例：
+详见:接口示例.js	
+
+
+
+18.用户列表
+
+url:		user/list
+
+请求方式:	post
+
+参数：		空
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				userList:成员列表(json)
+					userId	用户UserID。
+					userLoginName：用户登录名
+					name	用户名称
+					weChatId：用户绑定微信
+					level 用户权限			
+						
+示例：
+详见:接口示例.js
+
+
+
+19.用户修改
+
+url:		user/edit
+
+请求方式:	post
+
+参数：		userPwd：用户密码（string）
+			userList:成员列表(json)
+					userId	用户UserID。
+					userLoginName：用户登录名	
+					name	用户名称
+					weChatId：用户绑定微信
+					level 用户权限	
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+20.用户删除
+
+url:		user/delete
+
+请求方式:	post
+
+参数：		userIdList
+				userId	成员UserID（array）
+			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+						
+示例：
+详见:接口示例.js
+
+
+
+21.用户创建
+
+url:		user/create
+
+请求方式:	post
+
+参数：		userPwd：用户密码（string）
+			userList:成员列表(json)					
+					userLoginName：用户登录名	
+					name	用户名称
+					weChatId：用户绑定微信
+					level 用户权限	
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+				userId：	用户UserID。
+						
+示例：
+详见:接口示例.js
+
+
+
+22.line修改
+
+url:		line/edit
+
+请求方式:	post
+
+参数：		lineId：线路id（int）
+			name：线路名称（string）
+			comments：线路简介（string）
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+23.line添加
+
+url:		line/create
+
+请求方式:	post
+
+参数：		name：线路名称（string）
+			comments：线路简介（string）
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+24.line删除
+
+url:		line/delete
+
+请求方式:	post
+
+参数：		lineId：线路id（int）			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+
+25.machine修改
+
+url:		machine/edit
+
+请求方式:	post
+
+参数：		machineId：设备id（int）
+			poleId：记录id（string）
+			name：设备名称（string）
+			comments：设备简介（string）
+			lineId：线路id（string）
+			createTime：创建时间（time）
+			gps：定位信息(string) 
+
+						
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+26.machine添加
+
+url:		machine/create
+
+请求方式:	post
+
+参数：		
+			poleId：记录id（string）
+			name：设备名称（string）
+			comments：设备简介（string）
+			lineId：线路id（string）
+			createTime：创建时间（time）
+			gps：定位信息(string) 
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+27.machine删除
+
+url:		machine/delete
+
+请求方式:	post
+
+参数：		machineId：设备id（int）			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+27.machine列表
+
+url:		machine/list
+
+请求方式:	post
+
+参数：		空			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				machinelist：machine列表（array）
+					machineId：设备id（int）
+					poleId：记录id（string）
+					name：设备名称（string）
+					comments：设备简介（string）
+					lineId：线路id（string）
+					createTime：创建时间（time）
+					gps：定位信息(string) 
+						
+示例：
+详见:接口示例.js
