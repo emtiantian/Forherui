@@ -1,4 +1,4 @@
-//除了微信企业号管理接口（为了与微信企业号管理一致 使用与之相同的命名）外一律驼峰命名
+﻿//除了微信企业号管理接口（为了与微信企业号管理一致 使用与之相同的命名）外一律驼峰命名
 
 
 1.登录
@@ -7,7 +7,7 @@ url：		/user/login
 
 请求方式：	post
 
-参数： 		username：用户名(string)
+参数： 		username：用户名(string)   
 			userpwd：用户密码(string)
 			
 返回结果：	success:交互是否成功(boolean)
@@ -18,6 +18,10 @@ url：		/user/login
 				level:用户权限(string)(superAdmin,admin,user)
 示例：
 详见:接口示例.js
+
+
+
+
 			
 2.获得用户菜单列表
 
@@ -44,25 +48,27 @@ url:		/picture/show
 
 请求方式:	post
 
-参数：		lineId：线路id(int)
+参数：		compID: 公司ID(int)
+			lineId：线路id(int)
 			machineId:机器id(int)
+			datetime:图片拍摄时间
 
 返回结果：	success:交互是否成功(boolean)
-			code：错误码(int)
-			msg:错误信息(string)
-			data:接口返回的主要数据(json)
-				picture:图片列表
-					id：pictureid
-					url：图片url
-					pictureWidth：图片宽
-					pictureHeight:图片高 
-					info：图片编辑信息列表
-						top：相对顶部高度
-						left：相对左侧位置
-						author：作者
-						title：标题
-						descr：内容
-						id：标注id
+		code：错误码(int)
+		msg:错误信息(string)
+		data:接口返回的主要数据(json)
+			picture:图片列表
+				id：pictureid
+				url：图片url
+				pictureWidth：图片宽
+				pictureHeight:图片高 
+				info：图片编辑信息列表
+					top：相对顶部高度
+					left：相对左侧位置
+					author：作者
+					title：标题
+					descr：内容
+					id：标注id
 
 						
 示例：
@@ -74,8 +80,9 @@ url:		/picture/infoEdit
 
 请求方式:	post
 
-参数：		lineId：线路id(int)
-			machineId:机器id(int)
+参数：		
+			//lineId：线路id(int)		?是不是只需要图片的ID就可以？？
+			//machineId:机器id(int)
 			pictureId：图片id(int)
 			info:(图片编辑信息)json
 				top：相对高度
@@ -134,10 +141,11 @@ url:		/picture/count
 			code：错误码(int)
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
+			
 				time：时间
 					pictuerNum:图片数目
-						infoNum：标注数目
-						
+					infoNum：标注数目
+							
 示例：
 详见:接口示例.js	
 
@@ -153,12 +161,25 @@ url:		/line/lineList
 			code：错误码(int)
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
-				line：线路(json)
-					lineId:线路id
-					lineName:线路名字
-					machine:机器（json）
-						machineId:机器id
-						machineName:机器名字
+				comp:(供电公司)
+					compID: 供电公司ID
+					compName:供电公司名称
+					line：线路(json)
+						lineId:线路id
+						lineName:线路名字
+						lineComment：线路说明
+						lineCode：线路编号
+						machine:机器（json）
+							machineId:机器id
+							machineName:机器名字
+							machineComment:机器说明
+							machineGPS:机器所在经纬度坐标
+							machinePosition： 机器所在位置名称
+							tower:所在杆塔名称
+							productComp: 生产厂家
+							InstallTime: 安装时间
+							CompID:		 设备出厂编号
+						
 					
 						
 示例：
@@ -173,15 +194,15 @@ url:		/user/pictureAllow
 参数：		userId：用户id（int）(""就是当前用户)	
 
 返回结果：	success:交互是否成功(boolean)
-			code：错误码(int)
-			msg:错误信息(string)
-			data:接口返回的主要数据(json)
-				line：线路(json)
-					lineId:线路id
-					lineName:线路名字
-					machine:机器（json）
-						machineId:机器id
-						machineName:机器名字
+		code：错误码(int)
+		msg:错误信息(string)
+		data:接口返回的主要数据(json)
+			line：线路(json)
+				lineId:线路id
+				lineName:线路名字
+				machine:机器（json）
+					machineId:机器id
+					machineName:机器名字
 					
 						
 示例：
@@ -427,7 +448,7 @@ url:		weChat/user/list
 					weixinid	微信号
 					avatar	头像url。注：如果要获取小图将url最后的"/0"改成"/64"即可
 					status	关注状态: 1=已关注，2=已冻结，4=未关注
-					extattr	扩展属性				
+//					extattr	扩展属性                  ??这个没有				
 						
 示例：
 详见:接口示例.js	
@@ -534,9 +555,12 @@ url:		line/edit
 
 请求方式:	post
 
-参数：		lineId：线路id（int）
-			name：线路名称（string）
-			comments：线路简介（string）
+参数：		
+			lineId：线路id（int）
+			lineName:线路名字
+			lineComment：线路说明
+			lineCode：线路编号
+				
 				
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
@@ -557,7 +581,8 @@ url:		line/create
 
 参数：		name：线路名称（string）
 			comments：线路简介（string）
-				
+			lineCode：线路编号
+			
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
 			msg:错误信息(string)
@@ -600,9 +625,10 @@ url:		machine/edit
 			name：设备名称（string）
 			comments：设备简介（string）
 			lineId：线路id（string）
-			createTime：创建时间（time）
 			gps：定位信息(string) 
-
+			position: 位置名称
+			installTime: 安装时间
+			installUser: 安装人员
 						
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
@@ -626,8 +652,11 @@ url:		machine/create
 			name：设备名称（string）
 			comments：设备简介（string）
 			lineId：线路id（string）
-			createTime：创建时间（time）
-			gps：定位信息(string) 
+			gps：经纬度坐标
+			position: 设备所在位置名称
+			productComp: 生产厂家
+			comoID: 设备出厂编号
+						 
 				
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
@@ -665,7 +694,7 @@ url:		machine/list
 
 请求方式:	post
 
-参数：		空			
+参数：		lineID 线路ID			
 				
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
@@ -678,7 +707,33 @@ url:		machine/list
 					comments：设备简介（string）
 					lineId：线路id（string）
 					createTime：创建时间（time）
-					gps：定位信息(string) 
+					creatUser:创建者
+					UpdateUser:更新者
+					UdpateTime：更新时间
+					gps：定位信息(string)
+					position: 设备所在位置名称
+					productComp: 生产厂家
+					compID: 设备出厂编号
+					InstallTime:安装时间
+					InstallUser:安装人员
+					tower：杆塔名称
+					
+					
 						
 示例：
 详见:接口示例.js
+
+28 machine 定位：
+url:		machine/position
+
+请求方式:	post
+
+参数：		machineId：设备id（int）
+			gps：定位信息(string)
+			position: 设备所在位置名称	
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success 操作是否成功
