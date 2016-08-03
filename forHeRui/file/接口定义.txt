@@ -464,13 +464,14 @@ url:		user/edit
 
 请求方式:	post
 
-参数：		userPwd：用户密码（string）
+参数：		
 			userList:成员列表(json)
 					userId	用户UserID。
 					userLoginName：用户登录名	
 					name	用户名称
 					weChatId：用户绑定微信
 					level 用户权限	
+					userPwd：用户密码（string）
 				
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
