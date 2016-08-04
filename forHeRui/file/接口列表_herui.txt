@@ -32,19 +32,17 @@ url:		account/create
 
 请求方式:	post
 
-参数：		userPwd：用户密码（string）
-			userList:成员列表(json)					
-					userLoginName：用户登录名	
-					name	用户名称
-					weChatId：用户绑定微信		（微信企业内唯一ID）
-					level 用户权限	
+参数：		userLoginName：用户登录名	
+			name	用户名称
+			weChatId：用户绑定微信		（微信企业内唯一ID）
+			level 用户权限	
 				
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
 				success：是否成功（boolean）	
-				userId：	用户UserID。
+				userId：	用户UserID
 						
 示例：
 
