@@ -1,0 +1,140 @@
+用户接口
+1.	登陆
+url：		/account/login
+
+请求方式：	post
+
+参数： 		username：用户名(string)   
+			userpwd：用户密码(string)
+			
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				login:登录是否成功(boolean)
+				level:用户权限(string)(superAdmin,admin,user)
+示例：
+详见:接口示例.js
+2.	注销
+url：		/account/logout
+
+请求方式：	post
+
+参数： 		无
+			
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success 注销状态
+3.	用户创建
+url:		account/create
+
+请求方式:	post
+
+参数：		userPwd：用户密码（string）
+			userList:成员列表(json)					
+					userLoginName：用户登录名	
+					name	用户名称
+					weChatId：用户绑定微信		（微信企业内唯一ID）
+					level 用户权限	
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+				userId：	用户UserID。
+						
+示例：
+
+4.	用户信息修改
+url:		user/edit
+
+请求方式:	post
+
+参数：		userPwd：用户密码（string）
+			userList:成员列表(json)
+				userId	用户UserID。
+				userLoginName：用户登录名	
+				name	用户名称
+				weChatId：用户绑定微信
+				level 用户权限	
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+5.	用户删除
+
+url:		account/delete
+
+请求方式:	post
+
+参数：		userIdList
+				userId	成员UserID（array）
+			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+						
+示例：
+详见:接口示例.js
+
+6.	用户列表
+
+url:		account/list
+
+请求方式:	post
+
+参数：		空
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				userList:成员列表(json)
+					userId	用户UserID。
+					userLoginName：用户登录名
+					name	用户名称
+					weChatId：用户绑定微信
+					level 用户权限			
+						
+示例：
+详见:接口示例.js
+
+7.	密码修改
+url:		account/editPwd
+
+请求方式:	post
+
+参数：		userId：用户id（int）
+			oldPwd: 用户旧密码（string）
+			newPwd：用户新密码（string）
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+
+
+8.	用户微信绑定
+
+url:		account/weChat
+
+请求方式:	post
+
+参数：		userId：用户id（int）
+			weChatId:用户微信id（int）
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）
+
