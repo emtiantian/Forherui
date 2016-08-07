@@ -7,8 +7,8 @@ url：		/user/login
 
 请求方式：	post
 
-参数： 		username：用户名(string)   
-			userpwd：用户密码(string)
+参数： 		userName：用户名(string)   
+			userPwd：用户密码(string)
 			
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
