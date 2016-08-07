@@ -15,7 +15,7 @@ function log(arr){
     // 如果用writeFile，那么会删除旧文件，直接写新文件  
     // console.dir 的源码
     // util.inspect(object, { customInspect: false }) + '\n'
-    var text=moment().format("YYYY-MM-DD HH:mm:ss")+" : "+ allPrpos(arr) + '\n'+"\r";
+    var text=moment().format("YYYY-MM-DD HH:mm:ss")+" : "+ arr + '\n'+"\r";
     fs.appendFile(file, text, function(err){  
         if(err)  
             console.log("fail " + err);  

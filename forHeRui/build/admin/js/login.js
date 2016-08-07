@@ -2,8 +2,6 @@ $(function(){
 	var baseUrl="http://127.0.0.1:3000"
 	//cookie 过期时间
 	var expires=7;
-	//cookie 名字
-	var cookieName="loginName"
 	//login 
 	function login(){
 		var userName=$("#userName").val();
@@ -33,17 +31,21 @@ $(function(){
 		});
 		//判断是否需要记住
 		if($("#rememberMe").is(':checked')){		
-			$.cookie(cookieName,{"userName":userName,"userPwd":userPwd},{expires:expires,path:"/"})
+			$.cookie("userName",userName,{expires:expires,path:"/"})
+			$.cookie("userPwd",userPwd,{expires:expires,path:"/"})
 		}else{
-			$.cookie(cookieName,null);
+			$.cookie("userName",null,{expires:expires,path:"/"})
+			$.cookie("userPwd",null,{expires:expires,path:"/"})		
 		}	
 	}
-	
+	//$.cookie(cookieName,null,{path:'/'});
+	//$.cookie("userName") != "null" 这里的null 是字符串
+	console.dir($.cookie("userName") != "null");
 	//载入判断
-	if($.cookie(cookieName)!=null)
+	if($.cookie("userName") != "null" && $.cookie("userName") != undefined )
 	{
-		$("#userName").val($.cookie(cookieName).userName);
-		$("#userPwd").val($.cookie(cookieName).userPwd);
+		$("#userName").val($.cookie("userName"));
+		$("#userPwd").val($.cookie("userPwd"));
 		$("#rememberMe").attr("checked",true);
 	}
 	$("#login").on("click",function(){	
