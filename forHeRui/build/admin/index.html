@@ -28,6 +28,7 @@
 	<!--mycss-->
 	<link href="css/iSlider.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
+	<link href="css/iPicture.css" rel="stylesheet"/>
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
 
@@ -373,7 +374,7 @@
 							    </div>-->
 								<div class="is-in-is-wrap">
 				            <div class="is-in-is">
-				                <div id="is_in_is"></div>			                
+				                <div id="is_in_is" data-interaction="hover"></div>			                
 				            </div>
 				        </div>
                 </div>
@@ -393,6 +394,22 @@
 
     </div>
     <!-- main content end-->
+    <!--模板 -->
+	<div id="muban" style="display: none;">
+		<div class="ip_slide" >
+			<!-- 本身的图片 -->
+			<img class="ip_tooltipImg" src="" />
+			
+		</div>
+	</div>
+	<div id="tooltip" style="display: none;">
+		<!-- tips 1 -->	
+		<div class="ip_tooltip ip_img32" style="top: 330px; left: 418px;" data-tooltipbg="bgblack" data-round="roundBgWInner" data-animationtype="btt-slide">
+				<p>
+					<b id="tooltipInfo">一艘潜艇</b><br />
+				</p>
+			</div>
+	</div>
 </section>
 
 
@@ -442,6 +459,7 @@
 <script src="js/iSlider.animate.min.js"></script>
 <script src="js/iSlider.plugin.dot.js"></script>
 <script type="text/javascript" src="js/jQuery.iPicture.js"></script>
+
 <script src="js/index.js"></script>
 
 </body>
