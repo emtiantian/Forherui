@@ -27,6 +27,7 @@
   <link href="css/style-responsive.css" rel="stylesheet">
 	<!--mycss-->
 	<link href="css/iSlider.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
 
@@ -44,8 +45,8 @@
     <div class="left-side sticky-left-side">
 
         <!--logo and iconic logo start-->
-        <div class="logo">
-            <a href="index.html">
+        <div class="logo ">
+            <a href="index.html" class="logoIndex">
             	<!--<img src="images/logo.png" alt="">-->
             		微拍推送平台
             </a>
@@ -330,49 +331,54 @@
 
         <!-- page heading start-->
         <div class="page-heading">
-            <!--<h3>
-                Dashboard
+            <h3>
+                	图片展示
             </h3>
-            <ul class="breadcrumb">
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li class="active"> My Dashboard </li>
-            </ul>
-            <div class="state-info">
+            <div class="selectUl">
+            	<div class="selectUldiv">
+            		<select class="form-control input-sm m-bot15">
+									<option selected="selected">线路 1</option>
+									<option>线路 2</option>
+									<option>线路 3</option>
+								</select>
+            	</div>
+							<div class="selectUldiv">
+								<select class="form-control input-sm m-bot15">
+									<option selected="selected">机器 1</option>
+									<option>机器 2</option>
+									<option>机器 3</option>
+								</select> 
+							</div>		
+            </div>
+            <div class="state-info">              
                 <section class="panel">
                     <div class="panel-body">
                         <div class="summary">
-                            <span>yearly expense</span>
-                            <h3 class="red-txt">$ 45,600</h3>
-                        </div>
-                        <div id="income" class="chart-bar"></div>
-                    </div>
-                </section>
-                <section class="panel">
-                    <div class="panel-body">
-                        <div class="summary">
-                            <span>yearly  income</span>
-                            <h3 class="green-txt">$ 45,600</h3>
+                            <span>最近7天图片张数</span>
+                            <h3 class="green-txt">14(张)</h3>
                         </div>
                         <div id="expense" class="chart-bar"></div>
                     </div>
                 </section>
-            </div>-->
+            </div>
         </div>
         <!-- page heading end-->
 
         <!--body wrapper start-->
         <div class="wrapper">
-            <div class="row">
-            		<div class="col-md-2" >
-            		</div>
+            <div class="row">           	
                 <div class="col-md-8" >
-                	<div class="ui segment" style="height: 900px;padding: 0;" >
+                	<!--<div class="ui segment" style="height: 900px;padding: 0;" >
 							    	<div  id="iSlider-wrapper1" ></div>		    
-							    </div>
+							    </div>-->
+								<div class="is-in-is-wrap">
+				            <div class="is-in-is">
+				                <div id="is_in_is"></div>			                
+				            </div>
+				        </div>
                 </div>
-                <div class="col-md-2" >
+                <div class="col-md-4" >
+                	
             		</div>
             </div>        
         </div>
@@ -424,7 +430,7 @@
 <script src="js/calendar/clndr.js"></script>
 <script src="js/calendar/evnt.calendar.init.js"></script>
 <script src="js/calendar/moment-2.2.1.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script src="js/calendar/underscore.js"></script>
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
@@ -434,27 +440,9 @@
 <!--myjs-->
 <script src="js/iSlider.js"></script>
 <script src="js/iSlider.animate.min.js"></script>
-<script src="js/my.js"></script>
+<script src="js/iSlider.plugin.dot.js"></script>
+<script type="text/javascript" src="js/jQuery.iPicture.js"></script>
+<script src="js/index.js"></script>
 
 </body>
 </html>
-<script>
-	    var list = [
-        {content: "//be-fe.github.io/static/images/iSlider-card/1.jpg"},
-        {content: "//be-fe.github.io/static/images/iSlider-card/2.jpg"},
-        {content: "//be-fe.github.io/static/images/iSlider-card/3.jpg"},
-        {content: "//be-fe.github.io/static/images/iSlider-card/4.jpg"},
-        {content: "//be-fe.github.io/static/images/iSlider-card/5.jpg"},
-        {content: "//be-fe.github.io/static/images/iSlider-card/6.jpg"},
-        {content: "//be-fe.github.io/static/images/iSlider-card/7.jpg"},
-        {content: "//be-fe.github.io/static/images/iSlider-card/8.jpg"}
-    ];
-
-    var S = new iSlider(document.getElementById('iSlider-wrapper1'), list, {
-        isLooping: 1,
-        isOverspread: 1,
-        isAutoplay: 1,
-        animateTime: 800,
-        animateType: 'flow'
-    });
-</script>
