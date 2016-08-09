@@ -28,7 +28,6 @@
 	<!--mycss-->
 	<link href="css/iSlider.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
-	<link href="css/iPicture.css" rel="stylesheet"/>
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
 
@@ -169,7 +168,7 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                	图片展示
+                	图片修改
             </h3>
             <div class="selectUl">
             	<div class="selectUldiv">
@@ -188,7 +187,7 @@
 							</div>		
             </div>
             <div class="state-info">              
-                <section class="panel">
+                <!--<section class="panel">
                     <div class="panel-body">
                         <div class="summary">
                             <span>最近7天图片张数</span>
@@ -196,28 +195,42 @@
                         </div>
                         <div id="expense" class="chart-bar"></div>
                     </div>
-                </section>
+                </section>-->
             </div>
         </div>
         <!-- page heading end-->
 
         <!--body wrapper start-->
         <div class="wrapper">
-            <div class="row">           	
+            <div class="row">  
+            	<div class="col-md-1" >
+		            <!--<button type="button" class="btn btn-info btn-lg btn-block">修改标签</button>-->
+		        </div>
                 <div class="col-md-10" >
-                	<!--<div class="ui segment" style="height: 900px;padding: 0;" >
-							    	<div  id="iSlider-wrapper1" ></div>		    
-							    </div>-->
-								<div class="is-in-is-wrap">
-				            <div class="is-in-is">
-				                <div id="is_in_is" data-interaction="hover"></div>			                
-				            </div>
-				       </div>					
-            </div> 
-		            <div class="col-md-2" >
-		                		<button type="button" class="btn btn-info btn-lg btn-block">修改标签</button>
-		            </div>
-        		</div>
+					<div id="slideshow">
+						<div id="iPicture">
+							<!--<div class="slide">
+								<div id="picture1" style="background: url('./images/gallery/image1.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture2" style="background: url('./images/gallery/image2.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture3" style="background: url('./images/gallery/image3.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture4" style="background: url('./images/gallery/image4.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture5" style="background: url('./images/gallery/image5.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div>-->
+						</div>
+					</div>					
+            	</div> 
+		        <div class="col-md-1" >
+		            <!--<button type="button" class="btn btn-info btn-lg btn-block">修改标签</button>-->
+		        </div>
+        	</div>
         </div>
         <!--body wrapper end-->
 
@@ -230,26 +243,12 @@
 
     </div>
     <!-- main content end-->
-    <!--模板 -->
-	<div id="muban" style="display: none;">
-		<div class="ip_slide" >
-			<!-- 本身的图片 -->
-			<img class="ip_tooltipImg" src="" />
-			
+	<!-- muban-->
+	<div id="muban" style="display: none;"> 
+		<div class="slide">
+								<div id="picture1" style="background: url('./images/gallery/image1.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
 		</div>
-	</div>
-	<div id="tooltip" style="display: none;">
-	<div class="ip_tooltip ip_img32" style="top: 185px; left: 393px; z-index: 1;" data-tooltipbg="bgblack" data-round="roundBgWInner" data-animationtype="btt-slide" id="picture1_tooltip1">
-		<div class="roundBgWInner"></div>
-		<div class="roundBgWInnerIn"></div>
-		<div class="roundBgWInnerInner"></div>
-		<div class="button undefined"></div>
-		<div class="descrContainer">
-			<div class="pass-btt"></div>
-			<div class="ip_descr bgblack btt-before">
-				<div class="xs" style="display: none;">furniture: 299$</div>
-			</div>
-		</div>
+		<br/>
 	</div>
 </section>
 
@@ -296,12 +295,12 @@
 <!--Dashboard Charts-->
 <script src="js/dashboard-chart-init.js"></script>
 <!--myjs-->
+<script src="js/jquery.json.min.js"></script>
 <script src="js/iSlider.js"></script>
 <script src="js/iSlider.animate.min.js"></script>
 <script src="js/iSlider.plugin.dot.js"></script>
-<!--<script type="text/javascript" src="js/jQuery.iPicture.js"></script>-->
-
-<script src="js/index.js"></script>
+<script type="text/javascript" src="js/jQuery.iPicture.js"></script>
+<script src="js/modifPicture.js"></script>
 
 </body>
 </html>
