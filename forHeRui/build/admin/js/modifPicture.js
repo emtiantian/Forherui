@@ -1,5 +1,4 @@
 $(function(){
-		//生成数据
 	var data={
 	    "picture": [
 	        {
@@ -124,79 +123,80 @@ $(function(){
 	        },
 	    ]
 	}
-	
-
-	function createDate(data){
-		//var data=jQuery.parseJSON(data);
-		var imgDate=[];		
-		$.each(data.picture, function(i,ele) {	
-			var html=$("#muban").clone();
-			$(html).find(".ip_slide").attr("id",ele.id);
-			$(html).find(".ip_tooltipImg").attr("src",ele.src);		
-			$.each(ele.info,function(infoI,infoEle){
-				var toolip=$("#tooltip").clone();
-				$(toolip).find(".ip_tooltip").attr("id",infoEle.id);
-				$(toolip).find(".ip_tooltip").css({"top":infoEle.top,"left":infoEle.left});
-				$(toolip).find(".xs").html(infoEle.descr);
-				$(html).find(".ip_slide").append(toolip.html());				
-			})				
-			imgDate.push({content:html.html()});
+	var pictures=[];
+	var info="";
+	function init(data){		
+		var html=$("#muban").clone();
+		$.each(data.picture, function(i,ele) {
+			pictures.push(ele.id);
+			$(html).find(".slide").find("div").attr("id",ele.id).css("background","url('"+ele.src+"') no-repeat scroll 0 0 #393737");			
+			$("#iPicture").append($(html).html());
 		});
-		console.log(imgDate);
-		return imgDate;
+		console.dir(pictures);
+		
 	}
-	    function mouseOverHandler(selector, animationType) {
-	    	console.log("initmouseOverHandler"+selector,+animationType)
-			selector.on('mouseover', function(eventObject) {				
-				showTooltip($(this), animationType);
-			});
-			selector.on('mouseout', function(eventObject) {
-				hideTooltip($(this), animationType);
-			});
-		};
-		
-		function showTooltip(selector, animationType) {
-			selector.css('z-index', '9999');
-			selector.addClass('show');
-			selector.find(".xs").css('display', 'block');
-			selector.find(".ip_descr").addClass(animationType);
-		};
-		
-		function hideTooltip(selector, animationType) {
-			selector.css('z-index', '1');
-			selector.removeClass('show');
-			selector.find(".xs").css('display', 'none');
-			selector.find(".ip_descr").removeClass(animationType);
-		};
-		
-		
-	var IS_IN_IS = new iSlider(document.getElementById('is_in_is'), null, {
-        	data:createDate(data),
-            isAutoplay: 0,
-            isLooping: 1,
-            duration: 5000,
-            animateTime: 2600,
-            isOverspread: 1,
-            isDebug:false,
-            animateType: 'fade',
-            plugins: [['dot', {locate: 'relative'}]],
-            oninitialized :function(){
-            	var animationType="btt-slide";
-				var selector=$(".ip_tooltip");
-            	mouseOverHandler(selector, animationType);
-            	console.log("initend");
-            },      
-            onplugininitialized: function () {
-                [].slice.call(this.wrap.querySelectorAll('.islider-dot')).forEach(function (el, i) {
-                	var imgurl=$(this.data[i].content).find(".ip_tooltipImg").attr("src");              	
-                    el.style.backgroundImage = 'url(' + imgurl + ')';                                      
-                }.bind(this));             
-            },            
-      }); 
-    IS_IN_IS.on("slideChanged",function(){
-    	var animationType="btt-slide";
-		var selector=$(".ip_tooltip");
-    	console.log("onslideChanged");    	
-    	mouseOverHandler(selector, animationType);
-    })
+	init(data);
+	$( "#iPicture" ).iPicture({
+		animation: true,
+		animationBg: "bgblack",
+		animationType: "ltr-slide",
+		pictures: pictures,
+		button: "moreblack",
+		moreInfos: data.picture,
+		modify: true,
+		initialize: false
+	});
+	
+  var currentPosition = 0;
+  var slideWidth = 1000;
+  var slides = $('.slide');
+  var numberOfSlides = slides.length;
+
+  // Remove scrollbar in JS
+  $('#iPicture').css('overflow', 'hidden');
+
+  // Wrap all .slides with #slideInner div
+  slides
+    .wrapAll('<div id="slideInner"></div>')
+    // Float left to display horizontally, readjust .slides width
+	.css({
+      'float' : 'left',
+      'width' : slideWidth
+    });
+
+  // Set #slideInner width equal to total width of all slides
+  $('#slideInner').css('width', slideWidth * numberOfSlides);
+
+  // Insert controls in the DOM
+  $('#slideshow')
+    .prepend('<span class="control" id="leftControl" title="go to previous picture">Clicking moves left</span>')
+    .append('<span class="control" id="rightControl" title="go to next picture">Clicking moves right</span>');
+
+  // Hide left arrow control on first load
+  manageControls(currentPosition);
+
+  // Create event listeners for .controls clicks
+  $('.control')
+    .bind('click', function(){
+    // Determine new position
+	currentPosition = ($(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
+    
+	// Hide / show controls
+    manageControls(currentPosition);
+    // Move slideInner using margin-left
+    $('#slideInner').animate({
+      'marginLeft' : slideWidth*(-currentPosition)
+    });
+  });
+
+  // manageControls: Hides and Shows controls depending on currentPosition
+  function manageControls(position){
+    // Hide left arrow if position is first slide
+	if(position==0){ $('#leftControl').hide() } else{ $('#leftControl').show() }
+	// Hide right arrow if position is last slide
+    if(position==numberOfSlides-1){ $('#rightControl').hide() } else{ $('#rightControl').show() }
+  }
+  
+  
+
 })

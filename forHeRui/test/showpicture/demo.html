@@ -1,0 +1,145 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="author" content="极客标签" />
+    <title>Bootstrap 3 缩略图幻灯画廊效果</title>
+	<link rel="stylesheet" type="text/css" href="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/css/bootstrap.css" />
+	<style>
+		body{
+			font-family: 'microsoft yahei',Arial,sans-serif;
+		}
+		.selected img {
+			opacity:0.5;
+			border: 1px solid orange;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="col-md-12">
+			<h3>Bootstrap 3 缩略图幻灯画廊效果</h3>
+		</div>
+	</div>
+	<div class="container">
+		<!-- main slider carousel -->
+		<div class="row">
+			<div class="col-md-12" id="slider">
+				
+					<div class="col-md-12" id="carousel-bounding-box">
+						<div id="myCarousel" class="carousel slide">
+							<!-- main slider carousel items -->
+							<div class="carousel-inner">
+								<div class="active item" data-slide-number="0">
+									<img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=1" class="img-responsive">
+								</div>
+								<div class="item" data-slide-number="1">
+								  <img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=2" class="img-responsive">
+								</div>
+								<div class="item" data-slide-number="2">
+									<img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=3" class="img-responsive">
+								</div>
+								<div class="item" data-slide-number="3">
+									<img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=4" class="img-responsive">
+								</div>
+								<div class="item" data-slide-number="4">
+									<img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=5" class="img-responsive">
+								</div>
+								<div class="item" data-slide-number="5">
+									<img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=6" class="img-responsive">
+								</div>
+								<div class="item" data-slide-number="6">
+									<img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=7" class="img-responsive">
+								</div>
+								<div class="item" data-slide-number="7">
+									<img src="http://www.gbtags.com/gb/laitu/1200x480&amp;text=8" class="img-responsive">
+								</div>
+							</div>
+							<!-- main slider carousel nav controls --> 
+							<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+
+							<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+						</div>
+					</div>
+
+			</div>
+		</div>
+		<!--/main slider carousel-->
+
+		<div class="row">
+			<div class="col-md-12">
+			<!-- thumb navigation carousel -->
+			<div class="col-md-12 hidden-sm hidden-xs" id="slider-thumbs">
+				
+				  <!-- thumb navigation carousel items -->
+				  <ul class="list-inline">
+				  <li> <a id="carousel-selector-0" class="selected">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=1/efb73e/888888" class="img-responsive">
+				  </a></li>
+				  <li> <a id="carousel-selector-1">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=2/efb73e/888888" class="img-responsive">
+				  </a></li>
+				  <li> <a id="carousel-selector-2">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=3/efb73e/888888" class="img-responsive">
+				  </a></li>
+				  <li> <a id="carousel-selector-3">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=4/efb73e/888888" class="img-responsive">
+				  </a></li>
+						<li> <a id="carousel-selector-4">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=5/efb73e/888888" class="img-responsive">
+				  </a></li>
+				  <li> <a id="carousel-selector-5">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=6/efb73e/888888" class="img-responsive">
+				  </a></li>
+				  <li> <a id="carousel-selector-6">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=7/efb73e/888888" class="img-responsive">
+				  </a></li>
+				  <li> <a id="carousel-selector-7">
+					<img src="http://www.gbtags.com/gb/laitu/80x60&amp;text=8/efb73e/888888" class="img-responsive">
+				  </a></li>
+				  </ul>
+			</div>
+			</div>
+		</div>
+	  
+	</div>
+	<!-- 导入相关js -->
+	<script src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.gbtags.com/twitter-bootstrap/3.2.0/js/bootstrap.js"></script>
+
+	<script>
+		$('#myCarousel').carousel({
+			interval: 4000
+		});
+
+		
+		$('[id^=carousel-selector-]').click( function(){
+		  var id_selector = $(this).attr("id");
+		  var id = id_selector.substr(id_selector.length -1);
+		  id = parseInt(id);
+		  $('#myCarousel').carousel(id);
+		  $('[id^=carousel-selector-]').removeClass('selected');
+		  $(this).addClass('selected');
+		});
+
+		
+		$('#myCarousel').on('slid', function (e) {
+		  var id = $('.item.active').data('slide-number');
+		  id = parseInt(id);
+		  $('[id^=carousel-selector-]').removeClass('selected');
+		  $('[id=carousel-selector-'+id+']').addClass('selected');
+		});
+	</script>
+	
+	<script type="text/javascript">
+	var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fac45a0f68a119fbe4d1c4c3ac3044dbd' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+</body>
+</html>
+
+

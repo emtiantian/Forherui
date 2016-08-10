@@ -39,7 +39,14 @@
 		//each picture
 		$.each(self.options.pictures, function( index, value ) {
 			var picture = $( '#'+value );
-			var info = (self.options.moreInfos[value]);
+			
+			var info = "";
+			$.each(self.options.moreInfos,function(i,val){				
+				if(val.id=value){
+					info=val.info;					
+				}			
+			})
+			
 			if(info!=undefined){
 				// each more infos on that picture
 				$.each(info, function( index, value ){
@@ -288,43 +295,76 @@
 			$('<div class="buttonSave"><p>Modify mode</p><input type="button" value="save" class="save" title="get code!"/></div>').prependTo(self.element);
 			$('<div class="buttonSave"><p>Modify mode</p><input type="button" value="save" class="save" title="get code!"/></div>').appendTo(self.element);
 		}
-		$('#'+self.element.attr('id')+' .save').bind('click', function() {
+//		$('#'+self.element.attr('id')+' .save').bind('click', function() {
+//		var moreInfos = 'moreInfos:{';
+//			//each picture
+//		$.each(self.options.pictures, function( index, value ) {
+//			if(index>0){
+//				moreInfos=moreInfos+',';
+//			}
+//			var picture = $( '#'+value );
+//			var divs = $(picture).find('.more32');
+//			moreInfos = moreInfos+'"'+value+'":[';
+//			// each more infos on that picture
+//			$.each(divs, function( index, value ){
+//				if(index>0){
+//					moreInfos=moreInfos+',';
+//				}
+//				descr=$(value).find('input').val();
+//				if(descr==undefined){
+//					descr="";
+//				}
+//				topPosition=$(value).css('top');
+//				leftPosition=$(value).css('left');
+//				moreInfos = moreInfos+'{"id":"'+value.id+'","descr":"'+descr+'","top":"';
+//				moreInfos = moreInfos+topPosition+'","left":"'+leftPosition+'"';
+//				
+//				if(value.href){
+//					moreInfos=moreInfos+',"href":"'+$('#'+value.id+' a').attr('href')+'"';
+//				}
+//				moreInfos=moreInfos+'}';
+//			});
+//			moreInfos=moreInfos+']';
+//		});
+//		moreInfos=moreInfos+'}';
+//		if(self.options.animation){
+//			create(moreInfos);
+//		  //alert('animation: true, animationType: "'+self.options.animationType+'", animationBg: "'+self.options.animationBg+'", button: "'+self.options.button+'", '+moreInfos);
+//		}else{
+//			create(moreInfos);
+//		  //alert('animation: false, button: "'+self.options.button+'", '+moreInfos);
+//		}
+//		});
+		$('#'+self.element.attr('id')+' .save').bind('click', function() {		
+			var pictures=[];
+			var data={}
 		var moreInfos = 'moreInfos:{';
 			//each picture
 		$.each(self.options.pictures, function( index, value ) {
-			if(index>0){
-				moreInfos=moreInfos+',';
-			}
 			var picture = $( '#'+value );
 			var divs = $(picture).find('.more32');
-			moreInfos = moreInfos+'"'+value+'":[';
+			data.id=value;
+			var info=[]	
 			// each more infos on that picture
 			$.each(divs, function( index, value ){
-				if(index>0){
-					moreInfos=moreInfos+',';
-				}
-				descr=$(value).find('input').val();
+				var tool={}
+				descr=$(value).find('input').val();				
 				if(descr==undefined){
 					descr="";
 				}
 				topPosition=$(value).css('top');
 				leftPosition=$(value).css('left');
-				moreInfos = moreInfos+'{"id":"'+value.id+'","descr":"'+descr+'","top":"';
-				moreInfos = moreInfos+topPosition+'","left":"'+leftPosition+'"';
 				
-				if(value.href){
-					moreInfos=moreInfos+',"href":"'+$('#'+value.id+' a').attr('href')+'"';
-				}
-				moreInfos=moreInfos+'}';
+				tool.descr=descr;
+				tool.id=value.id;
+				tool.top=topPosition;
+				tool.left=leftPosition;															
+				info.push(tool);
 			});
-			moreInfos=moreInfos+']';
-		});
-		moreInfos=moreInfos+'}';
-		if(self.options.animation){
-		  alert('animation: true, animationType: "'+self.options.animationType+'", animationBg: "'+self.options.animationBg+'", button: "'+self.options.button+'", '+moreInfos);
-		}else{
-		  alert('animation: false, button: "'+self.options.button+'", '+moreInfos);
-		}
+			data.info=info;
+			pictures.push(data);
+		});			
+			create(pictures)
 		});
 	},
 	
@@ -345,6 +385,10 @@
 		// In jQuery UI 1.9 and above, you would define _destroy instead of destroy and not call the base method
 		}
 	});
+  	function create(data){
+  		
+  		console.dir(data);
   
+  	}
 }( jQuery ) );
 
