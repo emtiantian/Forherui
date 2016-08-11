@@ -194,15 +194,15 @@ url:		/user/pictureAllow
 参数：		userId：用户id（int）(""就是当前用户)	
 
 返回结果：	success:交互是否成功(boolean)
-		code：错误码(int)
-		msg:错误信息(string)
-		data:接口返回的主要数据(json)
-			line：线路(json)
-				lineId:线路id
-				lineName:线路名字
-				machine:机器（json）
-					machineId:机器id
-					machineName:机器名字
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				line：线路(json)
+					lineId:线路id
+					lineName:线路名字
+					machine:机器（json）
+						machineId:机器id
+						machineName:机器名字
 					
 						
 示例：
@@ -486,13 +486,13 @@ url:		user/edit
 请求方式:	post
 
 参数：		
-			userList:成员列表(json)
-					userId	用户UserID。
-					userLoginName：用户登录名	
-					name	用户名称
-					weChatId：用户绑定微信
-					level 用户权限	
-					userPwd：用户密码（string）
+			user:成员(json)
+				userId	用户UserID。
+				userLoginName：用户登录名	
+				name	用户名称
+				weChatId：用户绑定微信
+				level 用户权限	
+					
 				
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
@@ -510,8 +510,8 @@ url:		user/delete
 
 请求方式:	post
 
-参数：		userIdList
-				userId	成员UserID（array）
+参数：		userIdList （array）
+				userId	成员UserID（int）
 			
 				
 返回结果：	success:交互是否成功(boolean)
@@ -531,12 +531,12 @@ url:		user/create
 
 请求方式:	post
 
-参数：		userPwd：用户密码（string）
-			userList:成员列表(json)					
-					userLoginName：用户登录名	
-					name	用户名称
-					weChatId：用户绑定微信
-					level 用户权限	
+参数：		
+			user:成员(json)					
+				userLoginName：用户登录名	
+				name	用户名称	
+				weChatId：用户绑定微信 （可以为空）
+				level 用户权限	
 				
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
@@ -547,6 +547,7 @@ url:		user/create
 						
 示例：
 详见:接口示例.js
+{"user":{"userLoginName":"herui","name":"herui","weChatId":"","level":"admin"}}
 
 
 
@@ -738,3 +739,38 @@ url:		machine/position
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
 				success 操作是否成功
+29 修改接收图片设备号	
+说明：本接口定义为通用接口不知道是否合适 需要讨论下 
+		普通用户：data为单一对象数组,userId为自己的id,receivePicture为用户选择接收的所有线路和机器的数组
+		线路管理员：data为线路管理员修改的用户（可能为数组），userId为自己的id,receivePicture为用户选择接收的所有线路和机器的数组（设置时可以只添加到线路层，线路下的机器默认全部选中）
+		
+url:		/user/receivePicture
+
+请求方式:	post
+
+参数：		data: json数据(array)				
+				userId：用户id（int）
+				receivePicture：用户接收图片线路及对应的机器(array)
+					lineId：线路id(string)
+						machineId: 设备id(array)	
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success 操作是否成功
+				
+参数例子：{"data":[{"userId":"123","receivePicture":[{"lineId":"123","machineId":["123","12345"]},{"lineId":"123","machineId":["123","12345"]}]},{"userId":"123","receivePicture":[{"lineId":"123","machineId":["123","12345"]},{"lineId":"123","machineId":["123","12345"]}]}]}				
+
+30 重置密码
+url:		/user/resetPwd
+
+请求方式:	post
+
+参数：		userList：用户id列表{array}
+				userId：用户id（int）
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success 操作是否成功			
