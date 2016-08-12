@@ -35,9 +35,10 @@ url:		/user/menuList
 			code：错误码(int)
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
-				superAdmin：超级管理员的列表(json)
-				admin：管理员的列表(json)
-				user：用户的列表(json)
+				superAdmin：超级管理员的列表(array)
+				admin：管理员的列表(array)
+				lineAdmin：线路管理员列表(array)
+				user：用户的列表(array)
 示例：
 详见:接口示例.js		
 
