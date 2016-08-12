@@ -1,4 +1,5 @@
 *.zip
 *.rar
 forHeRui/tool/expressTest/node_modules
+forHeRui/tool/testPost/node_modules
 forHeRui/tool/expressTest/log.txt
