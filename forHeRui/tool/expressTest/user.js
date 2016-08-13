@@ -193,7 +193,7 @@ function userLogin(jsonStr){
 			log.log("登录失败用户名或密码不对");
 			success.data.login=false;
 			success.data.level="";	
-			return success;
+		return success;
 		}
 	}else{
 		log.log("登录失败没有收到数据");
@@ -211,4 +211,5 @@ function menuList(jsonStr){
 }
 
 //定义   
-exports.user = user;
+exports.userLogin = userLogin;
+exports.menuList = menuList;

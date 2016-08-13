@@ -80,7 +80,7 @@ app.post("/user/login",function(req,res){
 	console.dir(jsonStr);
 	var user= {"userName":"haohe","userPwd":"123456"}
 	if(jsonStr != undefined){
-		console.log("接到了post的数据"+"userName" + jsonStr.userName + "userPwd" + req.query.userPwd);		
+		console.log("接到了post的"+"userName" + jsonStr.userName + "userPwd" + req.query.userPwd);		
 		if(jsonStr.userName == user.userName && jsonStr.userPwd == user.userPwd) {	
 			res.json(success);
 		} else {

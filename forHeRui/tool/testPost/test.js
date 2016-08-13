@@ -64,15 +64,15 @@ function post(host,port,url,data,callback){
 	req.end(); 
 }
 //test
-//var host="127.0.0.1"
-//var port="3000"
-//var url="/user/login"
-//var data={"userName":"herui","userPwd":"123456"}
-//var callback=function(data){
-//	console.log("接到了服务器发来的数据");
-//	console.dir(data);
-//}
-//post(host,port,url,data,callback)
+var host="127.0.0.1"
+var port="3000"
+var url="/user/login"
+var data={"userName":"herui","userPwd":"123456"}
+var callback=function(data){
+	console.log("接到了服务器发来的数据");
+	console.dir(data);
+}
+post(host,port,url,data,callback)
 //定义   
 exports.get = get;
 exports.post = post;
