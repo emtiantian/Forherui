@@ -135,4 +135,295 @@ url:		account/weChat
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
 				success：是否成功（boolean）
+				
+				
 
+101.图片展示
+
+url:		/picture/show
+
+请求方式:	post
+
+参数：		machineId:机器id(int)
+			datetime:图片拍摄时间（时间到日期即可）
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				picture:图片列表
+					id：pictureid
+					url：图片url
+					pictureWidth：图片宽
+					pictureHeight:图片高 
+					info：图片编辑信息列表
+						top：相对顶部高度
+						left：相对左侧位置
+						author：作者
+						title：标题
+						descr：内容
+						id：标注id
+结果示例：{"success":true,"code":0,"msg":"","data":{"picture":[{"id":1,"pictureWidth":56,"pictureHeight":560,"size":1,"url":"ddd","time":"2016-08-12T00:00:00","info":[{"id":3,"top":23,"left":45,"author":"herui","title":"nihao","descr":"zaoshanghao"}]}]}}
+
+102.	图片标注编辑/添加
+
+url:		/picture/infoEdit
+
+请求方式:	post
+
+参数：		pictureId：图片id(int)
+			info:(图片编辑信息)json
+				top：相对高度
+				left：相对左侧位置
+				author：作者
+				title：标题
+				descr：内容
+				id：标注id	
+内容示例：{"pictureId":"5","info":[{"top":23,"left":45,"author":"herui","title":"nihao","descr":"zaoshanghao"}]}		
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否修改成功（boolean）
+结果示例：{"success":true,"code":0,"msg":"","data":{"success":true}}
+
+103.	图片标注刪除
+
+url:		/picture/infoDelete
+
+请求方式:	post
+
+参数：	infoId:图片标注id(int)
+				
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否删除成功（boolean）
+
+						
+示例：
+详见:接口示例.js	
+
+
+104. 图片统计 
+
+暂未实现：
+
+
+201.线路设备列表
+
+url:		/line/lineList
+
+请求方式:	post
+
+参数：		userId：用户id（int）(""就是当前用户)		
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				line：线路(json)
+					lineId:线路id
+					lineName:线路名字
+					lineComment：线路说明
+					lineCode：线路编号
+					machine:机器（json）
+						machineId:机器id
+						machineName:机器名字
+						machineComment:机器说明
+						machineGPS:机器所在经纬度坐标
+						machinePosition： 机器所在位置名称
+						tower:所在杆塔名称
+						productComp: 生产厂家
+						InstallTime: 安装时间
+						CompID:		 设备出厂编号
+
+
+7.线路设备列表
+
+url:		/line/lineList
+
+请求方式:	post
+
+参数：		userId：用户id（int）(""就是当前用户)		
+
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				line：线路(json)
+					lineId:线路id
+					lineName:线路名字
+					machine:机器（json）
+						machineId:机器id
+						machineName:机器名字
+					
+						
+示例：
+详见:接口示例.js	
+
+
+202.line删除
+
+url:		line/delete
+
+请求方式:	post
+
+参数：		lineId：线路id（int）			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+203.line添加
+
+url:		line/create
+
+请求方式:	post
+
+参数：		name：线路名称（string）
+			comments：线路简介（string）
+			lineCode：线路编号
+			
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+301.machine修改
+
+url:		machine/edit
+
+请求方式:	post
+
+参数：		machineId：设备id（int）
+			poleId：记录id（string）
+			name：设备名称（string）
+			comments：设备简介（string）
+			lineId：线路id（string）
+			gps：定位信息(string) 
+			position: 位置名称
+			installTime: 安装时间
+			installUser: 安装人员
+						
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+302.machine添加
+
+url:		machine/create
+
+请求方式:	post
+
+参数：		
+			poleId：记录id（string）
+			name：设备名称（string）
+			comments：设备简介（string）
+			lineId：线路id（string）
+			gps：经纬度坐标
+			position: 设备所在位置名称
+			productComp: 生产厂家
+			comoID: 设备出厂编号
+						 
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+303.machine删除
+
+url:		machine/delete
+
+请求方式:	post
+
+参数：		machineId：设备id（int）			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success：是否成功（boolean）	
+						
+示例：
+详见:接口示例.js
+
+
+
+304.machine列表
+
+url:		machine/list
+
+请求方式:	post
+
+参数：		lineID 线路ID			
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				machinelist：machine列表（array）
+					machineId：设备id（int）
+					poleId：记录id（string）
+					name：设备名称（string）
+					comments：设备简介（string）
+					lineId：线路id（string）
+					createTime：创建时间（time）
+					creatUser:创建者
+					UpdateUser:更新者
+					UdpateTime：更新时间
+					gps：定位信息(string)
+					position: 设备所在位置名称
+					productComp: 生产厂家
+					compID: 设备出厂编号
+					InstallTime:安装时间
+					InstallUser:安装人员
+					tower：杆塔名称
+					
+					
+						
+示例：
+详见:接口示例.js
+
+305 machine 定位：
+url:		machine/position
+
+请求方式:	post
+
+参数：		machineId：设备id（int）
+			gps：定位信息(string)
+			position: 设备所在位置名称	
+				
+返回结果：	success:交互是否成功(boolean)
+			code：错误码(int)
+			msg:错误信息(string)
+			data:接口返回的主要数据(json)
+				success 操作是否成功
