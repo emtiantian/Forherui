@@ -1,7 +1,10 @@
 var express = require('express');
 //日志
 var log = require('./log');
+//user controller
+var userController = require("./user");
 
+//服务器框架
 var app = express();
 //json 解析
 var jsonStr = null;
@@ -40,49 +43,7 @@ var server = app.listen(3000, function () {
   var port = server.address().port;
   console.log('啊  Example app listening at http://%s:%s', host, port);
 });
-//模拟用户登录 
 
-app.post('/user/login',function(req,res){
-	res.contentType('json');//返回的数据类型 
-	var user = {
-		"userName": "herui",
-		"userPwd": 123456
-	}
-	var success = {
-		"success": true,
-		"code": 0,
-		"msg": "",
-		"data": {
-			"login": true,
-			"level": "admin"
-		}
-	}
-	var error = {
-		"success": true,
-		"code": 0,
-		"msg": "",
-		"data": {
-			"login": false,
-			"level": ""
-		}
-	}
-	console.log(jsonStr);
-	log.log(jsonStr);
-	
-	if(jsonStr != undefined){
-		log.log("userName" + jsonStr.userName + "userPwd" + req.query.userPwd);		
-		if(jsonStr.userName == user.userName && jsonStr.userPwd == user.userPwd) {
-			log.log("登录成功");
-			res.json(success);
-		} else {
-			log.log("登录失败");
-			res.json(error);
-		}
-	}else{
-		log.log("登录失败");
-		res.json(error);
-	}	
-})
 //测试 get
 app.get('/user/login',function(req,res){
 	
@@ -121,4 +82,55 @@ app.get('/user/login',function(req,res){
 		log.log("登录失败");
 		res.json(error);
 	}	
+})
+
+
+//模拟用户登录 
+
+app.post('/user/login',function(req,res){
+//	res.contentType('json');//返回的数据类型 
+//	var user = {
+//		"userName": "herui",
+//		"userPwd": 123456
+//	}
+//	var success = {
+//		"success": true,
+//		"code": 0,
+//		"msg": "",
+//		"data": {
+//			"login": true,
+//			"level": "admin"
+//		}
+//	}
+//	var error = {
+//		"success": true,
+//		"code": 0,
+//		"msg": "",
+//		"data": {
+//			"login": false,
+//			"level": ""
+//		}
+//	}
+//	console.log(jsonStr);
+//	log.log(jsonStr);
+//	
+//	if(jsonStr != undefined){
+//		log.log("userName" + jsonStr.userName + "userPwd" + req.query.userPwd);		
+//		if(jsonStr.userName == user.userName && jsonStr.userPwd == user.userPwd) {
+//			log.log("登录成功");
+//			res.json(success);
+//		} else {
+//			log.log("登录失败");
+//			res.json(error);
+//		}
+//	}else{
+//		log.log("登录失败");
+//		res.json(error);
+//	}	
+	res.json( userController.userLogin(jsonStr));
+})
+
+//模拟获取菜单接口
+app.post("/user/menuList",function(req,res){
+	res.json(userController.menuList());
 })

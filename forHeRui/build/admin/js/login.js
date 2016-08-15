@@ -1,7 +1,11 @@
 $(function(){
-	var baseUrl="http://127.0.0.1:3000"
+
+	//基础url
+	var baseUrl=config.get("baseUrl");
 	//cookie 过期时间
-	var expires=7;
+	var expires=config.get("expires");
+	console.log("baseUrl"+baseUrl+"expires"+expires);
+	
 	//login 
 	function login(){
 		var userName=$("#userName").val();
