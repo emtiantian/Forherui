@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body id="body">
+
+	</body>
+	<script src="jquery-1.8.3.min.js"></script>
+	<script>
+
+		var host="www.wintech.top"
+		var port='81'
+		var className="jiekou"
+		var testJson = {
+			"jiekou": [
+			//修改这部分为你测试的接口 然后刷新浏览器就可以了
+			{
+				"url": "/user/login",
+				"name": "登录",
+				"data": {
+					"userName": "admin",
+					"userPwd": "hello"
+				}
+			},
+			{
+				"url": "/user/login",
+				"name": "登录",
+				"data": {
+					"userName": "admin",
+					"userPwd": "hello"
+				}
+			}
+			]
+		}
+
+		$(function() {
+			function init(data) {
+				$.each(data[className], function(i, ele) {
+							console.log(JSON.stringify(ele.data));
+							$("#body").append("<button dataUrl='"+ele.url+"' class='jiekou' data='"+JSON.stringify(ele.data)+"'>"+ ele.name+"</button>")
+				})
+				console.log("init ok");
+				if(JSON){
+					console.log(JSON);
+				}else{
+					alert("你的浏览器不支持json 请更换高级浏览器");
+				}
+			}
+			function testPost(ele){
+				$.ajax({
+					type:"post",
+					url:"http://"+host+":"+port+$(ele).attr("dataUrl"),
+					async:true,
+					dataType:"json",
+					data:JSON.parse($(ele).attr("data")),
+					success:function(data){
+						console.log("接到数据了"+data);
+						console.dir(data);
+					}
+				});
+			}
+			init(testJson);
+			$("."+className).on("click",function(){
+				testPost($(this));
+			})
+		})
+	</script>
+</html>

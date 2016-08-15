@@ -28,8 +28,9 @@ $(function(){
 						$("#loginMsg").html("用户名或密码错误");
 					}
 				}else{
-					console.log("error code"+data.code);
-					alert(data.msg);				
+					console.log("error code"+data.code+"data msg"+data.msg));				
+					//登录失败
+					$("#loginMsg").html("用户名或密码错误");
 				}				
 			}		
 		});

@@ -5,9 +5,20 @@ var app = express();
 //json 解析
 var jsonStr = null;
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+//使用cookie 和session
+app.use(cookieParser());
+app.use(session({
+    secret: '12345',
+     name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+     cookie: {maxAge: 8000000 },  //设置maxAge是80000ms，即8000s后session和相应的cookie失效过期
+     resave: false,
+     saveUninitialized: true,
+ }));
 
 //设置跨域访问
 app.all('*', function(req, res, next) {	
@@ -19,6 +30,10 @@ app.all('*', function(req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     console.log("接到请求了");
     next(); 
+//   if(req.session.lastPage) {
+//       console.log('Last page was: ' + req.session.lastPage + ".");    
+//   }    
+//   req.session.lastPage = '/awesome';
 });
 //json psot 解析
 app.post("*",function(req, res, next){
@@ -82,10 +97,19 @@ app.post("/user/login",function(req,res){
 	if(jsonStr != undefined){
 		console.log("接到了post的"+"userName" + jsonStr.userName + "userPwd" + req.query.userPwd);		
 		if(jsonStr.userName == user.userName && jsonStr.userPwd == user.userPwd) {	
+			req.session.username=user.userName;
+			req.session.userpwd=user.userPwd;
 			res.json(success);
+			
 		} else {
 			res.json(error);
 		}
+	}else{
+		res.json(success);
 	}
-	res.json(success);
+	
+})
+app.post("/user/testsession",function(req,res){
+	console.log("username"+req.session.username);
+	
 })
