@@ -44,11 +44,11 @@ function post(host,port,url,data,callback){
 	};  
 	  
 	var req = http.request(options, function (res) {  
-	    console.log('STATUS: ' + res.statusCode);  
-	    console.log('HEADERS: ' + JSON.stringify(res.headers));  
+	    console.log('STATUS: ' + res.statusCode);  									//显示http发送状态
+//	    console.log('HEADERS: ' + JSON.stringify(res.headers));		//显示http头部  
 	    res.setEncoding('utf8');  
 	    res.on('data', function (data) {  
-	        console.log('BODY: ' + data);  
+//	        console.log('BODY: ' + data);  //显示返回数据内容
 	        callback(data)
 	    });  
 	});  
@@ -64,15 +64,15 @@ function post(host,port,url,data,callback){
 	req.end(); 
 }
 //test
-var host="127.0.0.1"
-var port="3000"
-var url="/user/login"
-var data={"userName":"herui","userPwd":"123456"}
-var callback=function(data){
-	console.log("接到了服务器发来的数据");
-	console.dir(data);
-}
-post(host,port,url,data,callback)
+//var host="127.0.0.1"
+//var port="81"
+//var url="/user/login"
+//var data={"userName":"herui","userPwd":"123456"}
+//var callback=function(data){
+//	console.log("接到了服务器发来的数据");
+//	console.dir(data);
+//}
+//post(host,port,url,data,callback)
 //定义   
 exports.get = get;
 exports.post = post;

@@ -338,10 +338,11 @@ url:		machine/create
 请求方式:	post
 
 参数：		
-			poleId：记录id（string）
+//			poleId：记录id（string）
 			name：设备名称（string）
 			comments：设备简介（string）
 			lineId：线路id（string）
+			code：设备编码
 			gps：经纬度坐标
 			position: 设备所在位置名称
 			productComp: 生产厂家
