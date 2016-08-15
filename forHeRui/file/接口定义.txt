@@ -740,6 +740,9 @@ url:		machine/position
 			msg:错误信息(string)
 			data:接口返回的主要数据(json)
 				success 操作是否成功
+				
+				
+				
 29 修改接收图片设备号	
 说明：本接口定义为通用接口不知道是否合适 需要讨论下 
 		普通用户：data为单一对象数组,userId为自己的id,receivePicture为用户选择接收的所有线路和机器的数组
@@ -761,6 +764,8 @@ url:		/user/receivePicture
 				success 操作是否成功
 				
 参数例子：{"data":[{"userId":"123","receivePicture":[{"lineId":"123","machineId":["123","12345"]},{"lineId":"123","machineId":["123","12345"]}]},{"userId":"123","receivePicture":[{"lineId":"123","machineId":["123","12345"]},{"lineId":"123","machineId":["123","12345"]}]}]}				
+
+
 
 30 重置密码
 url:		/user/resetPwd

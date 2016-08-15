@@ -14,13 +14,13 @@ var Script = function () {
 
     //income expense progress bar
 
-    $("#income").sparkline([5,6,7,5,9,6,4,9,8,5,6,7], {
-        type: 'bar',
-        height: '35',
-        barWidth: 5,
-        barSpacing: 2,
-        barColor: '#fc8675'
-    });
+//  $("#income").sparkline([5,6,7,5,9,6,4,9,8,5,6,7], {
+//      type: 'bar',
+//      height: '35',
+//      barWidth: 5,
+//      barSpacing: 2,
+//      barColor: '#fc8675'
+//  });
 
     $("#expense").sparkline([3,2,5,8,4,7,5,8,4,6], {
         type: 'bar',
