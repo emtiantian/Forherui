@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+	<meta name="description" content="">
+	<meta name="author" content="ThemeBucket">
+	<link rel="shortcut icon" href="#" type="image/png">
+	
+	<title>微拍推送平台</title>
+
+	<!--icheck-->
+	<link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+	<link href="js/iCheck/skins/square/square.css" rel="stylesheet">
+	<link href="js/iCheck/skins/square/red.css" rel="stylesheet">
+	<link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+	
+	<!--multi-select-->
+	<link rel="stylesheet" type="text/css" href="js/jquery-multi-select/css/multi-select.css" />
+	
+	<!--common-->
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/style-responsive.css" rel="stylesheet">
+	<!--mycss-->
+	<link href="css/myCss.css" rel="stylesheet" />
+	
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo ">
+            <a href="index.html" class="logoIndex">
+            	<!--<img src="images/logo.png" alt="">-->
+            		微拍推送平台
+            </a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">      
+                  <li><a href="#"><i class="fa fa-cog"></i> <span>个人设置</span></a></li>
+                  <li><a href="#"><i class="fa fa-sign-out"></i> <span>登出</span></a></li>
+                </ul>
+            </div>
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li class="menu-list" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
+                	<ul class="sub-menu-list">
+                        <li>
+                        	<a href="index.html" style="display: none;"> 图片展示</a>
+                        </li>
+                        <li>
+                        	<a href="modifyPicture.html" style="display: none;"> 图片标签修改</a>
+                        </li>  
+                        <li>
+                        	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
+                        </li>                 
+                    </ul>
+                </li>
+                <li class="menu-list nav-active" id="menu_user" style="display: none;"><a href=""><i class="fa fa-laptop"></i> <span>管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="pictureConfig.html" style="display: none;">接收图片管理</a></li>
+                        <li><a href="weChatConfig.html" style="display: none;"> 微信绑定管理</a></li>               
+                        <li><a href="editPwd.html" style="display: none;"> 修改密码</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list" id="menu_weChat" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>微信管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="weChatUser.html" style="display: none;"> 用户微信管理</a></li>                                                     
+                    </ul>
+                </li>
+                <li class="menu-list" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>线路管理员管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="userPictureConfig.html" style="display: none;"> 用户接收图片管理</a></li>
+                        <li><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
+                    </ul>
+                </li>             
+                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
+                        <li><a href="lineMachineConfig.html"  style="display: none;"> 线路&设备管理</a></li>    
+                        <li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
+                        <li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>                    
+                    </ul>
+                </li>
+								<li class="menu-list" id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
+                    <ul class="sub-menu-list">                       
+                        <li><a href="adminConfig.html"  style="display: none;"> 管理员管理</a></li>                    
+                    </ul>
+                </li>
+
+              
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section" >
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <!--<form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>-->
+            <!--search end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">                                                   
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            <!--John Doe-->
+                            		何瑞（管理员）
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
+                            <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <!--<div class="page-heading">
+            <h3>
+                	图片展示
+            </h3>
+            <div class="selectUl">
+            	<div class="selectUldiv">
+            		<select class="form-control input-sm m-bot15">
+									<option selected="selected">线路 1</option>
+									<option>线路 2</option>
+									<option>线路 3</option>
+								</select>
+            	</div>
+							<div class="selectUldiv">
+								<select class="form-control input-sm m-bot15">
+									<option selected="selected">机器 1</option>
+									<option>机器 2</option>
+									<option>机器 3</option>
+								</select> 
+							</div>		
+            </div>
+        </div>-->
+        <!-- page heading end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">  
+            	<div class="col-md-12" >
+            		<section class="panel">
+            			<header class="panel-heading">
+                            	接收图片管理
+                              <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span>
+                        </header>
+                        <div class="panel-body">
+                        	<div class="form-horizontal ">
+                        		<div class="form-group">
+		                            <label class="control-label col-md-3">线路管理</label>
+		                            <div class="col-md-9">
+		                                <select multiple="multiple" class="multi-select" id="userLine"
+		                                        name="userLine[]" style="display: none;">
+		                                    <!--<optgroup label="NFC EAST">
+		                                        <option value="1" selected="selected">Dallas Cowboys</option>
+		                                        <option>New York Giants</option>
+		                                        <option>Philadelphia Eagles</option>
+		                                        <option>Washington Redskins</option>
+		                                    </optgroup>
+		                                    <optgroup label="NFC NORTH">
+		                                        <option value="2" selected="selected">Chicago Bears</option>
+		                                        <option>Detroit Lions</option>
+		                                        <option>Green Bay Packers</option>
+		                                        <option>Minnesota Vikings</option>
+		                                    </optgroup>
+		                                    <optgroup label="NFC SOUTH">
+		                                        <option>Atlanta Falcons</option>
+		                                        <option>Carolina Panthers</option>
+		                                        <option>New Orleans Saints</option>
+		                                        <option>Tampa Bay Buccaneers</option>
+		                                    </optgroup>
+		                                    <optgroup label="NFC WEST">
+		                                        <option>Arizona Cardinals</option>
+		                                        <option>St. Louis Rams</option>
+		                                        <option>San Francisco 49ers</option>
+		                                        <option>Seattle Seahawks</option>
+		                                    </optgroup>-->
+		                                </select>
+		                            </div>
+		                            <div class="col-md-3">
+		                            	<button id="userLineSave" class="btn btn-primary">保存</button>
+		                            </div>
+		                        </div>
+                        	</div>
+                        </div>
+                        
+            		</section>
+            	</div>	
+                
+					 
+            	
+		      
+        	</div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <footer>
+            2016 &copy; 北京沃英泰科电子信息技术有限公司
+        </footer>
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+    <!--select模板-->
+    <div id="selectMuban" style="display: none;">
+    	<optgroup label="NFC EAST">
+		                                       
+		</optgroup>
+    </div>
+
+</section>
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+
+
+<!--Sparkline Chart-->
+<script src="js/sparkline/jquery.sparkline.js"></script>
+<script src="js/sparkline/sparkline-init.js"></script>
+<!--multi-select-->
+<script type="text/javascript" src="js/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="js/jquery-multi-select/js/jquery.quicksearch.js"></script>
+<!--<script src="js/multi-select-init.js"></script>-->
+
+<!--通用-->
+<script src="js/scripts.js"></script>
+
+<!--
+基础js
+-->
+<script src="js/util.js"></script>
+<script src="js/config.js"></script>
+
+<script src="js/pictureConfig.js"></script>
+
+
+</body>
+</html>

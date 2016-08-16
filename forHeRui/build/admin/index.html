@@ -17,10 +17,11 @@
   <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
 
   <!--dashboard calendar-->
-  <link href="css/clndr.css" rel="stylesheet">
+  <!--<link href="css/clndr.css" rel="stylesheet">-->
 
   <!--Morris Chart CSS -->
-  <link rel="stylesheet" href="js/morris-chart/morris.css">
+  <!--<link rel="stylesheet" href="js/morris-chart/morris.css">-->
+  	
 
   <!--common-->
   <link href="css/style.css" rel="stylesheet">
@@ -80,44 +81,48 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list nav-active"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
+                <li class="menu-list nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
                 	<ul class="sub-menu-list">
-                        <li class="active">
-                        	<a href="index.html "> 图片展示</a>
+                        <li class="active" >
+                        	<a href="index.html" style="display: none;"> 图片展示</a>
                         </li>
                         <li>
-                        	<a href="modifyPicture.html"> 图片标签修改</a>
+                        	<a href="modifyPicture.html" style="display: none;"> 图片标签修改</a>
                         </li>  
                         <li>
-                        	<a href="boxed_view.html"> 图片统计信息</a>
+                        	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
                         </li>                 
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>管理</span></a>
+                <li class="menu-list" id="menu_user" style="display: none;"><a href=""><i class="fa fa-laptop"></i> <span>管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="blank_page.html">接收图片管理</a></li>
-                        <li><a href="boxed_view.html"> 微信绑定管理</a></li>               
-                        <li><a href="horizontal_menu.html"> 修改密码</a></li>
+                        <li><a href="pictureConfig.html" style="display: none;">接收图片管理</a></li>
+                        <li><a href="weChatConfig.html" style="display: none;"> 微信绑定管理</a></li>               
+                        <li><a href="editPwd.html" style="display: none;"> 修改密码</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>微信管理</span></a>
+                <li class="menu-list" id="menu_weChat" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>微信管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="general.html"> 微信部门管理</a></li>
-                        <li><a href="buttons.html">微信成员管理</a></li>                                   
+                        <li><a href="weChatUser.html" style="display: none;"> 用户微信管理</a></li>                                                     
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                <li class="menu-list" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>线路管理员管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="grids.html"> 用户接收图片管理</a></li> 
-                        <li><a href="grids.html"> 线路&设备管理</a></li>    
-                        <li><a href="grids.html"> 用户管理</a></li>
-                        <li><a href="grids.html"> 菜单管理</a></li>
-                        <li><a href="grids.html"> 网页定位</a></li>
+                        <li><a href="userPictureConfig.html" style="display: none;"> 用户接收图片管理</a></li>
+                        <li><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
+                    </ul>
+                </li>             
+                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
+                        <li><a href="lineMachineConfig.html"  style="display: none;"> 线路&设备管理</a></li>    
+                        <li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
+                        <li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>                    
                     </ul>
                 </li>
-								<li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
+								<li class="menu-list" id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
                     <ul class="sub-menu-list">                       
-                        <li><a href="grids.html"> 管理员管理</a></li>                    
+                        <li><a href="adminConfig.html"  style="display: none;"> 管理员管理</a></li>                    
                     </ul>
                 </li>
 
@@ -190,7 +195,7 @@
 								</select> 
 							</div>		
             </div>
-            <div class="state-info">              
+            <!--<div class="state-info">              
                 <section class="panel">
                     <div class="panel-body">
                         <div class="summary">
@@ -200,26 +205,25 @@
                         <div id="expense" class="chart-bar"></div>
                     </div>
                 </section>
-            </div>
+            </div>-->
         </div>
         <!-- page heading end-->
 
         <!--body wrapper start-->
         <div class="wrapper">
-            <div class="row">           	
-                <div class="col-md-10" >
+            <div class="row">  
+            		<!--<div class="col-md-2" ></div>-->
+                <div class="col-md-12"  id="imgDiv">
                 	<!--<div class="ui segment" style="height: 900px;padding: 0;" >
 							    	<div  id="iSlider-wrapper1" ></div>		    
 							    </div>-->
-								<div class="is-in-is-wrap">
-				            <div class="is-in-is">
-				                <div id="is_in_is" data-interaction="hover"></div>			                
-				            </div>
-				       </div>					
-            </div> 
-		            <div class="col-md-2" >
-		                		<button type="button" class="btn btn-info btn-lg btn-block">修改标签</button>
-		            </div>
+											<div class="is-in-is-wrap">
+							            <div class="is-in-is">
+							                <div id="is_in_is" data-interaction="hover"></div>			                
+							            </div>
+							       </div>					
+            		</div> 
+		            <!--<div class="col-md-2" ></div>-->
         		</div>
         </div>
         <!--body wrapper end-->
@@ -237,20 +241,21 @@
 	<div id="muban" style="display: none;">
 		<div class="ip_slide" >
 			<!-- 本身的图片 -->
-			<img class="ip_tooltipImg" src="" />
+			<img class="ip_tooltipImg" src="" width="100%" height="100%" />
 			
 		</div>
 	</div>
 	<div id="tooltip" style="display: none;">
-	<div class="ip_tooltip ip_img32" style="top: 185px; left: 393px; z-index: 1;" data-tooltipbg="bgblack" data-round="roundBgWInner" data-animationtype="btt-slide" id="picture1_tooltip1">
-		<div class="roundBgWInner"></div>
-		<div class="roundBgWInnerIn"></div>
-		<div class="roundBgWInnerInner"></div>
-		<div class="button undefined"></div>
-		<div class="descrContainer">
-			<div class="pass-btt"></div>
-			<div class="ip_descr bgblack btt-before">
-				<div class="xs" style="display: none;">furniture: 299$</div>
+		<div class="ip_tooltip ip_img32" style="top: 185px; left: 393px; z-index: 1;" data-tooltipbg="bgblack" data-round="roundBgWInner" data-animationtype="btt-slide" id="picture1_tooltip1">
+				<div class="roundBgW"></div>
+				<div class="roundBgWIn"></div>
+				<div class="roundBgWInner"></div>
+				<div class="button undefined"></div>
+			<div class="descrContainer">
+				<div class="pass-btt"></div>
+				<div class="ip_descr bgblack btt-before">
+					<div class="xs" style="display: none;">furniture: 299$</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -266,21 +271,21 @@
 <script src="js/jquery.nicescroll.js"></script>
 
 <!--easy pie chart-->
-<script src="js/easypiechart/jquery.easypiechart.js"></script>
-<script src="js/easypiechart/easypiechart-init.js"></script>
+<!--<script src="js/easypiechart/jquery.easypiechart.js"></script>
+<script src="js/easypiechart/easypiechart-init.js"></script>-->
 
 <!--Sparkline Chart-->
 <script src="js/sparkline/jquery.sparkline.js"></script>
 <script src="js/sparkline/sparkline-init.js"></script>
 
 <!--icheck -->
-<script src="js/iCheck/jquery.icheck.js"></script>
-<script src="js/icheck-init.js"></script>
+<!--<script src="js/iCheck/jquery.icheck.js"></script>
+<script src="js/icheck-init.js"></script>-->
 
 <!-- jQuery Flot Chart-->
-<script src="js/flot-chart/jquery.flot.js"></script>
+<!--<script src="js/flot-chart/jquery.flot.js"></script>
 <script src="js/flot-chart/jquery.flot.tooltip.js"></script>
-<script src="js/flot-chart/jquery.flot.resize.js"></script>
+<script src="js/flot-chart/jquery.flot.resize.js"></script>-->
 
 
 <!--Morris Chart-->
@@ -288,10 +293,10 @@
 <script src="js/morris-chart/raphael-min.js"></script>-->
 
 <!--Calendar-->
-<script src="js/calendar/clndr.js"></script>
+<!--<script src="js/calendar/clndr.js"></script>
 <script src="js/calendar/evnt.calendar.init.js"></script>
 <script src="js/calendar/moment-2.2.1.js"></script>
-<script src="js/calendar/underscore.js"></script>
+<script src="js/calendar/underscore.js"></script>-->
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>

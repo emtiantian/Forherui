@@ -1,9 +1,18 @@
 $(function(){
-		//生成数据
+		
+	//基础url
+	var baseUrl = config.get("baseUrl");
+	//图片宽度
+	var imgWidth = config.get("imgWidth");
+	//图片高度
+	var imgHeight = config.get("imgHeight");
+
+
+	//生成数据1606301324_bj_test
 	var data={
 	    "picture": [
 	        {
-	            "src": "./images/gallery/image1.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301324_bj_test.jpg",
 	            "id": "picture1",
 	            "info": [
 	                {
@@ -27,7 +36,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image2.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301335_bj_test.jpg",
 	            "id": "picture2",
 	            "info": [
 	                {
@@ -51,7 +60,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image3.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301344_bj_test.jpg",
 	            "id": "picture3",
 	            "info": [
 	                {
@@ -75,7 +84,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image4.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301348_bj_test.jpg",
 	            "id": "picture4",
 	            "info": [
 	                {
@@ -99,7 +108,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image5.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301413_bj_test.jpg",
 	            "id": "picture5",
 	            "info": [
 	                {
@@ -121,7 +130,214 @@ $(function(){
 	                    "left": "556px"
 	                }
 	            ]
-	        },
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301421_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301459_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301506_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301525_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301647_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301653_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301705_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301715_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301726_bj_test.jpg",
+	            "id": "picture5",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        }
 	    ]
 	}
 	
@@ -142,7 +358,7 @@ $(function(){
 			})				
 			imgDate.push({content:html.html()});
 		});
-		console.log(imgDate);
+//		console.log(imgDate);
 		return imgDate;
 	}
 	    function mouseOverHandler(selector, animationType) {
@@ -184,7 +400,7 @@ $(function(){
             	var animationType="btt-slide";
 				var selector=$(".ip_tooltip");
             	mouseOverHandler(selector, animationType);
-            	console.log("initend");
+//          	console.log("initend");
             },      
             onplugininitialized: function () {
                 [].slice.call(this.wrap.querySelectorAll('.islider-dot')).forEach(function (el, i) {
@@ -196,7 +412,20 @@ $(function(){
     IS_IN_IS.on("slideChanged",function(){
     	var animationType="btt-slide";
 		var selector=$(".ip_tooltip");
-    	console.log("onslideChanged");    	
+//  	console.log("onslideChanged");    	
     	mouseOverHandler(selector, animationType);
+    })
+    //设置图片高度
+//  .is-in-is-wrap
+	function initPictHeight(){
+		var nowWidth=$(".is-in-is-wrap").width();
+		$(".is-in-is-wrap").css("height",imgHeight*(nowWidth/imgWidth));
+		$("#imgDiv").css("height",imgHeight*(nowWidth/imgWidth)+imgHeight*(nowWidth/imgWidth)*0.12);
+	}
+    initPictHeight();
+    
+    //window.resize 修改图片大小
+    $(window).on("resize",function(){
+    	initPictHeight();
     })
 })

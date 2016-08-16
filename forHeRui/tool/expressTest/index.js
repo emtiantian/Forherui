@@ -134,3 +134,7 @@ app.post('/user/login',function(req,res){
 app.post("/user/menuList",function(req,res){
 	res.json(userController.menuList());
 })
+//模拟用户线路列表
+app.post("/user/pictureAllow",function(req,res){
+	res.json(userController.userLine());
+})

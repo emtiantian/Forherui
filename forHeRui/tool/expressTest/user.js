@@ -25,6 +25,73 @@ var log = require('./log');
 			
 		}
 	}
+	//模拟用户线路信息
+	var userLineJson={"userLine":[
+			{
+				"line":{
+					"lineCode":"12",
+					"lineName":"线路1",
+					"select":true
+					},
+				"machine":[
+					
+						{
+							"machineId":"123",
+							"machineName":"机器1",
+							"select":true
+						},
+						{
+							"machineId":"124",
+							"machineName":"机器2",
+							"select":true
+						},
+						{
+							"machineId":"125",
+							"machineName":"机器3",
+							"select":true	
+						},						
+						{
+							"machineId":"126",
+							"machineName":"机器4",
+							"select":false
+						}
+					
+				]
+			},
+			{
+				"line":{
+					"lineCode":"13",
+					"lineName":"线路1",
+					"select":true
+					},
+				"machine":[
+					
+						{
+							"machineId":"133",
+							"machineName":"机器5",
+							"select":true
+						},
+						{
+							"machineId":"134",
+							"machineName":"机器6",
+							"select":true
+						},
+						{
+							"machineId":"135",
+							"machineName":"机器7",
+							"select":true
+						},						
+						{
+							"machineId":"136",
+							"machineName":"机器8",
+							"select":false
+						}
+					
+				]
+			}
+		]
+	}
+	
 	//模拟menuList
 	var menuListJson=
 	{
@@ -46,12 +113,12 @@ var log = require('./log');
 	                    "editPwd.html"
 	                ]
 	            },
-	            {
-	                "parent": "weChat",
-	                "child": [
-	                    "weChatUser.html"
-	                ]
-	            },
+//	            {
+//	                "parent": "weChat",
+//	                "child": [
+//	                    "weChatUser.html"
+//	                ]
+//	            },
 	            {
 	            	"parent":"lineAdmin",
 	            	"child":[
@@ -94,12 +161,12 @@ var log = require('./log');
 	                    "editPwd.html"
 	                ]
 	            },
-	            {
-	                "parent": "weChat",
-	                "child": [
-	                    "weChatUser.html"
-	                ]
-	            },
+//	            {
+//	                "parent": "weChat",
+//	                "child": [
+//	                    "weChatUser.html"
+//	                ]
+//	            },
 	            {
 	            	"parent":"lineAdmin",
 	            	"child": [
@@ -136,12 +203,12 @@ var log = require('./log');
 	                    "editPwd.html"
 	                ]
 	            },
-	            {
-	                "parent": "weChat",
-	                "child": [
-	                    "weChatUser.html"
-	                ]
-	            },
+//	            {
+//	                "parent": "weChat",
+//	                "child": [
+//	                    "weChatUser.html"
+//	                ]
+//	            },
 	            {
 	            	"parent":"lineAdmin",
 	            	"child":[
@@ -169,12 +236,12 @@ var log = require('./log');
 	                    "editPwd.html"
 	                ]
 	            },
-	            {
-	                "parent": "weChat",
-	                "child": [
-	                    "weChatUser.html"
-	                ]
-	            }
+//	            {
+//	                "parent": "weChat",
+//	                "child": [
+//	                    "weChatUser.html"
+//	                ]
+//	            }
 	        ]    
 	    }
 	}
@@ -210,6 +277,14 @@ function menuList(jsonStr){
 	return success;
 }
 
+//用户线路列表
+function userLine(jsonStr){
+	var success=successJson;
+	success.data=userLineJson;
+	return success;
+}
+
 //定义   
 exports.userLogin = userLogin;
 exports.menuList = menuList;
+exports.userLine = userLine;

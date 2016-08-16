@@ -280,73 +280,73 @@
 }
 @keyframes pulseW
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.2);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.2);}
 }
 
 @-moz-keyframes pulseW /* Firefox */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.2);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.2);}
 }
 
 @-webkit-keyframes pulseW /* Safari and Chrome */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.2);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.2);}
 }
 
 @-o-keyframes pulseW /* Opera */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.2);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.2);}
 }
 @keyframes pulseWIn
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.3);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.3);}
 }
 
 @-moz-keyframes pulseWIn /* Firefox */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.3);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.3);}
 }
 
 @-webkit-keyframes pulseWIn /* Safari and Chrome */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.3);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.3);}
 }
 
 @-o-keyframes pulseWIn /* Opera */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.3);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.3);}
 }
 
 @keyframes pulseWInner
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.6);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.6);}
 }
 
 @-moz-keyframes pulseWInner /* Firefox */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.6);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.6);}
 }
 
 @-webkit-keyframes pulseWInner /* Safari and Chrome */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.6);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.6);}
 }
 
 @-o-keyframes pulseWInner /* Opera */
 {
-from {background: rgba(255,255,255, 0);}
-to {background: rgba(255,255,255, 0.6);}
+from {background: rgba(255,0,0, 0);}
+to {background: rgba(255,0,0, 0.6);}
 }
 /* end white round bg */
 
