@@ -760,7 +760,7 @@ url:		/user/receivePicture
 返回结果：	success:交互是否成功(boolean)
 			code：错误码(int)
 			msg:错误信息(string)
-			data:接口返回的主要数据(json)
+			data:接口返回的主要数据(json) 
 				success 操作是否成功
 				
 参数例子：{"data":[{"userId":"123","receivePicture":[{"lineId":"123","machineId":["123","12345"]},{"lineId":"123","machineId":["123","12345"]}]},{"userId":"123","receivePicture":[{"lineId":"123","machineId":["123","12345"]},{"lineId":"123","machineId":["123","12345"]}]}]}				

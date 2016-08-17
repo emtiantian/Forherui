@@ -13,7 +13,7 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 //				console.log(data);
-//				console.dir(data.data.menuList);			
+				console.dir(data.data.menuList);			
 				$.each(data.data.menuList,function(i,ele){								
 					$.each(ele,function(childI,childEle){
 							var father=$("#menu_"+childEle.parent)
@@ -34,6 +34,15 @@ $(function(){
 				})
 			}
 		});
+	}
+	
+	//错误处理
+	function dataError(data){
+		if(data.code == null){
+			
+		}else{
+			alert(data.msg);
+		}
 	}
 	
 	//dataTimePiaker

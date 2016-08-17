@@ -193,15 +193,57 @@
         <!-- page heading end-->
 
         <!--body wrapper start-->
-        <div class="wrapper">
-            <div class="row">  
-            		
-                <div class="col-md-12"  id="imgDiv">
-			
-            	</div> 
-		      
-        	</div>
-        </div>
+				 <div class="wrapper">
+					<div class="row">
+							<div class="col-sm-12">
+								<section class="panel">
+									<header class="panel-heading">
+										绑定微信
+										<span class="tools pull-right">
+					            <a href="javascript:;" class="fa fa-chevron-down"></a>
+					            <!--<a href="javascript:;" class="fa fa-times"></a>-->
+					         </span>
+									</header>
+									<div class="panel-body table-responsive">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>微信企业号id</th>
+													<th>微信企业号昵称</th>
+													<th>微信部门</th>
+													<th>职位</th>
+													<th>性别</th>
+													<th>电话</th>
+													<th>邮箱</th>
+													<th>微信绑定id</th>
+													<th>Avatar</th>
+													<th>状态</th>
+													<th>extattr</th>
+													<th>是否禁用</th>										
+												</tr>
+											</thead>
+											<tbody id="userWechat">
+																			
+											</tbody>
+										</table>
+									</div>
+								</section>
+							</div>
+					</div>
+				  <div class="row">
+							<div class="col-md-3">
+								<button id="userWechatSave" class="btn btn-primary">保存</button>
+							</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" style="text-align: center;">
+							<h3 >微信企业号</h3>
+							<label >记得扫码关注啊</label>
+							<img src="images/weChat/qrcode_430.jpg" class="img-responsive center-block" />
+						</div>
+						
+					</div>
+				</div>
         <!--body wrapper end-->
 
         <!--footer section start-->
@@ -237,8 +279,10 @@
 <!--
 基础js
 -->
-<script src="js/util.js"></script>
 <script src="js/config.js"></script>
+<script src="js/util.js"></script>
+<script src="js/weChatConfig.js"></script>
+
 
 
 </body>

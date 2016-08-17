@@ -245,6 +245,22 @@ var log = require('./log');
 	        ]    
 	    }
 	}
+	var userListJson={
+	"userlist": {
+		"userid": "herui",
+		"name": "何瑞",
+		"department": null,
+		"Position": "",
+		"Gender": 1,
+		"Mobile": "15726699262",
+		"Email": "",
+		"WeixinID": "wxid_0dlzp5mo11hi22",
+		"Avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+		"status": 1,
+		"extattr": null,
+		"Disable": false
+	}
+}
 	
 //用户登录
 function userLogin(jsonStr){
@@ -269,18 +285,50 @@ function userLogin(jsonStr){
 		return success;	
 	}
 }
+//复制对象 而不是对象的地址
+//function clone(obj){  
+//  function Clone(){}  
+//  Clone.prototype = obj;  
+//  var o = new Clone();  
+//  for(var a in o){  
+//      if(typeof o[a] == "object") {  
+//          o[a] = clone(o[a]);  
+//      }  
+//  }  
+//  return o;  
+//} 
+function clone(source) {
+	var result = {};
+	for(var key in source) {
+		result[key] = typeof source[key] === 'object' ? clone(source[key]) : source[key];
+	}
+	return result;
+}
+
+
 //用户菜单列表
 function menuList(jsonStr){
 	//默认为当前用户
-	var success=successJson;
+	var success=clone(successJson);
 	success.data.menuList=menuListJson[userJson.level]
 	return success;
 }
 
 //用户线路列表
 function userLine(jsonStr){
-	var success=successJson;
-	success.data=userLineJson;
+	var success=clone(successJson);
+	console.dir(success);
+	success.data = userLineJson;
+	console.dir(success);
+	return success;
+}
+
+//用户列表
+function userList(jsonStr){
+	var success=clone(successJson);
+	console.dir(success);
+	success.data = userListJson;
+	console.dir(success);
 	return success;
 }
 
@@ -288,3 +336,4 @@ function userLine(jsonStr){
 exports.userLogin = userLogin;
 exports.menuList = menuList;
 exports.userLine = userLine;
+exports.userList = userList;

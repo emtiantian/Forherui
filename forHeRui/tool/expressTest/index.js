@@ -138,3 +138,7 @@ app.post("/user/menuList",function(req,res){
 app.post("/user/pictureAllow",function(req,res){
 	res.json(userController.userLine());
 })
+//模拟用户列表
+app.post("/user/list",function(req,res){
+	res.json(userController.userList());
+})

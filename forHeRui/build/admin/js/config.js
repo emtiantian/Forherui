@@ -5,6 +5,7 @@ var config= function(){
 		"expires":7,//登录cookie保存时间
 		"imgWidth":1600,//展示图片宽度
 		"imgHeight":1200,//展示图片高度	
+
 	}
 	
 	return{
