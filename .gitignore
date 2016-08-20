@@ -3,3 +3,6 @@
 forHeRui/tool/expressTest/node_modules
 forHeRui/tool/testPost/node_modules
 forHeRui/tool/expressTest/log.txt
+forHeRui/tool/deploymentTool/node_modules
+forHeRui/tool/deploymentTool/*.log
+
