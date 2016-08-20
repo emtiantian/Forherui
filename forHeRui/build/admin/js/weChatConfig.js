@@ -18,9 +18,6 @@ $(function(){
 		}
 	});
 	function tableInit(data){
-		var input = '<input class="form-control" type="text"value="haohe" />';
-		var select = '<select id=""></select>';
-		var opciton = '<option value=""> </option>';
 		var tdHtml="";
 		var ele=data.data.userlist;
 //		$.each(data.data.userlist, function(i,ele) {

@@ -219,3 +219,9 @@ body{
 .ip_tooltipImg{
 	width: 100%;
 }
+.sm{
+	width:100px!important;
+}
+.textCenter{
+	text-align: center!important;
+}

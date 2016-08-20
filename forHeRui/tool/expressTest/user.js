@@ -29,6 +29,7 @@ var log = require('./log');
 	var userLineJson={"userLine":[
 			{
 				"line":{
+					"lineId" :"12",
 					"lineCode":"12",
 					"lineName":"线路1",
 					"select":true
@@ -61,7 +62,7 @@ var log = require('./log');
 			{
 				"line":{
 					"lineCode":"13",
-					"lineName":"线路1",
+					"lineName":"线路2",
 					"select":true
 					},
 				"machine":[
@@ -245,8 +246,12 @@ var log = require('./log');
 	        ]    
 	    }
 	}
-	var userListJson={
-	"userlist": {
+	var userListJson=[{
+	"userId": 1,
+	"userLoginName": "admin",
+	"name": "何瑞",
+	"level": "superAdmin",
+	"Wechat": {
 		"userid": "herui",
 		"name": "何瑞",
 		"department": null,
@@ -259,8 +264,49 @@ var log = require('./log');
 		"status": 1,
 		"extattr": null,
 		"Disable": false
-	}
-}
+	},
+	"ParnetID": 1
+}, {
+	"userId": 2,
+	"userLoginName": "test11",
+	"name": "黎浩",
+	"level": "admin",
+	"Wechat": {
+		"userid": "",
+		"name": "",
+		"department": null,
+		"Position": "",
+		"Gender": 1,
+		"Mobile": "",
+		"Email": "",
+		"WeixinID": "",
+		"Avatar": "",
+		"status": 4,
+		"extattr": null,
+		"Disable": false
+	},
+	"ParnetID": 0
+}, {
+	"userId": 4,
+	"userLoginName": "lihao",
+	"name": "黎浩",
+	"level": "admin",
+	"Wechat": {
+		"userid": "",
+		"name": "",
+		"department": null,
+		"Position": "",
+		"Gender": 1,
+		"Mobile": "",
+		"Email": "",
+		"WeixinID": "",
+		"Avatar": "",
+		"status": 4,
+		"extattr": null,
+		"Disable": false
+	},
+	"ParnetID": 0
+}]
 	
 //用户登录
 function userLogin(jsonStr){
@@ -297,6 +343,8 @@ function userLogin(jsonStr){
 //  }  
 //  return o;  
 //} 
+
+//复制对象 而不是对象的地址
 function clone(source) {
 	var result = {};
 	for(var key in source) {

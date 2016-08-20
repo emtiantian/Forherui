@@ -79,45 +79,50 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list nav-active"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
+                <li class="menu-list nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
                 	<ul class="sub-menu-list">
-                        <li class="active">
-                        	<a href="index.html "> 图片展示</a>
+                        <li class="active" >
+                        	<a href="index.html" style="display: none;"> 图片展示</a>
                         </li>
                         <li>
-                        	<a href="modifyPicture.html"> 图片标签修改</a>
+                        	<a href="modifyPicture.html" style="display: none;"> 图片标签修改</a>
                         </li>  
                         <li>
-                        	<a href="boxed_view.html"> 图片统计信息</a>
+                        	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
                         </li>                 
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>管理</span></a>
+                <li class="menu-list" id="menu_user" style="display: none;"><a href=""><i class="fa fa-laptop"></i> <span>管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="blank_page.html">接收图片管理</a></li>
-                        <li><a href="boxed_view.html"> 微信绑定管理</a></li>               
-                        <li><a href="horizontal_menu.html"> 修改密码</a></li>
+                        <li><a href="pictureConfig.html" style="display: none;">接收图片管理</a></li>
+                        <li><a href="weChatConfig.html" style="display: none;"> 微信绑定管理</a></li>               
+                        <li><a href="editPwd.html" style="display: none;"> 修改密码</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>微信管理</span></a>
+                <li class="menu-list" id="menu_weChat" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>微信管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="general.html"> 微信部门管理</a></li>
-                        <li><a href="buttons.html">微信成员管理</a></li>                                   
+                        <li><a href="weChatUser.html" style="display: none;"> 用户微信管理</a></li>                                                     
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                <li class="menu-list" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>线路管理员管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="grids.html"> 用户接收图片管理</a></li> 
-                        <li><a href="grids.html"> 线路&设备管理</a></li>    
-                        <li><a href="grids.html"> 用户管理</a></li>
-                        <li><a href="grids.html"> 菜单管理</a></li>
-                        <li><a href="grids.html"> 网页定位</a></li>
+                        <li><a href="userPictureConfig.html" style="display: none;"> 用户接收图片管理</a></li>
+                        <li><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
+                    </ul>
+                </li>             
+                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
+                        <li><a href="lineMachineConfig.html"  style="display: none;"> 线路&设备管理</a></li>    
+                        <li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
+                        <li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>                    
                     </ul>
                 </li>
-
-                <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>超级管理员</span></a></li>
-
-              
+								<li class="menu-list" id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
+                    <ul class="sub-menu-list">                       
+                        <li><a href="adminConfig.html"  style="display: none;"> 管理员管理</a></li>                    
+                    </ul>
+               </li>
             </ul>
             <!--sidebar nav end-->
 
@@ -295,12 +300,12 @@
 <!--Dashboard Charts-->
 <script src="js/dashboard-chart-init.js"></script>
 <!--myjs-->
-<script src="js/jquery.json.min.js"></script>
-<script src="js/iSlider.js"></script>
-<script src="js/iSlider.animate.min.js"></script>
-<script src="js/iSlider.plugin.dot.js"></script>
+<!--<script src="js/jquery.json.min.js"></script>-->
+<script src="js/config.js"></script>
+<script src="js/util.js"></script>
 <script type="text/javascript" src="js/jQuery.iPicture.js"></script>
 <script src="js/modifPicture.js"></script>
+
 
 </body>
 </html>
