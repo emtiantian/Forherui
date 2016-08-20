@@ -3,6 +3,8 @@ var express = require('express');
 var log = require('./log');
 //user controller
 var userController = require("./user");
+//微信控制器
+var wechatController = require("./wechat.js");
 
 //服务器框架
 var app = express();
@@ -86,47 +88,7 @@ app.get('/user/login',function(req,res){
 
 
 //模拟用户登录 
-
 app.post('/user/login',function(req,res){
-//	res.contentType('json');//返回的数据类型 
-//	var user = {
-//		"userName": "herui",
-//		"userPwd": 123456
-//	}
-//	var success = {
-//		"success": true,
-//		"code": 0,
-//		"msg": "",
-//		"data": {
-//			"login": true,
-//			"level": "admin"
-//		}
-//	}
-//	var error = {
-//		"success": true,
-//		"code": 0,
-//		"msg": "",
-//		"data": {
-//			"login": false,
-//			"level": ""
-//		}
-//	}
-//	console.log(jsonStr);
-//	log.log(jsonStr);
-//	
-//	if(jsonStr != undefined){
-//		log.log("userName" + jsonStr.userName + "userPwd" + req.query.userPwd);		
-//		if(jsonStr.userName == user.userName && jsonStr.userPwd == user.userPwd) {
-//			log.log("登录成功");
-//			res.json(success);
-//		} else {
-//			log.log("登录失败");
-//			res.json(error);
-//		}
-//	}else{
-//		log.log("登录失败");
-//		res.json(error);
-//	}	
 	res.json( userController.userLogin(jsonStr));
 })
 
@@ -141,4 +103,30 @@ app.post("/user/pictureAllow",function(req,res){
 //模拟用户列表
 app.post("/user/list",function(req,res){
 	res.json(userController.userList());
+})
+//模拟用户登出
+app.post("/user/logout",function(req,res){
+	res.json(userController.userLogout());
+})
+//用户当前信息
+app.post("/user/get",function(req,res){
+	res.json(userController.userGet());
+})
+
+
+
+
+
+//模拟微信用户列表
+app.post("/wechat/user/list",function(req,res){
+	res.json(wechatController.wechatUserList());
+})
+//模拟微信用户列表
+app.post("/wechat/user/create",function(req,res){
+	res.json(wechatController.wechatUserList());
+})
+
+//模拟微信修改
+app.post("/wechat/user/edit",function(req,res){
+	res.json(wechatController.wechatUserList());
 })

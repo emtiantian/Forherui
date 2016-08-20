@@ -35,6 +35,63 @@ $(function(){
 			}
 		});
 	}
+	//用户初始化
+	function userInit(){
+		$.ajax({
+			type:"post",
+			url:baseUrl+"/user/get",
+			async:true,
+			data:{},
+			dataType:"json",
+			success:function(data){
+				if(data.success){
+					
+					$("#userName").html(data.data.name+"（"+data.data.userLoginName+"）");
+					$("#userImg").attr("src",data.data.Wechat.Avatar);
+					switch (data.data.level){
+						case "superAdmin":
+							$("#userLevel").append("<option value='user'>用户</option>")
+							$("#userLevel").append("<option value='lineAdmin'>线路管理员</option>")
+							$("#userLevel").append("<option value='admin'>管理员</option>")
+							$("#userLineAdmin").show();
+							break;
+						case "admin":
+							$("#userLevel").append("<option value='user'>用户</option>")
+							$("#userLevel").append("<option value='lineAdmin'>线路管理员</option>")						
+							$("#userLineAdmin").show();
+							break;
+						case "lineAdmin":
+							$("#userLevel").append("<option value='user'>用户</option>")					
+							$("#userLineAdmin").hide();
+							break;	
+						default:
+							$("#userLevel").append("<option value=>出错了</option>")					
+							$("#userLineAdmin").hide();
+							break;							
+					}								
+				}else{
+					dataError(data);
+				}				
+			}
+		});
+	}
+	//logout
+	function loginOut(){
+		$.ajax({
+			type:"post",
+			url:baseUrl+"/user/logout",
+			async:true,
+			data:{},
+			dataType:"json",
+			success:function(data){
+				if(data.success){
+					location.href="login.html";
+				}else{
+					dataError(data);
+				}
+			}
+		});
+	}
 	
 	//错误处理
 	function dataError(data){
@@ -52,4 +109,8 @@ $(function(){
 	
 	
 	menuInit();
+	userInit();
+	$("#logout").on("click",function(){
+		loginOut();
+	})
 })

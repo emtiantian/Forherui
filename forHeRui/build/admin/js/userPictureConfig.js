@@ -36,10 +36,10 @@ $(function(){
 	function initUserTable(data){
 		var html="";
 		//加载数据
-		$.each(data.data.userlist, function(i,ele) {		
+		$.each(data.data, function(i,ele) {		
 			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userid+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
 		});
-		$("#userTable").append(html);
+		$("#userList").append(html);
 		//初始化数据table
 		$('#userTable').dataTable( {
         "aaSorting": [[ 0, "desc" ]]

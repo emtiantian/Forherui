@@ -310,7 +310,14 @@ var log = require('./log');
 	
 //用户登录
 function userLogin(jsonStr){
-	var success=successJson;
+	var success={
+		"success": true,
+		"code": 0,
+		"msg": "",
+		"data": {
+			
+		}
+	};
 	if(jsonStr != undefined){
 		log.log("userName" + jsonStr.userName + "userPwd" + jsonStr.userPwd);		
 		if(jsonStr.userName == userJson.userName && jsonStr.userPwd == userJson.userPwd) {
@@ -357,14 +364,28 @@ function clone(source) {
 //用户菜单列表
 function menuList(jsonStr){
 	//默认为当前用户
-	var success=clone(successJson);
+	var success={
+		"success": true,
+		"code": 0,
+		"msg": "",
+		"data": {
+			
+		}
+	};
 	success.data.menuList=menuListJson[userJson.level]
 	return success;
 }
 
 //用户线路列表
 function userLine(jsonStr){
-	var success=clone(successJson);
+	var success={
+		"success": true,
+		"code": 0,
+		"msg": "",
+		"data": {
+			
+		}
+	};
 	console.dir(success);
 	success.data = userLineJson;
 	console.dir(success);
@@ -373,10 +394,108 @@ function userLine(jsonStr){
 
 //用户列表
 function userList(jsonStr){
-	var success=clone(successJson);
-	console.dir(success);
-	success.data = userListJson;
-	console.dir(success);
+	var success={
+	"success": true,
+	"code": 0,
+	"msg": "",
+	"data": [{
+		"userId": 1,
+		"userLoginName": "admin",
+		"name": "何瑞",
+		"level": "superAdmin",
+		"Wechat": {
+			"userid": "herui",
+			"name": "何瑞",
+			"department": null,
+			"Position": "",
+			"Gender": 1,
+			"Mobile": "15726699262",
+			"Email": "",
+			"WeixinID": "wxid_0dlzp5mo11hi22",
+			"Avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+			"status": 1,
+			"extattr": null,
+			"Disable": false
+		},
+		"ParnetID": 1
+	}, {
+		"userId": 2,
+		"userLoginName": "test11",
+		"name": "黎浩",
+		"level": "admin",
+		"Wechat": {
+			"userid": "",
+			"name": "",
+			"department": null,
+			"Position": "",
+			"Gender": 1,
+			"Mobile": "",
+			"Email": "",
+			"WeixinID": "",
+			"Avatar": "",
+			"status": 4,
+			"extattr": null,
+			"Disable": false
+		},
+		"ParnetID": 0
+	}, {
+		"userId": 4,
+		"userLoginName": "lihao",
+		"name": "黎浩",
+		"level": "admin",
+		"Wechat": {
+			"userid": "",
+			"name": "",
+			"department": null,
+			"Position": "",
+			"Gender": 1,
+			"Mobile": "",
+			"Email": "",
+			"WeixinID": "",
+			"Avatar": "",
+			"status": 4,
+			"extattr": null,
+			"Disable": false
+		},
+		"ParnetID": 0
+	}]
+}
+	return success;
+}
+
+//用户登出
+function userLogout(jsonStr){
+	var json={success: true, code: 0, msg: "", data: {success: true}};
+	return json;	
+}
+//用户当前信息
+function userGet(){
+	var success={
+		"success": true,
+		"code": 0,
+		"msg": "",
+		"data": {
+			"userId": 1,
+			"userLoginName": "admin",
+			"name": "何瑞",
+			"level": "superAdmin",
+			"Wechat": {
+				"userid": "herui",
+				"name": "何瑞",
+				"department": null,
+				"Position": "",
+				"Gender": 1,
+				"Mobile": "15726699262",
+				"Email": "",
+				"WeixinID": "wxid_0dlzp5mo11hi22",
+				"Avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+				"status": 1,
+				"extattr": null,
+				"Disable": false
+			},
+			"ParnetID": 1
+		}
+	}
 	return success;
 }
 
@@ -385,3 +504,5 @@ exports.userLogin = userLogin;
 exports.menuList = menuList;
 exports.userLine = userLine;
 exports.userList = userList;
+exports.userLogout = userLogout;
+exports.userGet = userGet;

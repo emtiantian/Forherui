@@ -4,7 +4,7 @@ $(function(){
 	
 	$.ajax({
 		type:"post",
-		url:baseUrl+"/user/list",
+		url:baseUrl+"/wechat/user/Edit",
 		async:true,
 		data:{},
 		dataType:"json",

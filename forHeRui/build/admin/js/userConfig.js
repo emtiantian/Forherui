@@ -58,7 +58,7 @@ $(function(){
 				default:
 					break;
 			}		
-			tdHtml +='<td><button id="'+ele.userId+'" class="userEdit">基本信息修改</button><button id="'+ele.userId+'" class="pwdEdit">重置密码</button><button id="'+ele.userId+'" class="deleteEdit">删除</button></td>'
+			tdHtml +='<td><button id="'+ele.userId+'" class="userEdit btn btn-primary">基本信息修改</button><button id="'+ele.userId+'" class="pwdEdit btn btn-primary">重置密码</button><button id="'+ele.userId+'" class="deleteEdit btn btn-primary">删除</button></td>'
 			$("#userList").append("<tr>"+tdHtml+"</tr>");
 				var tdHtml2="";
 				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_userid" type="text" value="' + ele.Wechat.userid + '" /></td>';
@@ -107,7 +107,7 @@ $(function(){
 					default:
 						break;
 				}	
-				tdHtml2 +='<td><button id="'+ele.userId+'" class="weChatEdit">微信信息修改</button></td>'
+				tdHtml2 +='<td><button id="'+ele.userId+'" class="weChatEdit btn btn-primary">微信信息修改</button></td>'
 			$("#userWeChatList").append("<tr>"+tdHtml2+"</tr>");
 			
 		})
