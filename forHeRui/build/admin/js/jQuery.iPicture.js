@@ -336,11 +336,10 @@
 //		}
 //		});
 		$('#'+self.element.attr('id')+' .save').bind('click', function() {		
-			var pictures=[];
-			var data={}		
+			var pictures=[];					
 			//each picture
 		$.each(self.options.pictures, function( index, value ) {
-			
+			var data={}
 			var picture = $( '#'+value );
 			var divs = $(picture).find('.more32');
 			data.id=value;
