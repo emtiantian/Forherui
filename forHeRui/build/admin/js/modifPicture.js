@@ -2,14 +2,14 @@ $(function(){
 	var data={
 	    "picture": [
 	        {
-	            "src": "./images/gallery/image1.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301324_bj_test.jpg",
 	            "id": "picture1",
 	            "info": [
 	                {
 	                    "id": "picture1_tooltip1",
 	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
+	                    "top": "10%",
+	                    "left": "10%"
 	                },
 	                {
 	                    "id": "picture1_tooltip2",
@@ -26,7 +26,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image2.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301335_bj_test.jpg",
 	            "id": "picture2",
 	            "info": [
 	                {
@@ -50,7 +50,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image3.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301344_bj_test.jpg",
 	            "id": "picture3",
 	            "info": [
 	                {
@@ -74,7 +74,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image4.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301348_bj_test.jpg",
 	            "id": "picture4",
 	            "info": [
 	                {
@@ -98,7 +98,7 @@ $(function(){
 	            ]
 	        },
 	        {
-	            "src": "./images/gallery/image5.jpg",
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301413_bj_test.jpg",
 	            "id": "picture5",
 	            "info": [
 	                {
@@ -120,16 +120,231 @@ $(function(){
 	                    "left": "556px"
 	                }
 	            ]
-	        },
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301421_bj_test.jpg",
+	            "id": "picture6",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301459_bj_test.jpg",
+	            "id": "picture7",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301506_bj_test.jpg",
+	            "id": "picture8",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301525_bj_test.jpg",
+	            "id": "picture9",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301647_bj_test.jpg",
+	            "id": "picture10",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301653_bj_test.jpg",
+	            "id": "picture11",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301705_bj_test.jpg",
+	            "id": "picture12",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301715_bj_test.jpg",
+	            "id": "picture13",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        },{
+	            "src": "./images/gallery/WT000000000000001/201606/30/1606301726_bj_test.jpg",
+	            "id": "picture14",
+	            "info": [
+	                {
+	                    "id": "picture5_tooltip1",
+	                    "descr": "furniture: 299$",
+	                    "top": "185px",
+	                    "left": "393px"
+	                },
+	                {
+	                    "id": "picture5_tooltip2",
+	                    "descr": "sofa: 199$",
+	                    "top": "346px",
+	                    "left": "483px"
+	                },
+	                {
+	                    "id": "picture5_tooltip3",
+	                    "descr": "silver candle: 2.99$",
+	                    "top": "461px",
+	                    "left": "556px"
+	                }
+	            ]
+	        }
 	    ]
 	}
+	//图片宽度
+	var imgWidth = config.get("imgWidth");
+	//图片高度
+	var imgHeight = config.get("imgHeight");
+	
 	var pictures=[];
 	var info="";
 	function init(data){		
 		var html=$("#muban").clone();
 		$.each(data.picture, function(i,ele) {
 			pictures.push(ele.id);
-			$(html).find(".slide").find("div").attr("id",ele.id).css("background","url('"+ele.src+"') no-repeat scroll 0 0 #393737");			
+			$(html).find(".slide").find("div").attr("id",ele.id).css("background","url('"+ele.src+"') no-repeat scroll 0 0 #393737").css("background-size","100%100%");
+//			.css("background","url('"+ele.src+"') no-repeat scroll 0 0 #393737")
+//			$(html).find(".slide").find("#pictureImg").attr("src",ele.src);
+			$(html).find(".slide").find("div").css({"width":imgWidth/2,"height":imgHeight/2});
 			$("#iPicture").append($(html).html());
 		});
 		console.dir(pictures);

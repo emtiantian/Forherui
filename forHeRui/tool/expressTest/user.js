@@ -131,9 +131,11 @@ var log = require('./log');
 	            	"parent":"admin",
 	            	"child":[
 	            		"adminPictureConfig.html",
-	            		"lineMachineConfig.html",
+//	            		"lineMachineConfig.html",
 	            		"userAdminConfig.html",
-	            		"menuConfig.html"
+//	            		"menuConfig.html",
+	            		"lineConfig.html",
+	            		"machineConfig.html"
 	            	]
 	            },
 	            {
@@ -179,9 +181,11 @@ var log = require('./log');
 	            	"parent":"admin",
 	            	"child":[
 	            		"adminPictureConfig.html",
-	            		"lineMachineConfig.html",
+//	            		"lineMachineConfig.html",
 	            		"userAdminConfig.html",
-	            		"menuConfig.html"
+//	            		"menuConfig.html",
+	            		"lineConfig.html",
+	            		"machineConfig.html"
 	            	]
 	            }
 	        ]
@@ -372,7 +376,7 @@ function menuList(jsonStr){
 			
 		}
 	};
-	success.data.menuList=menuListJson[userJson.level]
+	success.data=menuListJson["superAdmin"]
 	return success;
 }
 
@@ -483,15 +487,15 @@ function userGet(){
 				"userid": "herui",
 				"name": "何瑞",
 				"department": null,
-				"Position": "",
-				"Gender": 1,
-				"Mobile": "15726699262",
-				"Email": "",
-				"WeixinID": "wxid_0dlzp5mo11hi22",
-				"Avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+				"position": "",
+				"gender": 1,
+				"mobile": "15726699262",
+				"email": "",
+				"weixinID": "wxid_0dlzp5mo11hi22",
+				"avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
 				"status": 1,
 				"extattr": null,
-				"Disable": false
+				"disable": false
 			},
 			"ParnetID": 1
 		}

@@ -18,8 +18,8 @@ $(function(){
 	                {
 	                    "id": "picture1_tooltip1",
 	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
+	                    "top": "10%",
+	                    "left": "10%"
 	                },
 	                {
 	                    "id": "picture1_tooltip2",
@@ -363,12 +363,25 @@ $(function(){
 	}
 	    function mouseOverHandler(selector, animationType) {
 	    	console.log("initmouseOverHandler"+selector,+animationType)
+	    	
+	    	selector.on('touchstart', function(eventObject) {
+	    		if($(this).attr("show") == "true"){
+	    			hideTooltip($(this), animationType);
+	    			$(this).attr("show","false");
+	    		}else{
+	    			console.log("touchstart");
+					showTooltip($(this), animationType);
+					$(this).attr("show","true");
+	    		}	    						
+			});
+				
 			selector.on('mouseover', function(eventObject) {				
 				showTooltip($(this), animationType);
 			});
 			selector.on('mouseout', function(eventObject) {
 				hideTooltip($(this), animationType);
 			});
+			
 		};
 		
 		function showTooltip(selector, animationType) {
@@ -400,6 +413,7 @@ $(function(){
             	var animationType="btt-slide";
 				var selector=$(".ip_tooltip");
             	mouseOverHandler(selector, animationType);
+            	
 //          	console.log("initend");
             },      
             onplugininitialized: function () {
@@ -414,6 +428,7 @@ $(function(){
 		var selector=$(".ip_tooltip");
 //  	console.log("onslideChanged");    	
     	mouseOverHandler(selector, animationType);
+    	
     })
     //设置图片高度
 //  .is-in-is-wrap
@@ -423,6 +438,20 @@ $(function(){
 		$("#imgDiv").css("height",imgHeight*(nowWidth/imgWidth)+imgHeight*(nowWidth/imgWidth)*0.12);
 	}
     initPictHeight();
+    
+	//日期初始化
+   $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0,
+		format: "yyyy-MM-dd"
+    });
+
     
     //window.resize 修改图片大小
     $(window).on("resize",function(){

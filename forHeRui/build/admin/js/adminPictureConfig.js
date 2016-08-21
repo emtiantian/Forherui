@@ -150,10 +150,7 @@ $(function(){
 			data:{"userId":$("#userId").val(),"machineId":machineIds},
 			success:function(data){
 				if(daa.success){
-					alert("修改成功 3秒后刷新");
-					setTimeout(function(){
-						location.reload();
-					},3000);
+					alert("修改成功");
 				}else{
 					alert(data.msg);
 					console.log(data.code);

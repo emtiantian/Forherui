@@ -10,14 +10,16 @@ $(function(){
 			data:{},
 			success:function(data){
 				if(data.success){
-					$("#userName").val(data.data.userlist.name);
-					$("#userId").val(data.data.userlist.userid);
+					$("#userNameEdit").val(data.data[0].name);
+					console.log("name"+data.data[0].name);
+					$("#userId").val(data.data[0].userId);
 				}else{
 					dataError(data);
 				}
 			}
 		});
 	}
+	
 	function editPwd(){
 		//{"userID":"2","oldPass":"e10adc3949ba59abbe56e057f20f883e","newPass":"test"}
 		if($("#newPwd1").val() == $("#newPwd2").val()){

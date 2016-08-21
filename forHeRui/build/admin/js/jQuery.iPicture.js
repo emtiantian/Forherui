@@ -337,32 +337,35 @@
 //		});
 		$('#'+self.element.attr('id')+' .save').bind('click', function() {		
 			var pictures=[];
-			var data={}
-		var moreInfos = 'moreInfos:{';
+			var data={}		
 			//each picture
 		$.each(self.options.pictures, function( index, value ) {
+			
 			var picture = $( '#'+value );
 			var divs = $(picture).find('.more32');
 			data.id=value;
+			console.log("id"+value);
 			var info=[]	
 			// each more infos on that picture
-			$.each(divs, function( index, value ){
+			$.each(divs, function( index, value2 ){
 				var tool={}
-				descr=$(value).find('input').val();				
+				descr=$(value2).find('input').val();				
 				if(descr==undefined){
 					descr="";
 				}
-				topPosition=$(value).css('top');
-				leftPosition=$(value).css('left');
+				topPosition=($(value2).css('top').replace("px","")/$("#"+value).height())+"%";
+				console.log("width"+$("#"+value).width());
+				leftPosition=($(value2).css('left').replace("px","")/$("#"+value).width())+"%";
 				
 				tool.descr=descr;
-				tool.id=value.id;
+				tool.id=value2.id;
 				tool.top=topPosition;
 				tool.left=leftPosition;															
 				info.push(tool);
 			});
 			data.info=info;
 			pictures.push(data);
+			
 		});			
 			create(pictures)
 		});

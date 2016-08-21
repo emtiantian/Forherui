@@ -79,6 +79,7 @@
 	background-position: 50% 50%;
 	-webkit-background-size: cover;
 	background-size: cover;
+	cursor:pointer;
 }
 
 #is_in_is> .islider-dot-wrap> .islider-dot:before {
@@ -224,4 +225,11 @@ body{
 }
 .textCenter{
 	text-align: center!important;
+}
+.displayDiv{
+	display: none;
+}
+.modifImg{
+	background-size:100%100%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='1.jpg',sizingMethod='scale');
 }

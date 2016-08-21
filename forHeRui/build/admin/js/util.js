@@ -1,7 +1,6 @@
 $(function(){
 	//基础url
 	var baseUrl = config.get("baseUrl");
-
 	
 	//菜单管理
 	function menuInit(){
@@ -13,8 +12,8 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 //				console.log(data);
-				console.dir(data.data.menuList);			
-				$.each(data.data.menuList,function(i,ele){								
+				console.dir(data.data);			
+				$.each(data.data,function(i,ele){								
 					$.each(ele,function(childI,childEle){
 							var father=$("#menu_"+childEle.parent)
 //							console.dir(father.find("ul>li>a"));
@@ -44,10 +43,10 @@ $(function(){
 			data:{},
 			dataType:"json",
 			success:function(data){
-				if(data.success){
+				if(data.success){	
 					
 					$("#userName").html(data.data.name+"（"+data.data.userLoginName+"）");
-					$("#userImg").attr("src",data.data.Wechat.Avatar);
+					$("#userImg").attr("src",data.data.Wechat.avatar);
 					switch (data.data.level){
 						case "superAdmin":
 							$("#userLevel").append("<option value='user'>用户</option>")
@@ -103,13 +102,14 @@ $(function(){
 	}
 	//102 屏幕高减102
 	
-	//dataTimePiaker
+	//判断是否为手机
 	
 	
 	
 	
-	menuInit();
 	userInit();
+	menuInit();
+	
 	$("#logout").on("click",function(){
 		loginOut();
 	})

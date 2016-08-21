@@ -9,12 +9,14 @@
   <link rel="shortcut icon" href="#" type="image/png">
 
   <title>微拍推送平台</title>
-
   <!--icheck-->
-  <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <!--<link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+  -->
+
+
 
   <!--dashboard calendar-->
   <!--<link href="css/clndr.css" rel="stylesheet">-->
@@ -32,6 +34,7 @@
 	<link href="css/iPicture.css" rel="stylesheet"/>
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
+	<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -62,7 +65,7 @@
         <div class="left-side-inner">
 
             <!-- visible to small devices only -->
-            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
                 <div class="media logged-user">
                     <img alt="" src="images/photos/user-avatar.png" class="media-object">
                     <div class="media-body">
@@ -73,11 +76,11 @@
 
                 <h5 class="left-nav-title">Account Information</h5>
                 <ul class="nav nav-pills nav-stacked custom-nav">
-                 <!-- <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>-->
+            
                   <li><a href="#"><i class="fa fa-cog"></i> <span>个人设置</span></a></li>
                   <li><a href="#"><i class="fa fa-sign-out"></i> <span>登出</span></a></li>
                 </ul>
-            </div>
+            </div>-->
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
@@ -113,11 +116,12 @@
                     </ul>
                 </li>             
                 <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
-                    <ul class="sub-menu-list">
+                     <ul class="sub-menu-list">
                         <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
-                        <li><a href="lineMachineConfig.html"  style="display: none;"> 线路&设备管理</a></li>    
-                        <li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
-                        <li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>                    
+                      	<li><a href="lineConfig.html"  style="display: none;"> 线路管理</a></li> 
+                        <li><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>                        
+                        <li class="active"><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
+                        <!--<li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>-->                    
                     </ul>
                 </li>
 								<li class="menu-list" id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
@@ -192,8 +196,14 @@
 									<option>机器 2</option>
 									<option>机器 3</option>
 								</select> 
-							</div>		
-            </div>
+							</div>
+							 <div class="selectUl" style="width: 200px;">		
+							 	<input size="16" type="text" value="2012-06-15" readonly class="form_date">								
+	 						</div>
+	 						<div class="selectUl" style="width: 200px;">		
+							 		<button id="createUser" class="btn btn-primary"> 搜索图片</button>
+	 						</div>
+           </div>         
             <!--<div class="state-info">              
                 <section class="panel">
                     <div class="panel-body">
@@ -211,8 +221,8 @@
         <!--body wrapper start-->
         <div class="wrapper">
             <div class="row">  
-            		<!--<div class="col-md-2" ></div>-->
-                <div class="col-md-12"  id="imgDiv">
+            	<div class="col-md-3"></div>
+                <div class="col-md-6"  id="imgDiv">
                 	<!--<div class="ui segment" style="height: 900px;padding: 0;" >
 							    	<div  id="iSlider-wrapper1" ></div>		    
 							    </div>-->
@@ -312,6 +322,9 @@
 <!--
 基础js
 -->
+<script type="text/javascript" src="js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
 <script src="js/util.js"></script>
 <script src="js/config.js"></script>
 

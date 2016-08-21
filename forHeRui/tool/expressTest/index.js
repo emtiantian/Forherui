@@ -4,7 +4,12 @@ var log = require('./log');
 //user controller
 var userController = require("./user");
 //微信控制器
-var wechatController = require("./wechat.js");
+var wechatController = require("./wechat");
+//line控制器
+var lineController = require("./line");
+
+
+
 
 //服务器框架
 var app = express();
@@ -123,10 +128,34 @@ app.post("/wechat/user/list",function(req,res){
 })
 //模拟微信用户列表
 app.post("/wechat/user/create",function(req,res){
-	res.json(wechatController.wechatUserList());
+	res.json(wechatController.wechatUserCreate());
 })
 
 //模拟微信修改
 app.post("/wechat/user/edit",function(req,res){
-	res.json(wechatController.wechatUserList());
+	res.json(wechatController.wechatUserEdit());
 })
+//模拟微信删除
+app.post("/wechat/user/delete",function(req,res){
+	res.json(wechatController.wechatUserDelete());
+})
+
+
+
+//模拟线路列表
+app.post("/Line/lineList",function(req,res){
+	res.json(lineController.lineList());
+})
+//模拟线路更新
+app.post("/Line/Update",function(req,res){
+	res.json(lineController.lineEdit());
+})
+//模拟线路删除
+app.post("/Line/delete",function(req,res){
+	res.json(lineController.lineDelete());
+})
+//模拟线路创建
+app.post("/Line/create",function(req,res){
+	res.json(lineController.lineCreate());
+})
+

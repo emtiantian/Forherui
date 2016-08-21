@@ -57,7 +57,7 @@
         <div class="left-side-inner">
 
             <!-- visible to small devices only -->
-            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
                 <div class="media logged-user">
                     <img alt="" src="images/photos/user-avatar.png" class="media-object">
                     <div class="media-body">
@@ -71,7 +71,7 @@
                   <li><a href="#"><i class="fa fa-cog"></i> <span>个人设置</span></a></li>
                   <li><a href="#"><i class="fa fa-sign-out"></i> <span>登出</span></a></li>
                 </ul>
-            </div>
+            </div>-->
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
@@ -107,11 +107,12 @@
                     </ul>
                 </li>             
                 <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
-                    <ul class="sub-menu-list">
+                     <ul class="sub-menu-list">
                         <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
-                        <li><a href="lineMachineConfig.html"  style="display: none;"> 线路&设备管理</a></li>    
-                        <li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
-                        <li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>                    
+                      	<li><a href="lineConfig.html"  style="display: none;"> 线路管理</a></li> 
+                        <li><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>                        
+                        <li class="active"><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
+                        <!--<li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>-->                    
                     </ul>
                 </li>
 								<li class="menu-list" id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
@@ -146,7 +147,7 @@
 
             <!--notification menu start -->
             <div class="menu-right">
-                 <ul class="notification-menu">                                                   
+                <ul class="notification-menu">                                                   
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
                             <img src="images/photos/user-avatar.png" alt=""  id="userImg"/>

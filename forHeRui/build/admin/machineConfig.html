@@ -11,10 +11,10 @@
   <title>微拍推送平台</title>
 
   <!--icheck-->
-  <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <!--<link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
-  <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">-->
 
   	
 
@@ -22,9 +22,9 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
 	<!--mycss-->
-	<link href="css/iSlider.css" rel="stylesheet"/>
+	<!--<link href="css/iSlider.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
-	<link href="css/iPicture.css" rel="stylesheet"/>
+	<link href="css/iPicture.css" rel="stylesheet"/>-->
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
 
@@ -75,15 +75,15 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
+                <li class="menu-list" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
                 	<ul class="sub-menu-list">
-                        <li  >
+                        <li class="active" >
                         	<a href="index.html" style="display: none;"> 图片展示</a>
                         </li>
                         <li>
                         	<a href="modifyPicture.html" style="display: none;"> 图片标签修改</a>
                         </li>  
-                        <li class="active">
+                        <li>
                         	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
                         </li>                 
                     </ul>
@@ -106,12 +106,12 @@
                         <li><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
                     </ul>
                 </li>             
-                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                <li class="menu-list  nav-active"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
                      <ul class="sub-menu-list">
                         <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
                       	<li><a href="lineConfig.html"  style="display: none;"> 线路管理</a></li> 
-                        <li><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>                        
-                        <li class="active"><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
+                        <li class="active"><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>                        
+                        <li ><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
                         <!--<li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>-->                    
                     </ul>
                 </li>
@@ -147,7 +147,7 @@
 
             <!--notification menu start -->
             <div class="menu-right">
-                 <ul class="notification-menu">                                                   
+                <ul class="notification-menu">                                                   
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
                             <img src="images/photos/user-avatar.png" alt=""  id="userImg"/>
@@ -194,13 +194,117 @@
 
         <!--body wrapper start-->
         <div class="wrapper">
-            <div class="row">  
-            		
-                <div class="col-md-12"  id="imgDiv">
-			
-            	</div> 
-		      
-        	</div>
+            <div class="row">
+		        <div class="col-sm-12">
+			        <section class="panel">
+				        <header class="panel-heading">
+				            	线路选择
+				            <span class="tools pull-right">
+				                <a href="javascript:;" class="fa fa-chevron-down"></a>
+				                <!--<a href="javascript:;" class="fa fa-times"></a>-->
+				             </span>
+				        </header>
+				        <div class="panel-body">
+				        	<div class="adv-table table-responsive">
+						        <table  class="table table-striped table-bordered" cellspacing="0" width="100%" id="lineTable">
+								      <thead>
+								            <tr>							            	
+												<th>#</th>
+												<th>线路名称</th>
+												<th>线路说明</th>
+												<th>线路编号</th>
+												<th>线路机器</th>
+												
+								        <th>操作</th>			                
+								            </tr>
+								      </thead>
+								        <tfoot>
+								            <tr>
+								               <th>#</th>
+												<th>线路名称</th>
+												<th>线路说明</th>
+												<th>线路编号</th>
+												<th>线路机器</th>																		
+								        <th>操作</th>	
+								            </tr>
+								        </tfoot>
+								        <tbody id="lineList">
+								            
+								        </tbody>
+								    </table>
+				       		</div>
+				        </div>
+			        </section>
+		        </div>
+			</div>
+			<div class="row">
+			  	 <div class="col-sm-12">
+			        <section class="panel displayDiv" id="createMachineDiv" >
+			        <header class="panel-heading">
+			            	创建机器
+			            <span class="tools pull-right">
+			                <a href="javascript:;" class="fa fa-chevron-down"></a>
+			                <!--<a href="javascript:;" class="fa fa-times"></a>-->
+			             </span>
+			        </header>
+			        <div class="panel-body">	
+						<div class="row">
+							<div class="col-md-6 form-group textCenter textCenter">
+								线路id
+							</div>	
+							<div class="col-md-6 form-group textCenter textCenter">
+								<input type="text" class="form-control" placeholder="线路id" disabled="disabled" id="lineId">
+							</div>
+							<div class="col-md-6 form-group textCenter textCenter">
+								线路名称
+							</div>	
+							<div class="col-md-6 form-group textCenter textCenter">
+								<input type="text" class="form-control" placeholder="线路名称" id="lineName" disabled="disabled">
+							</div>
+							<div class="col-md-6 form-group textCenter textCenter">
+								机器名称
+							</div>	
+							<div class="col-md-6 form-group textCenter textCenter">
+								<input type="text" class="form-control" placeholder="用户名" id="machineName">
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								机器code
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="机器code" id="machineCode">
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								机器简介
+							</div>					
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="机器简介" id="machineComment">
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								厂家
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="厂家" id="machineProductComp">
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								出厂编号
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="出厂编号" id="machineCompID">
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								塔杆
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="塔杆" id="machineTower">
+							</div>
+							<div class="col-md-12 form-group textCenter">
+								<button id="createUser" class="btn btn-primary"> 创建机器</button>
+							</div>						
+						</div>
+					</div>
+			   		</section>
+		    	</div>	      	        	        			                        
+		    </div>
         </div>
         <!--body wrapper end-->
 
@@ -234,12 +338,19 @@
 
 <script src="js/scripts.js"></script>
 
+
 <!--
 基础js
 -->
+<!--dynamic table-->
+<script type="text/javascript" language="javascript" src="js/advanced-datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
+
+
 <script src="js/util.js"></script>
 <script src="js/config.js"></script>
-<script src="js/chartPicture.js"></script>
+<script src="js/machineConfig.js"></script>
+
 
 </body>
 </html>

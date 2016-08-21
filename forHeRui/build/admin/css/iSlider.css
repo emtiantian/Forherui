@@ -15,7 +15,8 @@
     padding: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    overflow: visible;
 }
 
 .islider-outer > li {
@@ -37,6 +38,7 @@
     -moz-box-align: center;
     -webkit-box-align: center;
     box-align: center;
+    overflow: visible;
 }
 
 .islider-img > img {
