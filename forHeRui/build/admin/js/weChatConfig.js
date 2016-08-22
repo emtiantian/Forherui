@@ -2,6 +2,14 @@ $(function(){
 	//基础url
 	var baseUrl = config.get("baseUrl");
 	
+	function dataError(data){
+		if(data.code == 2){
+			alert("未登录！请重新登录")
+			location.href='login.html';
+		}else{
+			alert(data.msg);
+		}
+	}
 	$.ajax({
 		type:"post",
 		url:baseUrl+"/wechat/user/list",
