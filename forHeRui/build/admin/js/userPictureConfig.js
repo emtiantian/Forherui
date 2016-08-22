@@ -16,7 +16,11 @@ $(function(){
 		data:{"userId":""},
 		dataType:"json",
 		success:function(data){
+			if(data.success){
 				adminLine=data;
+			}else{
+				dateError(data);
+			}						
 		}
 	});
 
@@ -28,7 +32,11 @@ $(function(){
 		data:{},
 		dataType:"json",
 		success:function(data){
-			initUserTable(data);
+			if(data.success){
+				initUserTable(data);
+			}else{
+				dateError(data);
+			}				
 		}
 	});
 	
@@ -155,7 +163,8 @@ $(function(){
 						location.reload();
 					},3000);
 				}else{
-					alert(data.msg);
+					dataError(data);
+//					alert(data.msg);
 					console.log(data.code);
 				}
 			}
@@ -180,15 +189,16 @@ $(function(){
 			data:{"userId":$(this).attr("id")},
 			dataType:"json",
 			success:function(data){
-//				console.log("接到数据了!");
-//				console.dir(data);
-				isAjax=false;
-				//初始化线路管理员与当前用户的线路关系
-				initUserLine(adminLine,data);
-			
-//				initLine(adminLine,data);
-			}
-		});
+				isAjax=false;				
+				if(daa.success){
+						//初始化线路管理员与当前用户的线路关系				
+						initUserLine(adminLine,data);
+					}else{
+						dataError(data);				
+						console.log(data.code);
+					}
+				}
+			});
 		}else{
 			alert("正在获取数据 请稍后");
 		}

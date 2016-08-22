@@ -16,7 +16,11 @@ $(function(){
 		data:{"userId":""},
 		dataType:"json",
 		success:function(data){
+			if(data.success){
 				adminLine=data;
+			}else{
+				dataError(data);
+			}			
 		}
 	});
 
@@ -28,7 +32,11 @@ $(function(){
 		data:{},
 		dataType:"json",
 		success:function(data){
-			initUserTable(data);
+			if(data.success){
+					initUserTable(data);
+			}else{
+				dataError(data);
+			} 	
 		}
 	});
 	
@@ -150,10 +158,12 @@ $(function(){
 			data:{"userId":$("#userId").val(),"machineId":machineIds},
 			success:function(data){
 				if(daa.success){
-					alert("修改成功");
+					alert("修改成功 3s后刷新本页");
+					setTimeout(function(){
+						location.reload();
+					},3000);
 				}else{
-					alert(data.msg);
-					console.log(data.code);
+					dataError(data);
 				}
 			}
 		});
@@ -180,9 +190,12 @@ $(function(){
 //				console.log("接到数据了!");
 //				console.dir(data);
 				isAjax=false;
-				//初始化线路管理员与当前用户的线路关系
-				initUserLine(adminLine,data);
-			
+				//初始化线路管理员与当前用户的线路关系				
+	  			if(data.success){
+					initUserLine(adminLine,data);
+				}else{
+					dataError(data);
+				}								
 //				initLine(adminLine,data);
 			}
 		});

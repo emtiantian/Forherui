@@ -13,7 +13,7 @@ $(function(){
 				console.log(data.data);
 				tableInit(data);
 			}else{
-				alert(data.msg)
+				dataError(data);
 			}
 		}
 	});

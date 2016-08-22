@@ -9,7 +9,11 @@ $(function(){
 			data:{},
 			dataType:"json",
 			success:function(data){
-				initLineList(data.data.userId);	
+				if(data.success){
+					initLineList(data.data.userId);	
+				}else{
+					dataError(data);
+				}				
 			}
 		});
 	//init 线路列表
@@ -34,7 +38,8 @@ $(function(){
 	function createLineList(data){
 		var html=""
 		$.each(data.data, function(i,ele) {
-			html+='<td id="lineid">'+ele.lineid+'</td>';
+//			html+='<td id="lineid">'+ele.lineid+'</td>';
+			html+='<td id="">'+(i+1)+'</td>';
 			html+='<td ><input class="form-control sm" id="name" type="text" value="' + ele.name + '" /></td>';
 			html+='<td ><input class="form-control " id="comments" type="text" value="' + ele.comments + '" /></td>';
 			html+='<td ><input class="form-control sm" id="lineCode" type="text" value="' + ele.lineCode + '" /></td>';
@@ -51,7 +56,7 @@ $(function(){
 			$("#lineList").append("<tr>"+html+"</tr>");
 		});
 		$("#lineTable").dataTable( {
-        "aaSorting": [[ 0, "desc" ]]
+        "aaSorting": [[ 0, "asc" ]]
     	});
 	}
 	//{"lineID":"6","machines":{"machineName":"Test","code":"bj_Test5","machineComment":"你好","productComp":"沃英泰科","compID":"A0000000000000056","tower":"57#"}}
@@ -81,7 +86,7 @@ $(function(){
 				if(data.success){
 					
 				}else{
-					
+					dataError(data);
 				}
 			}
 		});	
@@ -98,7 +103,7 @@ $(function(){
 				if(data.success){
 					
 				}else{
-					
+					dataError(data);
 				}
 			}
 		});

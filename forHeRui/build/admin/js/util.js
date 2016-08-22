@@ -94,8 +94,9 @@ $(function(){
 	
 	//错误处理
 	function dataError(data){
-		if(data.code == null){
-			
+		if(data.code == 2){
+			alert("未登录！请重新登录")
+			location.href='login.html';
 		}else{
 			alert(data.msg);
 		}
@@ -103,6 +104,8 @@ $(function(){
 	//102 屏幕高减102
 	
 	//判断是否为手机
+	
+	
 	
 	
 	
