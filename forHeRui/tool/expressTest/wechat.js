@@ -9,14 +9,14 @@ function wechatUserList(){
 		"msg": "",
 		"data": {
 			"user": "0",
-			"userid": "111",
+			"userId": "111",
 			"name": "dd",
 			"department": "1",
 			"position": "工程师",
 			"mobile": "15726699265",
 			"gender": "1",
 			"email": "herui13@126.com",
-			"weixinid": "",
+			"weixinId": "",
 			"avatar": "",
 			"extattr": ""
 		}

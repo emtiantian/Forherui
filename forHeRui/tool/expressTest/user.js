@@ -255,7 +255,7 @@ var log = require('./log');
 	"userLoginName": "admin",
 	"name": "何瑞",
 	"level": "superAdmin",
-	"Wechat": {
+	"wechat": {
 		"userid": "herui",
 		"name": "何瑞",
 		"department": null,
@@ -269,13 +269,13 @@ var log = require('./log');
 		"extattr": null,
 		"disable": false
 	},
-	"ParnetID": 1
+	"parnetId": 1
 }, {
 	"userId": 2,
 	"userLoginName": "test11",
 	"name": "黎浩",
 	"level": "admin",
-	"Wechat": {
+	"wechat": {
 		"userid": "",
 		"name": "",
 		"department": null,
@@ -289,13 +289,13 @@ var log = require('./log');
 		"extattr": null,
 		"disable": false
 	},
-	"ParnetID": 0
+	"parnetId": 0
 }, {
 	"userId": 4,
 	"userLoginName": "lihao",
 	"name": "黎浩",
 	"level": "admin",
-	"Wechat": {
+	"wechat": {
 		"userid": "",
 		"name": "",
 		"department": null,
@@ -309,7 +309,7 @@ var log = require('./log');
 		"extattr": null,
 		"disable": false
 	},
-	"ParnetID": 0
+	"parnetId": 0
 }]
 	
 //用户登录
@@ -407,35 +407,35 @@ function userList(jsonStr){
 		"userLoginName": "admin",
 		"name": "何瑞",
 		"level": "superAdmin",
-		"Wechat": {
-			"userid": "herui",
+		"wechat": {
+			"userId": "herui",
 			"name": "何瑞",
 			"department": null,
 			"position": "",
 			"gender": 1,
 			"mobile": "15726699262",
 			"email": "",
-			"weixinID": "wxid_0dlzp5mo11hi22",
+			"weixinId": "wxid_0dlzp5mo11hi22",
 			"avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
 			"status": 1,
 			"extattr": null,
 			"disable": false
 		},
-		"ParnetID": 1
+		"parnetId": 1
 	}, {
 		"userId": 2,
 		"userLoginName": "test11",
 		"name": "黎浩",
 		"level": "admin",
-		"Wechat": {
-			"userid": "",
+		"wechat": {
+			"userId": "",
 			"name": "",
 			"department": null,
 			"position": "",
 			"gender": 1,
 			"mobile": "",
 			"email": "",
-			"weixinID": "",
+			"weixinId": "",
 			"avatar": "",
 			"status": 4,
 			"extattr": null,
@@ -447,21 +447,21 @@ function userList(jsonStr){
 		"userLoginName": "lihao",
 		"name": "黎浩",
 		"level": "admin",
-		"Wechat": {
-			"userid": "",
+		"wechat": {
+			"userId": "",
 			"name": "",
 			"department": null,
 			"position": "",
 			"gender": 1,
 			"mobile": "",
 			"email": "",
-			"weixinID": "",
+			"weixinId": "",
 			"avatar": "",
 			"status": 4,
 			"extattr": null,
 			"disable": false
 		},
-		"ParnetID": 0
+		"parnetId": 0
 	}]
 }
 	return success;
@@ -483,21 +483,21 @@ function userGet(){
 			"userLoginName": "admin",
 			"name": "何瑞",
 			"level": "superAdmin",
-			"Wechat": {
-				"userid": "herui",
+			"wechat": {
+				"userId": "herui",
 				"name": "何瑞",
 				"department": null,
 				"position": "",
 				"gender": 1,
 				"mobile": "15726699262",
 				"email": "",
-				"weixinID": "wxid_0dlzp5mo11hi22",
+				"weixinId": "wxid_0dlzp5mo11hi22",
 				"avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
 				"status": 1,
 				"extattr": null,
 				"disable": false
 			},
-			"ParnetID": 1
+			"parnetId": 1
 		}
 	}
 	return success;
