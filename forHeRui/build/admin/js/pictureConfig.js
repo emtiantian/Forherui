@@ -18,8 +18,8 @@ $(function(){
 	//树形多选初始化
 	function initUserLine(data){
 		var htmlselect=$("#selectMuban").clone();
-		if(data.data.userLine){
-			$.each(data.data.userLine,function(i,ele){
+		if(data.data){
+			$.each(data.data,function(i,ele){
 				var htmlselect=$("#selectMuban").clone();
 				$.each(ele.machine, function(i2,ele2) {
 					console.log(ele.line.lineName);
@@ -85,7 +85,7 @@ $(function(){
 			dataType:"json",
 			data:{"userId":"","machineId":machineIds},
 			success:function(data){
-				if(daa.success){
+				if(data.success){
 					alert("修改成功");
 				}else{
 					alert(data.msg);
@@ -95,7 +95,7 @@ $(function(){
 		});
 	}
 	$("#userLineSave").on("click",function(){
-		saveLine($('#userLine').val());
+	    save($('#userLine').val());
 	})
 	
 })

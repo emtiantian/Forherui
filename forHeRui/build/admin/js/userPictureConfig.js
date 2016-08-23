@@ -16,11 +16,7 @@ $(function(){
 		data:{"userId":""},
 		dataType:"json",
 		success:function(data){
-			if(data.success){
 				adminLine=data;
-			}else{
-				dateError(data);
-			}						
 		}
 	});
 
@@ -32,11 +28,7 @@ $(function(){
 		data:{},
 		dataType:"json",
 		success:function(data){
-			if(data.success){
-				initUserTable(data);
-			}else{
-				dateError(data);
-			}				
+			initUserTable(data);
 		}
 	});
 	
@@ -73,8 +65,8 @@ $(function(){
 	//用户线路树形多选初始化
 	function initUserLine(adminLine,data){
 		var htmlselect=$("#selectMuban").clone();
-		if(adminLine.data.userLine){
-			$.each(adminLine.data.userLine,function(i,ele){
+		if(adminLine.data){
+			$.each(adminLine.data,function(i,ele){
 				var htmlselect=$("#selectMuban").clone();
 				$.each(ele.machine, function(i2,ele2) {
 					console.log(ele.line.lineName);
@@ -94,7 +86,7 @@ $(function(){
 			})
 			//变量用户已经选择的机器 吧当前的机器标记为选中
 			var optionEle=$("#userLine").find("optgroup").find("option");
-			$.each(data.data.userLine,function(i,ele){
+			$.each(data.data,function(i,ele){
 				$.each(ele.machine, function(i2,ele2) {
 					if(ele2.select){
 						$.each(optionEle, function(i3,ele3) {
@@ -157,14 +149,13 @@ $(function(){
 			dataType:"json",
 			data:{"userId":$("#userId").val(),"machineId":machineIds},
 			success:function(data){
-				if(daa.success){
+				if(data.success){
 					alert("修改成功 3秒后刷新");
 					setTimeout(function(){
 						location.reload();
 					},3000);
 				}else{
-					dataError(data);
-//					alert(data.msg);
+					alert(data.msg);
 					console.log(data.code);
 				}
 			}
@@ -189,16 +180,15 @@ $(function(){
 			data:{"userId":$(this).attr("id")},
 			dataType:"json",
 			success:function(data){
-				isAjax=false;				
-				if(daa.success){
-						//初始化线路管理员与当前用户的线路关系				
-						initUserLine(adminLine,data);
-					}else{
-						dataError(data);				
-						console.log(data.code);
-					}
-				}
-			});
+//				console.log("接到数据了!");
+//				console.dir(data);
+				isAjax=false;
+				//初始化线路管理员与当前用户的线路关系
+				initUserLine(adminLine,data);
+			
+//				initLine(adminLine,data);
+			}
+		});
 		}else{
 			alert("正在获取数据 请稍后");
 		}

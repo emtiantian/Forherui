@@ -16,11 +16,7 @@ $(function(){
 		data:{"userId":""},
 		dataType:"json",
 		success:function(data){
-			if(data.success){
 				adminLine=data;
-			}else{
-				dataError(data);
-			}			
 		}
 	});
 
@@ -32,11 +28,7 @@ $(function(){
 		data:{},
 		dataType:"json",
 		success:function(data){
-			if(data.success){
-					initUserTable(data);
-			}else{
-				dataError(data);
-			} 	
+			initUserTable(data);
 		}
 	});
 	
@@ -73,8 +65,8 @@ $(function(){
 	//用户线路树形多选初始化
 	function initUserLine(adminLine,data){
 		var htmlselect=$("#selectMuban").clone();
-		if(adminLine.data.userLine){
-			$.each(adminLine.data.userLine,function(i,ele){
+		if(adminLine.data){
+			$.each(adminLine.data,function(i,ele){
 				var htmlselect=$("#selectMuban").clone();
 				$.each(ele.machine, function(i2,ele2) {
 					console.log(ele.line.lineName);
@@ -158,12 +150,10 @@ $(function(){
 			data:{"userId":$("#userId").val(),"machineId":machineIds},
 			success:function(data){
 				if(daa.success){
-					alert("修改成功 3s后刷新本页");
-					setTimeout(function(){
-						location.reload();
-					},3000);
+					alert("修改成功");
 				}else{
-					dataError(data);
+					alert(data.msg);
+					console.log(data.code);
 				}
 			}
 		});
@@ -190,12 +180,9 @@ $(function(){
 //				console.log("接到数据了!");
 //				console.dir(data);
 				isAjax=false;
-				//初始化线路管理员与当前用户的线路关系				
-	  			if(data.success){
-					initUserLine(adminLine,data);
-				}else{
-					dataError(data);
-				}								
+				//初始化线路管理员与当前用户的线路关系
+				initUserLine(adminLine,data);
+			
 //				initLine(adminLine,data);
 			}
 		});

@@ -33,7 +33,8 @@ $(function(){
 					if(data.success){
 							alert("修改成功");							
 					}else{
-						dataError(data);
+					    alert(data.msg);
+					    console.log(data.code);
 					}
 				}
 				

@@ -39,8 +39,7 @@ $(function(){
 		
 		$.each(data.data,function(i,ele){
 			var tdHtml="";		
-//			tdHtml+='<td id="userid">'+ele.userId+'</td>';
-			tdHtml+='<td id="">'+(i+1)+'</td>';
+			tdHtml+='<td id="userid">'+ele.userId+'</td>';
 			tdHtml+='<td ><input class="form-control sm" id="userLoginName" type="text" value="' + ele.userLoginName + '" /></td>';
 			tdHtml+='<td ><input class="form-control sm" id="name" type="text" value="' + ele.name + '" /></td>';
 			switch (ele.level){
@@ -113,10 +112,10 @@ $(function(){
 			
 		})
 		$('#userTable').dataTable( {
-        "aaSorting": [[ 0, "asc" ]]
+        "aaSorting": [[ 0, "desc" ]]
     	});
     	$('#userWecatTable').dataTable( {
-        "aaSorting": [[ 0, "asc" ]]
+        "aaSorting": [[ 0, "desc" ]]
     	});
 	}
 	//初始化可选等级

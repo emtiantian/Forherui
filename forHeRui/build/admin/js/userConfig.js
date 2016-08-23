@@ -175,7 +175,7 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 				if(data.success){
-					alert("删除成功 3秒后刷新页面");
+					alert("密码重置成功 3秒后刷新页面");
 					setTimeout(function(){
 						location.reload();
 					},3000);
