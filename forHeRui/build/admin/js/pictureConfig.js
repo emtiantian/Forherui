@@ -95,7 +95,7 @@ $(function(){
 		});
 	}
 	$("#userLineSave").on("click",function(){
-		saveLine($('#userLine').val());
+		save($('#userLine').val());
 	})
 	
 })
