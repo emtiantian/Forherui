@@ -117,3 +117,12 @@ $(function(){
 		loginOut();
 	})
 })
+//错误处理
+	function dataError(data){
+		if(data.code == 2){
+			alert("未登录！请重新登录")
+			location.href='login.html';
+		}else{
+			alert(data.msg);
+		}
+	}

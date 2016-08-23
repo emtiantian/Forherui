@@ -86,7 +86,7 @@ $(function(){
 			})
 			//变量用户已经选择的机器 吧当前的机器标记为选中
 			var optionEle=$("#userLine").find("optgroup").find("option");
-			$.each(data.data.userLine,function(i,ele){
+			$.each(data.data,function(i,ele){
 				$.each(ele.machine, function(i2,ele2) {
 					if(ele2.select){
 						$.each(optionEle, function(i3,ele3) {

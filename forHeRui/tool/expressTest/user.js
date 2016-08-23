@@ -26,7 +26,7 @@ var log = require('./log');
 		}
 	}
 	//模拟用户线路信息
-	var userLineJson={"userLine":[
+	var userLineJson=[
 			{
 				"line":{
 					"lineId" :"12",
@@ -91,7 +91,7 @@ var log = require('./log');
 				]
 			}
 		]
-	}
+	
 	
 	//模拟menuList
 	var menuListJson=
@@ -259,15 +259,15 @@ var log = require('./log');
 		"userid": "herui",
 		"name": "何瑞",
 		"department": null,
-		"Position": "",
-		"Gender": 1,
-		"Mobile": "15726699262",
-		"Email": "",
-		"WeixinID": "wxid_0dlzp5mo11hi22",
-		"Avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+		"position": "",
+		"gender": 1,
+		"mobile": "15726699262",
+		"email": "",
+		"weixinID": "wxid_0dlzp5mo11hi22",
+		"avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
 		"status": 1,
 		"extattr": null,
-		"Disable": false
+		"disable": false
 	},
 	"ParnetID": 1
 }, {
@@ -279,15 +279,15 @@ var log = require('./log');
 		"userid": "",
 		"name": "",
 		"department": null,
-		"Position": "",
-		"Gender": 1,
-		"Mobile": "",
-		"Email": "",
-		"WeixinID": "",
-		"Avatar": "",
+		"position": "",
+		"gender": 1,
+		"mobile": "",
+		"email": "",
+		"weixinID": "",
+		"avatar": "",
 		"status": 4,
 		"extattr": null,
-		"Disable": false
+		"disable": false
 	},
 	"ParnetID": 0
 }, {
@@ -299,15 +299,15 @@ var log = require('./log');
 		"userid": "",
 		"name": "",
 		"department": null,
-		"Position": "",
-		"Gender": 1,
-		"Mobile": "",
-		"Email": "",
-		"WeixinID": "",
-		"Avatar": "",
+		"position": "",
+		"gender": 1,
+		"mobile": "",
+		"email": "",
+		"weixinID": "",
+		"avatar": "",
 		"status": 4,
 		"extattr": null,
-		"Disable": false
+		"disable": false
 	},
 	"ParnetID": 0
 }]
@@ -411,15 +411,15 @@ function userList(jsonStr){
 			"userid": "herui",
 			"name": "何瑞",
 			"department": null,
-			"Position": "",
-			"Gender": 1,
-			"Mobile": "15726699262",
-			"Email": "",
-			"WeixinID": "wxid_0dlzp5mo11hi22",
-			"Avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+			"position": "",
+			"gender": 1,
+			"mobile": "15726699262",
+			"email": "",
+			"weixinID": "wxid_0dlzp5mo11hi22",
+			"avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
 			"status": 1,
 			"extattr": null,
-			"Disable": false
+			"disable": false
 		},
 		"ParnetID": 1
 	}, {
@@ -431,15 +431,15 @@ function userList(jsonStr){
 			"userid": "",
 			"name": "",
 			"department": null,
-			"Position": "",
-			"Gender": 1,
-			"Mobile": "",
-			"Email": "",
-			"WeixinID": "",
-			"Avatar": "",
+			"position": "",
+			"gender": 1,
+			"mobile": "",
+			"email": "",
+			"weixinID": "",
+			"avatar": "",
 			"status": 4,
 			"extattr": null,
-			"Disable": false
+			"disable": false
 		},
 		"ParnetID": 0
 	}, {
@@ -451,15 +451,15 @@ function userList(jsonStr){
 			"userid": "",
 			"name": "",
 			"department": null,
-			"Position": "",
-			"Gender": 1,
-			"Mobile": "",
-			"Email": "",
-			"WeixinID": "",
-			"Avatar": "",
+			"position": "",
+			"gender": 1,
+			"mobile": "",
+			"email": "",
+			"weixinID": "",
+			"avatar": "",
 			"status": 4,
 			"extattr": null,
-			"Disable": false
+			"disable": false
 		},
 		"ParnetID": 0
 	}]

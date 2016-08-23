@@ -37,7 +37,7 @@ $(function(){
 		var html="";
 		//加载数据
 		$.each(data.data, function(i,ele) {		
-			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userid+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
+			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userId+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
 		});
 		$("#userList").append(html);
 		//初始化数据table

@@ -62,11 +62,11 @@ $(function(){
 			tdHtml +='<td><button id="'+ele.userId+'" class="userEdit btn btn-primary">基本信息修改</button><button id="'+ele.userId+'" class="pwdEdit btn btn-primary">重置密码</button><button id="'+ele.userId+'" class="deleteEdit btn btn-primary">删除</button></td>'
 			$("#userList").append("<tr>"+tdHtml+"</tr>");
 				var tdHtml2="";
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_userid" type="text" value="' + ele.Wechat.userid + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_userid" type="text" value="' + ele.Wechat.userId + '" /></td>';
 				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_name" type="text" value="' + ele.Wechat.name + '" /></td>';
 				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_department" type="text" value="' + ele.Wechat.department + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Position" type="text" value="' + ele.Wechat.Position + '" /></td>';
-				switch(ele.Wechat.Gender) {
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Position" type="text" value="' + ele.Wechat.position + '" /></td>';
+				switch(ele.Wechat.gender) {
 					case 1: 
 						tdHtml2 += '<td > <select id="Wechat_Gender"><option value="1" selected="selected">男</option><option value="2">女</option></select></td>';
 						break;
@@ -77,10 +77,10 @@ $(function(){
 						tdHtml2 += '<td>出错了</td>'
 						break;
 				}
-				tdHtml2 += '<td ><input class="form-control sm"  id="Wechat_Mobile" type="text" value="' + ele.Wechat.Mobile + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Email" type="text" value="' + ele.Wechat.Email + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_WeixinID" type="text" value="' + ele.Wechat.WeixinID + '" /><span style="color:red;">必填项<span></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Avatar" type="text" value="' + ele.Wechat.Avatar + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm"  id="Wechat_Mobile" type="text" value="' + ele.Wechat.mobile + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Email" type="text" value="' + ele.Wechat.email + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_WeixinID" type="text" value="' + ele.Wechat.weixinId + '" /><span style="color:red;">必填项<span></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Avatar" type="text" value="' + ele.Wechat.avatar + '" /></td>';
 				//1=已关注，2=已冻结，4=未关注
 				switch(ele.Wechat.status) {
 					case 1:
@@ -98,7 +98,7 @@ $(function(){
 				}
 	
 				tdHtml2 += '<td id="Wechat_extattr" >' + ele.Wechat.extattr + '</td>';
-				switch(ele.Wechat.Disable) {
+				switch(ele.Wechat.disable) {
 					case true:
 						tdHtml2 += '<td ><select id="Wechat_Disable" disabled><option value="true" selected="selected">已禁用</option><option value="false">未禁用</option></select></td>';
 						break;
@@ -171,7 +171,7 @@ $(function(){
 			type:"post",
 			url:baseUrl+"/user/ResetPwd",
 			async:true,
-			data:{"userID":userId},
+			data:{"userId":userId},
 			dataType:"json",
 			success:function(data){
 				if(data.success){
@@ -192,7 +192,7 @@ $(function(){
 			type:"post",
 			url:baseUrl+"/user/Edit",
 			async:true,
-			data:{"userID":userId,"userLoginName":userLoginName,"name":name},
+			data:{"userId":userId,"userLoginName":userLoginName,"name":name},
 			dataType:"json",
 			success:function(data){
 				if(data.success){
