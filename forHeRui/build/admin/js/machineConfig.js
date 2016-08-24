@@ -2,6 +2,7 @@ $(function(){
 	//基础url
 	var baseUrl = config.get("baseUrl");
 	
+	var machineTable="";
 	$.ajax({
 			type:"post",
 			url:baseUrl+"/user/get",
@@ -53,7 +54,7 @@ $(function(){
 				}								
 			})
 			html+='<td >'+machine+'</td>';
-			html+='<td ><button id="'+ele.lineid+'" dataName="'+ele.name+'" class="addMachine btn btn-primary">添加机器</button><button id="'+ele.lineid+'" class="selectMachine btn btn-primary">查看机器</button></td>';			
+			html+='<td ><button id="'+ele.lineid+'" dataName="'+ele.name+'" class="addMachine btn btn-primary">添加设备</button><button id="'+ele.lineid+'" lineName="'+ele.name+'" class="selectMachine btn btn-primary">查看设备</button></td>';			
 			$("#lineList").append("<tr>"+html+"</tr>");
 		});
 		$("#lineTable").dataTable( {
@@ -83,11 +84,55 @@ $(function(){
 		$("#createMachineDiv").show();
 	}
 	//{"success":true,"code":0,"msg":"","data":[{"machineComment":"","machineGPS":null,"machinePosition":null,"Tower":"57#","productComp":"","CompID":"A0000000000000056","InstallTime":"2016-08-18T14:52:01","InstallUser":"何瑞","State":"2","machineId":11,"code":"bj_Test2","machineName":"Test"}]}
-	function machineListInit(data){
+	function machineListInit(data,lineName){
 		hideAll()
+		
+		if(machineTable != ""){
+				machineTable.fnDestroy();
+		}
+		$("#machineList").html("");
 		$.each(data.data, function(i,ele) {
-			
+			//名称、编码、简介、生产厂家、出厂编码、安装者、安装时间
+			var html=""
+			html+='<td>'+lineName+'</td>';
+			html+='<td><input class="form-control sm" id="editmachineName" type="text" value="' + ele.machineName + '" /></td>'
+			html+='<td><input class="form-control sm" id="code" type="text" value="' + ele.code + '" /></td>'
+			html+='<td><input class="form-control sm" id="editmachineComment" type="text" value="' + ele.machineComment + '" /></td>'
+			html+='<td><input class="form-control sm" id="productComp" type="text" value="' + ele.productComp + '" /></td>'
+			html+='<td><input class="form-control sm" id="CompID" type="text" value="' + ele.CompID + '" /></td>'
+			html+='<td>' + ele.InstallUser + '</td>'
+			html+='<td>' + ele.InstallTime + '</td>'
+			html+='<td><input class="form-control sm" id="tower" type="text" value="' + ele.Tower + '" /></td>'
+			html+='<td ><button id="'+ele.machineId+'" dataName="'+ele.machineName+'" class="editMachine btn btn-primary">修改设备</button><button id="'+ele.machineId+'" class="deletMachine btn btn-primary">删除设备</button>'
+			if(ele.InstallUser == ""){
+				html+='<button id="'+ele.machineId+'" class="installMachine btn btn-primary" data-toggle="modal" data-target="#myModal" >安装设备</button></td>';
+			}else{
+				html+='</td>'
+			}
+			$("#machineList").append("<tr>"+html+"</tr>");		
 		});
+		
+		
+		machineTable = $("#machineTable").dataTable( {
+        "aaSorting": [[ 0, "asc" ]],
+        "oLanguage" : {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sZeroRecords": "没有检索到数据",
+                 "sSearch": "名称:",
+                "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "前一页",
+                "sNext": "后一页",
+                "sLast": "尾页"
+                }
+               }
+        
+    	});
+    	
 		$("#editMachineDiv").show();
 	};
 	
@@ -97,56 +142,132 @@ $(function(){
 	}
 	
 	
-	function machineList(lineId){
+	function machineList(lineId,lineName){
 		$.ajax({
 			type:"post",
-			url:baseUrl+"machine/list",
+			url:baseUrl+"/machine/list",
 			async:true,
 			data:{"lineId":lineId},
 			dataType:"json",
 			success:function(data){
 				if(data.success){
-					machineListInit(data);
+					machineListInit(data,lineName);
 				}else{
 					dataError(data);
 				}
 			}
 		});	
 	}
-	
-	function editMachine(){
+	//{"machineId":"17","machineName":"","code":"bj_Test7","machineComment":"说明","productComp":"cc","compID":"A000000","tower":"dd"}
+	function editMachine(machineId,machineName,code,machineComment,productComp,compID,tower){
 		$.ajax({
 			type:"post",
-			url:baseUrl+"",
+			url:baseUrl+"/machine/Update",
 			async:true,
-			data:{},
+			data:{"machineId":machineId,"machineName":machineName,"code":code,"machineComment":machineComment,"productComp":productComp,"compID":compID,"tower":tower},
 			dataType:"json",
 			success:function(data){
 				if(data.success){
-					
+					alert("修改设备成功")
 				}else{
 					dataError(data);
 				}
 			}
 		});
 	}
-	function createMachine(){
+	function createMachine(lineId,machines){
 		$.ajax({
 			type:"post",
-			url:baseUrl+"",
-			async:true
+			url:baseUrl+"/machine/create",
+			async:true,
+			dataType:"json",
+			data:{"lineID":lineId,"machines":machines},
+			succsee:function(data){
+				if(data.success){
+					alert("创建设备成功 id：" + data.data)
+				}else{
+					dataError(data);
+				}
+			}
 		});
 	}
-	
+	function deleteMachine(machineId){
+		$.ajax({
+			type:"post",
+			url:baseUrl+"/machine/delete",
+			async:true,
+			data:{"machineId":machineId},
+			dataType:"json",
+			success:function(data){
+				if(data.success){
+					alert("删除设备成功 3秒后刷新")
+					setTimeout(function(){
+						location.reload();
+					},3000)
+				}else{
+					dataError(data);
+				}
+			}
+		});
+	}
+	function installMachine(machineId,user){
+		$.ajax({
+			type:"post",
+			url:baseUrl+"/machine/install",
+			async:true,
+			dataType:"json",
+			data:{"machineId":machineId,"user":user},
+			success:function(){
+				if(data.success){
+					alert("安装设备成功 3秒后刷新")
+					setTimeout(function(){
+						location.reload();
+					},3000)
+				}else{
+					dataError(data);
+				}
+			}
+		});
+	}
 	
 	$(document).on("click",".addMachine",function(){
 		crateMachineInit($(this).attr("id"),$(this).attr("dataName"))
 		
 	})
 	$(document).on("click",".selectMachine",function(){
-		machineList($(this).attr("id"));
+		machineList($(this).attr("id"),$(this).attr("lineName"));
 	})
 	$("#createMachine").on("click",function(){
-		
+		var lineId = $("#lineId").val()
+		,machines = {}
+		machines.machineName=$("#machineName").val()
+		machines.code=$("#machineCode").val()
+		machines.machineComment=$("#machineComment").val()
+		machines.productComp=$("#machineProductComp").val()
+		machines.compID=$("#machineCompID").val()
+		machines.tower=$("#machineTower").val()
+		createMachine(lineId,machines)
+	})
+	$(document).on("click",".editMachine",function(){
+		var machineId = $(this).attr("id")
+		,machineName = $(this).parent().parent().find("#editmachineName").val()
+		,code = $(this).parent().parent().find("#code").val()
+		,machineComment =$(this).parent().parent().find("#editmachineComment").val()
+		,productComp = $(this).parent().parent().find("#productComp").val()
+		,compID = $(this).parent().parent().find("#compID").val()
+		,tower =$(this).parent().parent().find("#tower").val()
+		editMachine(machineId,machineName,code,machineComment,productComp,compID,tower);
+	})
+	$(document).on("click",".deletMachine",function(){
+		deleteMachine($(this).attr("id"));
+	})
+	
+	//需要弹出框
+	$(document).on("click",".installMachine",function(){
+		 $("#mymodal").modal("toggle");
+		 $("#installId").val($(this).attr("id"));
+	})
+	$("#install").on("click",function(){
+		installMachine($("#installId").val(),$("#installUser").val());
 	})
 })

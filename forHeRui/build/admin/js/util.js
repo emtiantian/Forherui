@@ -49,18 +49,18 @@ $(function(){
 					$("#userImg").attr("src",data.data.wechat.avatar);
 					switch (data.data.level){
 						case "superAdmin":
-							$("#userLevel").append("<option value='user'>用户</option>")
+							$("#userLevel").append("<option value='user' selected='selected'>用户</option>")
 							$("#userLevel").append("<option value='lineAdmin'>线路管理员</option>")
 							$("#userLevel").append("<option value='admin'>管理员</option>")
 							$("#userLineAdmin").show();
 							break;
 						case "admin":
-							$("#userLevel").append("<option value='user'>用户</option>")
+							$("#userLevel").append("<option value='user' selected='selected'>>用户</option>")
 							$("#userLevel").append("<option value='lineAdmin'>线路管理员</option>")						
 							$("#userLineAdmin").show();
 							break;
 						case "lineAdmin":
-							$("#userLevel").append("<option value='user'>用户</option>")					
+							$("#userLevel").append("<option value='user' selected='selected'>>用户</option>")					
 							$("#userLineAdmin").hide();
 							break;	
 						default:

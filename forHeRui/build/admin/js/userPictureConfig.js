@@ -37,7 +37,7 @@ $(function(){
 		var html="";
 		//加载数据
 		$.each(data.data, function(i,ele) {		
-			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userId+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
+			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userId+' " userName="'+ele.name+'"  class=" btn btn-primary userSelect" >选择</button></td></tr>';		
 		});
 		$("#userList").append(html);
 		//初始化数据table
@@ -78,7 +78,7 @@ $(function(){
 //	}
 	
 	//用户线路树形多选初始化
-	function initUserLine(adminLine,data){
+	function initUserLine(adminLine,data,userName){
 		$("#userLine").html("");
 		var htmlselect=$("#selectMuban").clone();
 		if(adminLine.data){
@@ -100,6 +100,7 @@ $(function(){
 				console.log(htmlselect);
 				$("#userLine").append(htmlselect.html());
 			})
+			$("#selectUserName").html(userName);
 			//变量用户已经选择的机器 吧当前的机器标记为选中
 			var optionEle=$("#userLine").find("optgroup").find("option");
 			$.each(data.data,function(i,ele){
@@ -151,6 +152,7 @@ $(function(){
 			});
 			$('#userLine').multiSelect('refresh');
 			$('#userLine').show();
+			$("#pictureConfig").show();
 //			console.log($('#userLine').val());
 		}else{
 			alert("数据错误 请刷新重试")
@@ -189,6 +191,7 @@ $(function(){
 			isAjax=true;
 			//保存到 隐藏input中提交修改时使用
 			$("#userId").val($(this).attr("id"));
+			var userName = $(this).attr("userName")
 			//
 			$.ajax({
 			type:"post",
@@ -201,7 +204,7 @@ $(function(){
 //				console.dir(data);
 				isAjax=false;
 				//初始化线路管理员与当前用户的线路关系
-				initUserLine(adminLine,data);
+				initUserLine(adminLine,data,userName);
 			
 //				initLine(adminLine,data);
 			}

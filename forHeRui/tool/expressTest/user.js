@@ -503,6 +503,58 @@ function userGet(){
 	return success;
 }
 
+function userListByLevel(){
+	var success={
+	"success": true,
+	"code": 0,
+	"msg": "",
+	"data": [{
+		"userId": 1,
+		"userLoginName": "admin",
+		"name": "何瑞1",
+		"level": "lineAdmin",
+		"wechat": {
+			"userId": "herui",
+			"name": "何瑞",
+			"department": null,
+			"position": "",
+			"gender": 1,
+			"mobile": "15726699262",
+			"email": "",
+			"weixinId": "wxid_0dlzp5mo11hi22",
+			"avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+			"status": 1,
+			"extattr": null,
+			"disable": false
+		},
+		"parnetId": 0
+	},
+	{
+		"userId": 2,
+		"userLoginName": "admin",
+		"name": "何瑞2",
+		"level": "lineAdmin",
+		"wechat": {
+			"userId": "herui",
+			"name": "何瑞",
+			"department": null,
+			"position": "",
+			"gender": 1,
+			"mobile": "15726699262",
+			"email": "",
+			"weixinId": "wxid_0dlzp5mo11hi22",
+			"avatar": "http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/",
+			"status": 1,
+			"extattr": null,
+			"disable": false
+		},
+		"parnetId": 0
+	}	
+	]
+}
+	return success;
+}
+
 //定义   
 exports.userLogin = userLogin;
 exports.menuList = menuList;
@@ -510,3 +562,4 @@ exports.userLine = userLine;
 exports.userList = userList;
 exports.userLogout = userLogout;
 exports.userGet = userGet;
+exports.userListByLevel = userListByLevel;

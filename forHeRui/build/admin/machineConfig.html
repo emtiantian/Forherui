@@ -34,6 +34,8 @@
   <script src="js/respond.min.js"></script>
   <![endif]-->
 </head>
+<!--弹出框-->
+
 
 <body class="sticky-header">
 
@@ -156,7 +158,9 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">                         
-                            <li><a href="weChatConfig.html"><i class="fa fa-cog"></i>设置</a></li>
+                           <li><a href="weChatConfig.html"><i class="fa fa-cog"></i>微信设置</a></li>
+                            <li><a href="pictureConfig.html"><i class="fa fa-cog"></i>接收图片设置</a></li>
+                            <li><a href="editPwd.html"><i class="fa fa-cog"></i>密码设置</a></li>
                             <li><a href="#" id="logout"><i class="fa fa-sign-out"></i>登出</a></li>
                         </ul>
                     </li>
@@ -183,9 +187,9 @@
             	</div>
 							<div class="selectUldiv">
 								<select class="form-control input-sm m-bot15">
-									<option selected="selected">机器 1</option>
-									<option>机器 2</option>
-									<option>机器 3</option>
+									<option selected="selected">设备 1</option>
+									<option>设备 2</option>
+									<option>设备 3</option>
 								</select> 
 							</div>		
             </div>
@@ -193,7 +197,27 @@
         <!-- page heading end-->
 
         <!--body wrapper start-->
-        <div class="wrapper">
+        <div class="wrapper">       	
+					<div class="modal" id="mymodal">
+					    <div class="modal-dialog">
+					        <div class="modal-content">
+					            <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+									<h4 class="modal-title">安装人</h4>
+								</div>
+								<div class="modal-body">
+									<p>安装人</p>
+									<input type="hidden" class="form-control" placeholder="安装人" id="installId" value="">
+									<input type="text" class="form-control" placeholder="安装人" id="installUser">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									<button type="button" class="btn btn-primary" id="install">保存</button>
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+        	
             <div class="row">
 		        <div class="col-sm-12">
 			        <section class="panel">
@@ -213,7 +237,7 @@
 												<th>线路名称</th>
 												<th>线路说明</th>
 												<th>线路编号</th>
-												<th>线路机器</th>
+												<th>线路设备</th>
 												
 								        <th>操作</th>			                
 								            </tr>
@@ -224,7 +248,7 @@
 												<th>线路名称</th>
 												<th>线路说明</th>
 												<th>线路编号</th>
-												<th>线路机器</th>																		
+												<th>线路设备</th>																		
 								        <th>操作</th>	
 								            </tr>
 								        </tfoot>
@@ -241,7 +265,7 @@
 			  	 <div class="col-sm-12">
 			        <section class="panel displayDiv" id="createMachineDiv" >
 			        <header class="panel-heading">
-			            	创建机器
+			            	创建设备
 			            <span class="tools pull-right">
 			                <a href="javascript:;" class="fa fa-chevron-down"></a>
 			                <!--<a href="javascript:;" class="fa fa-times"></a>-->
@@ -262,22 +286,22 @@
 								<input type="text" class="form-control" placeholder="线路名称" id="lineName" disabled="disabled">
 							</div>
 							<div class="col-md-6 form-group textCenter textCenter">
-								机器名称
+								设备名称
 							</div>	
 							<div class="col-md-6 form-group textCenter textCenter">
-								<input type="text" class="form-control" placeholder="用户名" id="machineName">
+								<input type="text" class="form-control" placeholder="设备名称" id="machineName">
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								机器code
+								设备code
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<input type="text" class="form-control" placeholder="机器code" id="machineCode">
+								<input type="text" class="form-control" placeholder="设备code" id="machineCode">
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								机器简介
+								设备简介
 							</div>					
 							<div class="col-md-6 form-group textCenter">
-								<input type="text" class="form-control" placeholder="机器简介" id="machineComment">
+								<input type="text" class="form-control" placeholder="设备简介" id="machineComment">
 							</div>
 							<div class="col-md-6 form-group textCenter">
 								厂家
@@ -298,7 +322,7 @@
 								<input type="text" class="form-control" placeholder="塔杆" id="machineTower">
 							</div>
 							<div class="col-md-12 form-group textCenter">
-								<button id="createMachine" class="btn btn-primary"> 创建机器</button>
+								<button id="createMachine" class="btn btn-primary"> 创建设备</button>
 							</div>						
 						</div>
 					</div>
@@ -307,9 +331,9 @@
 		    </div>
 		                <div class="row">
 		        <div class="col-sm-12">
-			        <section class="panel" id="editMachineDiv">
+			        <section class="panel displayDiv" id="editMachineDiv">
 				        <header class="panel-heading">
-				            	机器修改
+				            	设备修改
 				            <span class="tools pull-right">
 				                <a href="javascript:;" class="fa fa-chevron-down"></a>
 				                <!--<a href="javascript:;" class="fa fa-times"></a>-->
@@ -320,38 +344,30 @@
 						        <table  class="table table-striped table-bordered" cellspacing="0" width="100%" id="machineTable">
 								      <thead>
 								        <tr>							            	
-												<th>#</th>
-												<th>机器简介</th>
-												<th>机器gps</th>
-												<th>机器位置</th>
-												<th>机器塔杆</th>
-												<th>机器厂商</th>
-												<th>机器初始id</th>
-												<th>机器创建时间</th>
-												<th>机器创建人</th>
-												<th>机器状态</th>														
-												<th>机器id</th>
-												<th>机器code</th>
-												<th>机器名字</th>
+												<th>所属线路名称</th>
+												<th>设备名字</th>
+												<th>设备编码</th>
+												<th>设备简介</th>
+												<th>设备厂商</th>
+												<th>设备初始id</th>																									
+												<th>设备安装者</th>
+												<th>设备安装时间</th>
+												<th>设备塔杆</th>																													
 								        <th>操作</th>		
 								        
 								            </tr>
 								      </thead>
 								        <tfoot>
 								            <tr>
-								        <th>#</th>
-												<th>机器简介</th>
-												<th>机器gps</th>
-												<th>机器位置</th>
-												<th>机器塔杆</th>
-												<th>机器厂商</th>
-												<th>机器初始id</th>
-												<th>机器创建时间</th>
-												<th>机器创建人</th>
-												<th>机器状态</th>														
-												<th>机器id</th>
-												<th>机器code</th>
-												<th>机器名字</th>
+								    		<th>所属线路名称</th>
+												<th>设备名字</th>
+												<th>设备编码</th>
+												<th>设备简介</th>
+												<th>设备厂商</th>
+												<th>设备初始id</th>																									
+												<th>设备安装者</th>
+												<th>设备安装时间</th>
+												<th>设备塔杆</th>																													
 								        <th>操作</th>	
 								        </tr>
 								        </tfoot>
@@ -402,6 +418,8 @@
 基础js
 -->
 <!--dynamic table-->
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-transition.js"></script>
 <script type="text/javascript" language="javascript" src="js/advanced-datatable/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
 

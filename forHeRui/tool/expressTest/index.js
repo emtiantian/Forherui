@@ -7,6 +7,8 @@ var userController = require("./user");
 var wechatController = require("./wechat");
 //line控制器
 var lineController = require("./line");
+//mcahine控制器
+var machineController = require("./machine");
 
 
 
@@ -117,7 +119,10 @@ app.post("/user/logout",function(req,res){
 app.post("/user/get",function(req,res){
 	res.json(userController.userGet());
 })
-
+//用户分类
+app.post("/user/ListByLevel",function(req,res){
+	res.json(userController.userListByLevel());
+})
 
 
 
@@ -159,3 +164,9 @@ app.post("/Line/create",function(req,res){
 	res.json(lineController.lineCreate());
 })
 
+
+
+//模拟机器
+app.post('/machine/list',function(req,res){
+	res.json(machineController.machineList());
+})
