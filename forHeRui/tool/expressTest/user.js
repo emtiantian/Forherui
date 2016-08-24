@@ -26,7 +26,7 @@ var log = require('./log');
 		}
 	}
 	//模拟用户线路信息
-	var userLineJson={"userLine":[
+	var userLineJson=[
 			{
 				"line":{
 					"lineId" :"12",
@@ -91,7 +91,7 @@ var log = require('./log');
 				]
 			}
 		]
-	}
+	
 	
 	//模拟menuList
 	var menuListJson=
