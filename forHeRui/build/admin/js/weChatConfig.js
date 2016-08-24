@@ -2,6 +2,14 @@ $(function(){
 	//基础url
 	var baseUrl = config.get("baseUrl");
 	
+	function dataError(data){
+		if(data.code == 2){
+			alert("未登录！请重新登录")
+			location.href='login.html';
+		}else{
+			alert(data.msg);
+		}
+	}
 	$.ajax({
 		type:"post",
 		url:baseUrl+"/wechat/user/list",
@@ -13,7 +21,7 @@ $(function(){
 				console.log(data.data);
 				tableInit(data);
 			}else{
-				alert(data.msg)
+				dataError(data);
 			}
 		}
 	});
@@ -44,7 +52,7 @@ $(function(){
 //			}						
 			
 		
-			tdHtml += '<td ><input class="form-control" id="Wechat_userid" type="text" value="' + ele.userid + '" /></td>';
+			tdHtml += '<td ><input class="form-control" id="Wechat_userid" type="text" value="' + ele.userId + '" /></td>';
 			tdHtml += '<td ><input class="form-control" id="Wechat_name" type="text" value="' + ele.name + '" /></td>';
 			tdHtml += '<td ><input class="form-control" id="Wechat_department" type="text" value="' + ele.department + '" disabled/></td>';
 			tdHtml += '<td ><input class="form-control" id="Wechat_Position" type="text" value="' + ele.position + '" disabled/></td>';
@@ -61,7 +69,7 @@ $(function(){
 			}
 			tdHtml += '<td ><input class="form-control" id="Wechat_Mobile" type="text" value="' + ele.mobile + '" /></td>';
 			tdHtml += '<td ><input class="form-control" id="Wechat_Email" type="text" value="' + ele.email + '" /></td>';
-			tdHtml += '<td ><input class="form-control" id="Wechat_WeixinID" type="text" value="' + ele.weixinid + '" /><span style="color:red;">必填项<span></td>';
+			tdHtml += '<td ><input class="form-control" id="Wechat_WeixinID" type="text" value="' + ele.weixinId + '" /><span style="color:red;">必填项<span></td>';
 			tdHtml += '<td ><input class="form-control" id="Wechat_Avatar" type="text" value="' + ele.avatar + '" /></td>';
 			//1=已关注，2=已冻结，4=未关注
 //			switch(ele.status) {

@@ -19,20 +19,21 @@ $(function(){
 			}
 		}
 	});
-//	$.ajax({
-//		type:"post",
-//		url:baseUrl+"/accout/get",
-//		async:true,
-//		data:{},
-//		dataType:"json",
-//		success:function(data){
-//			if(data.success){
-//				initUserLeve(data);				
-//			}else{
-//				dataError(data);
-//			}	
-//		}
-//	});
+	//初始化线路管理员
+	$.ajax({
+		type:"post",
+		url:baseUrl+"/user/ListByLevel",
+		async:true,
+		data:{"level":"lineAdmin"},
+		dataType:"json",
+		success:function(data){
+			if(data.success){				
+				$("#parnetId")			
+			}else{
+				dataError(data);
+			}	
+		}
+	});
 	
 //	var data= {"success":true,"code":0,"msg":"","data":[{"userId":1,"userLoginName":"admin","name":"何瑞","level":"superAdmin","Wechat":{"userid":"herui","name":"何瑞","department":null,"Position":"","Gender":1,"Mobile":"15726699262","Email":"","WeixinID":"wxid_0dlzp5mo11hi22","Avatar":"http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/","status":1,"extattr":null,"Disable":false},"ParnetID":1},{"userId":2,"userLoginName":"test11","name":"黎浩","level":"admin","Wechat":{"userid":"","name":"","department":null,"Position":"","Gender":1,"Mobile":"","Email":"","WeixinID":"","Avatar":"","status":4,"extattr":null,"Disable":false},"ParnetID":0},{"userId":4,"userLoginName":"lihao","name":"黎浩","level":"admin","Wechat":{"userid":"","name":"","department":null,"Position":"","Gender":1,"Mobile":"","Email":"","WeixinID":"","Avatar":"","status":4,"extattr":null,"Disable":false},"ParnetID":0}]}
 	function dataTabelInnt(data){
@@ -61,11 +62,11 @@ $(function(){
 			tdHtml +='<td><button id="'+ele.userId+'" class="userEdit btn btn-primary">基本信息修改</button><button id="'+ele.userId+'" class="pwdEdit btn btn-primary">重置密码</button><button id="'+ele.userId+'" class="deleteEdit btn btn-primary">删除</button></td>'
 			$("#userList").append("<tr>"+tdHtml+"</tr>");
 				var tdHtml2="";
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_userid" type="text" value="' + ele.Wechat.userid + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_name" type="text" value="' + ele.Wechat.name + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_department" type="text" value="' + ele.Wechat.department + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Position" type="text" value="' + ele.Wechat.Position + '" /></td>';
-				switch(ele.Wechat.Gender) {
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_userid" type="text" value="' + ele.wechat.userid + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_name" type="text" value="' + ele.wechat.name + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_department" type="text" value="' + ele.wechat.department + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Position" type="text" value="' + ele.wechat.position + '" /></td>';
+				switch(ele.wechat.gender) {
 					case 1: 
 						tdHtml2 += '<td > <select id="Wechat_Gender"><option value="1" selected="selected">男</option><option value="2">女</option></select></td>';
 						break;
@@ -76,12 +77,12 @@ $(function(){
 						tdHtml2 += '<td>出错了</td>'
 						break;
 				}
-				tdHtml2 += '<td ><input class="form-control sm"  id="Wechat_Mobile" type="text" value="' + ele.Wechat.Mobile + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Email" type="text" value="' + ele.Wechat.Email + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_WeixinID" type="text" value="' + ele.Wechat.WeixinID + '" /><span style="color:red;">必填项<span></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Avatar" type="text" value="' + ele.Wechat.Avatar + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm"  id="Wechat_Mobile" type="text" value="' + ele.wechat.mobile + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Email" type="text" value="' + ele.wechat.email + '" /></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_WeixinID" type="text" value="' + ele.wechat.weixinId + '" /><span style="color:red;">必填项<span></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Avatar" type="text" value="' + ele.wechat.avatar + '" /></td>';
 				//1=已关注，2=已冻结，4=未关注
-				switch(ele.Wechat.status) {
+				switch(ele.wechat.status) {
 					case 1:
 						tdHtml2 += '<td ><select id="Wechat_status" disabled><option value="1" selected="selected">已关注</option><option value="2">已冻结</option><option value="4">未关注</option></select></td>';
 						break;
@@ -96,8 +97,8 @@ $(function(){
 						break;
 				}
 	
-				tdHtml2 += '<td id="Wechat_extattr" >' + ele.Wechat.extattr + '</td>';
-				switch(ele.Wechat.Disable) {
+				tdHtml2 += '<td id="Wechat_extattr" >' + ele.wechat.extattr + '</td>';
+				switch(ele.wechat.disable) {
 					case true:
 						tdHtml2 += '<td ><select id="Wechat_Disable" disabled><option value="true" selected="selected">已禁用</option><option value="false">未禁用</option></select></td>';
 						break;
@@ -149,7 +150,7 @@ $(function(){
 			type:"post",
 			url:baseUrl+"/user/delete",
 			async:true,
-			data:{"userID":userId},
+			data:{"userId":userId},
 			dataType:"json",
 			success:function(data){
 				if(data.success){
@@ -170,7 +171,7 @@ $(function(){
 			type:"post",
 			url:baseUrl+"/user/ResetPwd",
 			async:true,
-			data:{"userID":userId},
+			data:{"userId":userId},
 			dataType:"json",
 			success:function(data){
 				if(data.success){
@@ -191,7 +192,7 @@ $(function(){
 			type:"post",
 			url:baseUrl+"/user/Edit",
 			async:true,
-			data:{"userID":userId,"userLoginName":userLoginName,"name":name},
+			data:{"userId":userId,"userLoginName":userLoginName,"name":name},
 			dataType:"json",
 			success:function(data){
 				if(data.success){
@@ -227,6 +228,32 @@ $(function(){
 			
 		});
 	}
+//	{"userLoginName":"lihao","name":"黎浩","level":"2"}
+
+	function createUser(userLoginName,name,level,parnetId ){
+		$.ajax({
+			type:"post",
+			url:baseUrl+"/user/create",
+			async:true,
+			data:{"userLoginName":userLoginName,"name":name,"level":level,"parnetId":parnetId},
+			dataType:"json",
+			success:function(data){
+				if(data.success){
+					alert("创建成功 3秒后刷新页面");
+					setTimeout(function(){
+						location.reload();
+					},3000);
+				}else{
+					dataError(data);
+				}
+			}
+			
+		});
+	}
+	
+	function initLineAdmin(){
+		
+	}
 	
 	$(document).on("click",".deleteEdit",function(){
 		deleteUser($(this).attr("id"));
@@ -253,6 +280,14 @@ $(function(){
 		,extattr  = $(this).parent().parent().find("#Wechat_extattr").val()
 		
 		weChatEdit(userId,userid,name,department,position,mobile,gender,email,weixinid,avatar,extattr);
+	})
+	$("#createUser").on("click",function(){
+		var userLoginName = $("#userLoginName")
+		var name = $("#userName")
+		var level = $("#userLevel")
+		var parnetId = $("#parnetId")
+		
+		createUser(userLoginName,name,level,parnetId)
 	})
 //	dataTabelInnt(data);
 })

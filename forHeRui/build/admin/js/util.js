@@ -34,6 +34,7 @@ $(function(){
 			}
 		});
 	}
+	//{"userId":1,"userLoginName":"admin","name":"何瑞","level":"superAdmin","wechat":{"userId":"herui","name":"何瑞","department":null,"position":"","gender":1,"mobile":"15726699262","email":"","weixinId":"wxid_0dlzp5mo11hi22","avatar":"http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/","status":1,"extattr":null,"disable":false},"ParnetID":1}}
 	//用户初始化
 	function userInit(){
 		$.ajax({
@@ -43,10 +44,9 @@ $(function(){
 			data:{},
 			dataType:"json",
 			success:function(data){
-				if(data.success){	
-					
+				if(data.success){						
 					$("#userName").html(data.data.name+"（"+data.data.userLoginName+"）");
-					$("#userImg").attr("src",data.data.Wechat.avatar);
+					$("#userImg").attr("src",data.data.wechat.avatar);
 					switch (data.data.level){
 						case "superAdmin":
 							$("#userLevel").append("<option value='user'>用户</option>")
@@ -94,8 +94,9 @@ $(function(){
 	
 	//错误处理
 	function dataError(data){
-		if(data.code == null){
-			
+		if(data.code == 2){
+			alert("未登录！请重新登录")
+			location.href='login.html';
 		}else{
 			alert(data.msg);
 		}
@@ -107,6 +108,8 @@ $(function(){
 	
 	
 	
+	
+	
 	userInit();
 	menuInit();
 	
@@ -114,3 +117,13 @@ $(function(){
 		loginOut();
 	})
 })
+//错误处理
+	function dataError(data){
+		if(data.code == 2){
+			alert("未登录！请重新登录")
+			location.href='login.html';
+		}else{
+			alert(data.msg);
+		}
+	}
+	

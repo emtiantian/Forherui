@@ -85,7 +85,7 @@ $(function(){
 			dataType:"json",
 			data:{"userId":"","machineId":machineIds},
 			success:function(data){
-				if(daa.success){
+				if(data.success){
 					alert("修改成功");
 				}else{
 					alert(data.msg);
@@ -95,7 +95,7 @@ $(function(){
 		});
 	}
 	$("#userLineSave").on("click",function(){
-		saveLine($('#userLine').val());
+	    save($('#userLine').val());
 	})
 	
 })

@@ -37,7 +37,7 @@ $(function(){
 		var html="";
 		//加载数据
 		$.each(data.data, function(i,ele) {		
-			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userid+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
+			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userId+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
 		});
 		$("#userList").append(html);
 		//初始化数据table
@@ -149,7 +149,7 @@ $(function(){
 			dataType:"json",
 			data:{"userId":$("#userId").val(),"machineId":machineIds},
 			success:function(data){
-				if(daa.success){
+				if(data.success){
 					alert("修改成功 3秒后刷新");
 					setTimeout(function(){
 						location.reload();

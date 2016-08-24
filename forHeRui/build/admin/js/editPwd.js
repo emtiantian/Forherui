@@ -31,9 +31,10 @@ $(function(){
 				data:{"userID":$("#userId").val(),'oldPass':$("#oldPwd").val(),"newPass":$("#newPwd1").val()},
 				success:function(data){
 					if(data.success){
-							alert("修改成功");
+							alert("修改成功");							
 					}else{
-						dataError(data);
+					    alert(data.msg);
+					    console.log(data.code);
 					}
 				}
 				
