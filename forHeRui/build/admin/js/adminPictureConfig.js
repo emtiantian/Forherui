@@ -37,12 +37,27 @@ $(function(){
 		var html="";
 		//加载数据
 		$.each(data.data, function(i,ele) {		
-			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userid+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
+			html+='<tr><td>'+ele.name+'</td><td><button id="'+ele.userId+' " class=" btn btn-primary userSelect" >选择</button></td></tr>';		
 		});
 		$("#userList").append(html);
 		//初始化数据table
 		$('#userTable').dataTable( {
-        "aaSorting": [[ 0, "desc" ]]
+        "aaSorting": [[ 0, "desc" ]],
+        "oLanguage" : {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sZeroRecords": "没有检索到数据",
+                 "sSearch": "名称:",
+                "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "前一页",
+                "sNext": "后一页",
+                "sLast": "尾页"
+                }
+               }
     } );
 	}
 	//线路管理员 管理线路初始化
@@ -64,6 +79,7 @@ $(function(){
 	
 	//用户线路树形多选初始化
 	function initUserLine(adminLine,data){
+		$("#userLine").html("");
 		var htmlselect=$("#selectMuban").clone();
 		if(adminLine.data){
 			$.each(adminLine.data,function(i,ele){
@@ -105,8 +121,7 @@ $(function(){
 			            $selectableSearch = that.$selectableUl.prev(),
 			            $selectionSearch = that.$selectionUl.prev(),
 			            selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
-			            selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
-			
+			            selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';						
 			        that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
 			            .on('keydown', function (e) {
 			                if (e.which === 40) {
@@ -133,6 +148,7 @@ $(function(){
 			    },
 			    selectableOptgroup: true
 			});
+			$('#userLine').multiSelect('refresh');
 			$('#userLine').show();
 //			console.log($('#userLine').val());
 		}else{
@@ -149,7 +165,7 @@ $(function(){
 			dataType:"json",
 			data:{"userId":$("#userId").val(),"machineId":machineIds},
 			success:function(data){
-				if(daa.success){
+				if(data.success){
 					alert("修改成功");
 				}else{
 					alert(data.msg);
@@ -160,7 +176,7 @@ $(function(){
 	}
 	//保存用户数据
 	$("#userLineSave").on("click",function(){
-		saveLine($('#userLine').val());
+		save($('#userLine').val());
 	})
 	//监听选中用户事件
 	$(document).on("click",".userSelect",function(){

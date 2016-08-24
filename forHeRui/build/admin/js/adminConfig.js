@@ -113,10 +113,40 @@ $(function(){
 			
 		})
 		$('#userTable').dataTable( {
-        "aaSorting": [[ 0, "desc" ]]
+        "aaSorting": [[ 0, "desc" ]],
+        "oLanguage" : {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sZeroRecords": "没有检索到数据",
+                 "sSearch": "名称:",
+                "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "前一页",
+                "sNext": "后一页",
+                "sLast": "尾页"
+                }
+               }
     	});
     	$('#userWecatTable').dataTable( {
-        "aaSorting": [[ 0, "desc" ]]
+        "aaSorting": [[ 0, "desc" ]],
+        "oLanguage" : {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sZeroRecords": "没有检索到数据",
+                 "sSearch": "名称:",
+                "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "前一页",
+                "sNext": "后一页",
+                "sLast": "尾页"
+                }
+               }
     	});
 	}
 	//初始化可选等级
@@ -250,9 +280,21 @@ $(function(){
 			
 		});
 	}
-	
-	function initLineAdmin(){
-		
+	//{"success":true,"code":0,"msg":"","data":[{"userId":1,"userLoginName":"admin","name":"何瑞","level":"superAdmin","wechat":{"userId":"herui","name":"何瑞","department":null,"position":"","gender":1,"mobile":"15726699262","email":"","weixinId":"wxid_0dlzp5mo11hi22","avatar":"http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/","status":1,"extattr":null,"disable":false},"parnetId":0}]}
+	function initLineAdmin(userLevel){
+		$.ajax({
+			type:"post",
+			url:baseUrl+"/user/ListByLevel",
+			async:true,
+			data:{"level":userLevel},
+			dataType:"json",
+			success:function(data){
+				$.each(data.data, function(i,ele) {
+					
+				});
+				$("#parnetId").append();
+			}
+		});
 	}
 	
 	$(document).on("click",".deleteEdit",function(){

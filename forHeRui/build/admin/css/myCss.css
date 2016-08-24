@@ -233,3 +233,22 @@ body{
 	background-size:100%100%;
 	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='1.jpg',sizingMethod='scale');
 }
+/*table 样式*/
+.dataTables_length{
+	width:40%;
+	float: left;
+}
+.dataTables_filter{
+	width:40%;
+	float: right;
+}
+ @media (max-width: 780px){
+ 	.dataTables_length{
+	width:100%;
+	float: left;
+	}
+	.dataTables_filter{
+		width:100%;
+		float: left;
+	}
+ }
