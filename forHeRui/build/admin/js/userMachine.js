@@ -54,7 +54,7 @@ $(function(){
 				}								
 			})
 			html+='<td >'+machine+'</td>';
-			html+='<td ><button id="'+ele.lineid+'" dataName="'+ele.name+'" class="addMachine btn btn-primary">添加设备</button><button id="'+ele.lineid+'" lineName="'+ele.name+'" class="selectMachine btn btn-primary">查看设备</button></td>';			
+			html+='<td ><button id="'+ele.lineid+'" lineName="'+ele.name+'" class="selectMachine btn btn-primary">查看设备</button></td>';			
 			$("#lineList").append("<tr>"+html+"</tr>");
 		});
 		$("#lineTable").dataTable( {
@@ -95,20 +95,20 @@ $(function(){
 			//名称、编码、简介、生产厂家、出厂编码、安装者、安装时间
 			var html=""
 			html+='<td>'+lineName+'</td>';
-			html+='<td><input class="form-control sm" id="editmachineName" type="text" value="' + ele.machineName + '" /></td>'
-			html+='<td><input class="form-control sm" id="code" type="text" value="' + ele.code + '" /></td>'
-			html+='<td><input class="form-control sm" id="editmachineComment" type="text" value="' + ele.machineComment + '" /></td>'
-			html+='<td><input class="form-control sm" id="productComp" type="text" value="' + ele.productComp + '" /></td>'
-			html+='<td><input class="form-control sm" id="CompID" type="text" value="' + ele.CompID + '" /></td>'
+			html+='<td>' + ele.machineName + '</td>'
+			html+='<td>' + ele.code + '</td>'
+			html+='<td>' + ele.machineComment + '</td>'
+			html+='<td>' + ele.productComp + '</td>'
+			html+='<td>' + ele.CompID + '</td>'
 			html+='<td>' + ele.InstallUser + '</td>'
 			html+='<td>' + ele.InstallTime + '</td>'
-			html+='<td><input class="form-control sm" id="tower" type="text" value="' + ele.Tower + '" /></td>'
-			html+='<td ><button id="'+ele.machineId+'" dataName="'+ele.machineName+'" class="editMachine btn btn-primary">修改设备</button><button id="'+ele.machineId+'" class="deletMachine btn btn-primary">删除设备</button>'
-			if(ele.InstallUser == ""){
-				html+='<button id="'+ele.machineId+'" class="installMachine btn btn-primary" data-toggle="modal" data-target="#myModal" >安装设备</button></td>';
-			}else{
-				html+='</td>'
-			}
+			html+='<td>' + ele.Tower + '</td>'
+//			html+='<td ><button id="'+ele.machineId+'" dataName="'+ele.machineName+'" class="editMachine btn btn-primary">修改设备</button><button id="'+ele.machineId+'" class="deletMachine btn btn-primary">删除设备</button>'
+//			if(ele.InstallUser == ""){
+//				html+='<button id="'+ele.machineId+'" class="installMachine btn btn-primary" data-toggle="modal" data-target="#myModal" >安装设备</button></td>';
+//			}else{
+//				html+='</td>'
+//			}
 			$("#machineList").append("<tr>"+html+"</tr>");		
 		});
 		

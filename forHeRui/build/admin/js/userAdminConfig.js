@@ -50,7 +50,7 @@ $(function(){
 				case "admin":
 				tdHtml+='<td id="level">管理员</td>';
 					break;
-				case 'linedmimn':
+				case 'lineAdmin':
 				tdHtml+='<td id="level">线路管理员</td>';
 					break;
 				case 'user':
@@ -156,15 +156,15 @@ $(function(){
 			switch (accoutData.level){
 				case "superAdmin":			
 				tdHtml+='<option value="admin">管理员</option>';
-				tdHtml+='<option value="linedmimn">线路管理员</option>';
+				tdHtml+='<option value="lineAdmin">线路管理员</option>';
 				tdHtml+='<option value="user">用户</option>';
 					break;
 				case "admin":
-					tdHtml+='<option value="linedmimn">线路管理员</option>';
+					tdHtml+='<option value="lineAdmin">线路管理员</option>';
 				tdHtml+='<option value="user">用户</option>';
 				
 					break;
-				case 'linedmimn':
+				case 'lineAdmin':
 				tdHtml+='<option value="user">用户</option>';
 					break;
 				case 'user':			
@@ -206,7 +206,7 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 				if(data.success){
-					alert("删除成功 3秒后刷新页面");
+					alert("重置成功 3秒后刷新页面");
 					setTimeout(function(){
 						location.reload();
 					},3000);
@@ -262,7 +262,8 @@ $(function(){
 	}
 //	{"userLoginName":"lihao","name":"黎浩","level":"2"}
 	//创建用户
-	function createUser(userLoginName,name,level,parnetId ){
+	//{"user":"0","userid":"111","name":"dd","department":"1","position":"工程师","mobile":"15726699265","gender":"1","email":"herui13@126.com","weixinid":"","avatar":"","extattr":""}
+	function createUser(userLoginName,name,level,parnetId,weChatGender,weChaTel,weChatEmial,weChatId ){
 		$.ajax({
 			type:"post",
 			url:baseUrl+"/user/create",
@@ -271,10 +272,23 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 				if(data.success){
-					alert("创建成功 3秒后刷新页面");
-					setTimeout(function(){
-						location.reload();
-					},3000);
+//					alert("创建成功 3秒后刷新页面");
+//					setTimeout(function(){
+//						location.reload();
+//					},3000);
+					$.ajax({
+						type:"post",
+						url:"",
+						async:true,
+						dataType:"json",
+						data:{"user":data.data.userId,"mobile":weChaTel,"gender":weChatGender,"email":weChatEmial,"weixinid":weChatId},
+						success:function(){
+							alert("创建成功 3秒后刷新页面");
+							setTimeout(function(){
+								location.reload();
+							},3000);
+						}
+					});
 				}else{
 					dataError(data);
 				}
@@ -365,8 +379,11 @@ $(function(){
 		var name = $("#createUserName").val();
 		var level = $("#userLevel").val();
 		var parnetId = $("#parnetId").val();
-		
-		createUser(userLoginName,name,level,parnetId)
+		var weChatGender = $("#weChatGender").val();
+		var weChaTel = $("#weChaTel").val();
+		var weChatEmial = $("#weChatEmial").val();
+		var weChatId = $("#weChatId").val();
+		createUser(userLoginName,name,level,parnetId,weChatGender,weChaTel,weChatEmial,weChatId)
 	})
 	$(document).on("click",".weChatDelete",function(){
 		weChatDelete($(this).attr("id"));

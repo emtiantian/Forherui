@@ -25,10 +25,6 @@
 	<!--<link href="css/iSlider.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
 	<link href="css/iPicture.css" rel="stylesheet"/>-->
-	<!--<link href="js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
-  <link href="js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
-  <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />-->
-	
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
 
@@ -38,6 +34,8 @@
   <script src="js/respond.min.js"></script>
   <![endif]-->
 </head>
+<!--弹出框-->
+
 
 <body class="sticky-header">
 
@@ -79,15 +77,15 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list " id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
+                <li class="menu-list  nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
                 	<ul class="sub-menu-list">
                         <li  >
                         	<a href="index.html" style="display: none;"> 图片展示</a>
                         </li>
                         <li>
                         	<a href="modifyPicture.html" style="display: none;"> 图片标签修改</a>
-                        </li>
-                        <li>
+                        </li> 
+                        <li class="active">
                         	<a href="userMachine.html" style="display: none;">查看设备信息</a>
                         </li>
                         <li>
@@ -107,24 +105,24 @@
                         <li><a href="weChatUser.html" style="display: none;"> 用户微信管理</a></li>                                                     
                     </ul>
                 </li>
-                <li class="menu-list nav-active" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>线路管理员管理</span></a>
+                <li class="menu-list" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>线路管理员管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="userPictureConfig.html" style="display: none;"> 用户接收图片管理</a></li>
-                        <li class="active"><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
+                        <li><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
                     </ul>
                 </li>             
-                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                <li class="menu-list "  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
                      <ul class="sub-menu-list">
                         <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
                       	<li><a href="lineConfig.html"  style="display: none;"> 线路管理</a></li> 
                         <li><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>                        
-                        <li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
+                        <li ><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
                         <!--<li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>-->                    
                     </ul>
                 </li>
-								<li class="menu-list " id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
+								<li class="menu-list" id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
                     <ul class="sub-menu-list">                       
-                        <li ><a href="adminConfig.html"  style="display: none;"> 管理员管理</a></li>                    
+                        <li><a href="adminConfig.html"  style="display: none;"> 管理员管理</a></li>                    
                     </ul>
                 </li>
 
@@ -154,7 +152,7 @@
 
             <!--notification menu start -->
             <div class="menu-right">
-                 <ul class="notification-menu">                                                   
+                <ul class="notification-menu">                                                   
                     <li>
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
                             <img src="images/photos/user-avatar.png" alt=""  id="userImg"/>
@@ -163,7 +161,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">                         
-                             <li><a href="weChatConfig.html"><i class="fa fa-cog"></i>微信设置</a></li>
+                           <li><a href="weChatConfig.html"><i class="fa fa-cog"></i>微信设置</a></li>
                             <li><a href="pictureConfig.html"><i class="fa fa-cog"></i>接收图片设置</a></li>
                             <li><a href="editPwd.html"><i class="fa fa-cog"></i>密码设置</a></li>
                             <li><a href="#" id="logout"><i class="fa fa-sign-out"></i>登出</a></li>
@@ -192,9 +190,9 @@
             	</div>
 							<div class="selectUldiv">
 								<select class="form-control input-sm m-bot15">
-									<option selected="selected">机器 1</option>
-									<option>机器 2</option>
-									<option>机器 3</option>
+									<option selected="selected">设备 1</option>
+									<option>设备 2</option>
+									<option>设备 3</option>
 								</select> 
 							</div>		
             </div>
@@ -202,187 +200,189 @@
         <!-- page heading end-->
 
         <!--body wrapper start-->
-        <div class="wrapper">
+        <div class="wrapper">       	
+					<div class="modal" id="mymodal">
+					    <div class="modal-dialog">
+					        <div class="modal-content">
+					            <div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+									<h4 class="modal-title">安装人</h4>
+								</div>
+								<div class="modal-body">
+									<p>安装人</p>
+									<input type="hidden" class="form-control" placeholder="安装人" id="installId" value="">
+									<input type="text" class="form-control" placeholder="安装人" id="installUser">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+									<button type="button" class="btn btn-primary" id="install">保存</button>
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+        	
             <div class="row">
 		        <div class="col-sm-12">
 			        <section class="panel">
-			        <header class="panel-heading">
-			            	基本修改
-			            <span class="tools pull-right">
-			                <a href="javascript:;" class="fa fa-chevron-down"></a>
-			                <!--<a href="javascript:;" class="fa fa-times"></a>-->
-			             </span>
-			        </header>
-			        <div class="panel-body">
-			        <div class="adv-table table-responsive">
-					        <table  class="table table-striped table-bordered" cellspacing="0" width="100%" id="userTable">
-							      <thead>
-							            <tr>							            	
-											<th>#</th>
-											<th>登录名</th>
-											<th>用户名</th>
-											<th>权限</th>
-										
-											
-							                <th>操作</th>			                
-							            </tr>
-							      </thead>
-							        <tfoot>
-							            <tr>
-							               	<th>#</th>
-											<th>登录名</th>
-											<th>用户名</th>
-											<th>权限</th>																						
-							                <th>操作</th>	
-							            </tr>
-							        </tfoot>
-							        <tbody id="userList">
-							            
-							        </tbody>
-							    </table>
-			        </div>
-			        </div>
+				        <header class="panel-heading">
+				            	线路选择
+				            <span class="tools pull-right">
+				                <a href="javascript:;" class="fa fa-chevron-down"></a>
+				                <!--<a href="javascript:;" class="fa fa-times"></a>-->
+				             </span>
+				        </header>
+				        <div class="panel-body">
+				        	<div class="adv-table table-responsive">
+						        <table  class="table table-striped table-bordered" cellspacing="0" width="100%" id="lineTable">
+								      <thead>
+								            <tr>							            	
+												<th>#</th>
+												<th>线路名称</th>
+												<th>线路说明</th>
+												<th>线路编号</th>
+												<th>线路设备</th>
+												
+								        <th>操作</th>			                
+								            </tr>
+								      </thead>
+								        <tfoot>
+								            <tr>
+								               <th>#</th>
+												<th>线路名称</th>
+												<th>线路说明</th>
+												<th>线路编号</th>
+												<th>线路设备</th>																		
+								        <th>操作</th>	
+								            </tr>
+								        </tfoot>
+								        <tbody id="lineList">
+								            
+								        </tbody>
+								    </table>
+				       		</div>
+				        </div>
 			        </section>
 		        </div>
 			</div>
 			<div class="row">
-		        <div class="col-sm-12">
-			        <section class="panel">
-			        <header class="panel-heading">
-			            	微信修改
-			            <span class="tools pull-right">
-			                <a href="javascript:;" class="fa fa-chevron-down"></a>
-			                <!--<a href="javascript:;" class="fa fa-times"></a>-->
-			             </span>
-			        </header>
-			        <div class="panel-body">
-			        <div class="adv-table table-responsive">
-					        <table  class="table table-striped table-bordered" cellspacing="0" width="100%" id="userWecatTable">
-							      <thead>
-							            <tr>							            	
-										<!--<th>微信内名称</th>
-											<th>微信名</th>
-											<th>微信部门</th>
-											<th>职位</th>-->
-											<th>当前用户名字</th>
-											<th>性别</th>
-											<th>电话</th>
-											<th>邮箱</th>
-											
-											<th>微信id</th>
-											<!--<th>头像</th>
-											<th>状态</th>
-											<th>扩展项</th>
-											<th>是否禁用</th>-->
-											
-							                <th>操作</th>			                
-							            </tr>
-							      </thead>
-							        <tfoot>
-							            <tr>							               
-											<!--<th>微信内名称</th>
-											<th>微信名</th>
-											<th>微信部门</th>
-											<th>职位</th>-->
-											<th>当前用户名字</th>
-											<th>性别</th>
-											<th>电话</th>
-											<th>邮箱</th>
-											
-											<th>微信id</th>
-											<!--<th>头像</th>
-											<th>状态</th>
-											<th>扩展项</th>
-											<th>是否禁用</th>-->
-											
-							                <th>操作</th>		
-							            </tr>
-							        </tfoot>
-							        <tbody id="userWeChatList">
-							            
-							        </tbody>
-							    </table>
-			        </div>
-			        </div>
-			        </section>
-		        </div>	      
-			</div>
-			 <div class="row">
 			  	 <div class="col-sm-12">
-			        <section class="panel">
+			        <section class="panel displayDiv" id="createMachineDiv" >
 			        <header class="panel-heading">
-			            	创建用户
+			            	创建设备
 			            <span class="tools pull-right">
 			                <a href="javascript:;" class="fa fa-chevron-down"></a>
 			                <!--<a href="javascript:;" class="fa fa-times"></a>-->
 			             </span>
 			        </header>
 			        <div class="panel-body">	
-						<div class="row">						
+						<div class="row">
 							<div class="col-md-6 form-group textCenter textCenter">
-								用户名
+								线路id
 							</div>	
 							<div class="col-md-6 form-group textCenter textCenter">
-								<input type="text" class="form-control" placeholder="用户名" id="createUserName">
+								<input type="text" class="form-control" placeholder="线路id" disabled="disabled" id="lineId">
+							</div>
+							<div class="col-md-6 form-group textCenter textCenter">
+								线路名称
+							</div>	
+							<div class="col-md-6 form-group textCenter textCenter">
+								<input type="text" class="form-control" placeholder="线路名称" id="lineName" disabled="disabled">
+							</div>
+							<div class="col-md-6 form-group textCenter textCenter">
+								设备名称
+							</div>	
+							<div class="col-md-6 form-group textCenter textCenter">
+								<input type="text" class="form-control" placeholder="设备名称" id="machineName">
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								用户登录名
+								设备code
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<input type="text" class="form-control" placeholder="用户登录名" id="createUserloginName">
+								<input type="text" class="form-control" placeholder="设备code" id="machineCode">
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								等级
+								设备简介
+							</div>					
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="设备简介" id="machineComment">
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<select class="form-control" id="userLevel">
-									
-								</select>
+								厂家
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								关联线路管理员
+								<input type="text" class="form-control" placeholder="厂家" id="machineProductComp">
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<select  class="form-control" id="parnetId">							
-										
-								</select>
+								出厂编号
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								性别
+								<input type="text" class="form-control" placeholder="出厂编号" id="machineCompID">
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<select  class="form-control" id="weChatGender">							
-										<option value="1" selected="selected">男</option>
-										<option value="2" >女</option>
-								</select>
-							</div>
-							
-							<div class="col-md-6 form-group textCenter">
-								电话
+								塔杆
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<input type="text" class="form-control" placeholder="电话" id="weChaTel">
+								<input type="text" class="form-control" placeholder="塔杆" id="machineTower">
 							</div>
-							<div class="col-md-6 form-group textCenter">
-								邮箱
-							</div>						
-							<div class="col-md-6 form-group textCenter">
-								<input type="text" class="form-control" placeholder="邮箱" id="weChatEmial">
-							</div>
-									<div class="col-md-6 form-group textCenter">
-								微信绑定id
-							</div>						
-							<div class="col-md-6 form-group textCenter">
-								<input type="text" class="form-control" placeholder="微信绑定id" id="weChatId">
-							</div>		
 							<div class="col-md-12 form-group textCenter">
-								<button id="createUser" class="btn btn-primary"> 创建用户</button>
+								<button id="createMachine" class="btn btn-primary"> 创建设备</button>
 							</div>						
 						</div>
 					</div>
 			   		</section>
 		    	</div>	      	        	        			                        
 		    </div>
+		                <div class="row">
+		        <div class="col-sm-12">
+			        <section class="panel displayDiv" id="editMachineDiv">
+				        <header class="panel-heading">
+				            	设备修改
+				            <span class="tools pull-right">
+				                <a href="javascript:;" class="fa fa-chevron-down"></a>
+				                <!--<a href="javascript:;" class="fa fa-times"></a>-->
+				             </span>
+				        </header>
+				        <div class="panel-body">
+				        	<div class="adv-table table-responsive">
+						        <table  class="table table-striped table-bordered" cellspacing="0" width="100%" id="machineTable">
+								      <thead>
+								        <tr>							            	
+												<th>所属线路名称</th>
+												<th>设备名字</th>
+												<th>设备编码</th>
+												<th>设备简介</th>
+												<th>设备厂商</th>
+												<th>设备初始id</th>																									
+												<th>设备安装者</th>
+												<th>设备安装时间</th>
+												<th>设备塔杆</th>																													
+								        <!--<th>操作</th>-->		
+								        
+								            </tr>
+								      </thead>
+								        <tfoot>
+								            <tr>
+								    		<th>所属线路名称</th>
+												<th>设备名字</th>
+												<th>设备编码</th>
+												<th>设备简介</th>
+												<th>设备厂商</th>
+												<th>设备初始id</th>																									
+												<th>设备安装者</th>
+												<th>设备安装时间</th>
+												<th>设备塔杆</th>																													
+								        <!--<th>操作</th>-->	
+								        </tr>
+								        </tfoot>
+								        <tbody id="machineList">
+								            
+								        </tbody>
+								    </table>
+				       		</div>
+				        </div>
+			        </section>
+		        </div>
+			</div>
         </div>
         <!--body wrapper end-->
 
@@ -410,23 +410,26 @@
 
 
 <!--Sparkline Chart-->
-<script src="js/sparkline/jquery.sparkline.js"></script>
-<script src="js/sparkline/sparkline-init.js"></script>
+<!--<script src="js/sparkline/jquery.sparkline.js"></script>
+<script src="js/sparkline/sparkline-init.js"></script>-->
 
 
 <script src="js/scripts.js"></script>
 
+
 <!--
 基础js
 -->
-
 <!--dynamic table-->
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-transition.js"></script>
 <script type="text/javascript" language="javascript" src="js/advanced-datatable/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
 
+
 <script src="js/util.js"></script>
 <script src="js/config.js"></script>
-<script src="js/adminConfig.js"></script>
+<script src="js/userMachine.js"></script>
 
 
 </body>

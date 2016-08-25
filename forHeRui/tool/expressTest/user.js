@@ -103,6 +103,7 @@ var log = require('./log');
 	                "child": [
 	                    "index.html",
 	                    "modifyPicture.html",
+	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]
 	            },
@@ -120,13 +121,13 @@ var log = require('./log');
 //	                    "weChatUser.html"
 //	                ]
 //	            },
-	            {
-	            	"parent":"lineAdmin",
-	            	"child":[
-	            		"userPictureConfig.html",
-	            		"userConfig.html"
-	            	]
-	            },
+//	            {
+//	            	"parent":"lineAdmin",
+//	            	"child":[
+//	            		"userPictureConfig.html",
+//	            		"userConfig.html"
+//	            	]
+//	            },
 	            {
 	            	"parent":"admin",
 	            	"child":[
@@ -153,6 +154,7 @@ var log = require('./log');
 	                "child": [
 	                    "index.html",
 	                    "modifyPicture.html",
+	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]
 	            },
@@ -170,13 +172,13 @@ var log = require('./log');
 //	                    "weChatUser.html"
 //	                ]
 //	            },
-	            {
-	            	"parent":"lineAdmin",
-	            	"child": [
-	            		"userPictureConfig.html",
-	            		"userConfig.html"
-	            	]
-	            },
+//	            {
+//	            	"parent":"lineAdmin",
+//	            	"child": [
+//	            		"userPictureConfig.html",
+//	            		"userConfig.html"
+//	            	]
+//	            },
 	            {
 	            	"parent":"admin",
 	            	"child":[
@@ -197,6 +199,7 @@ var log = require('./log');
 	                "child": [
 	                    "index.html",
 	                    "modifyPicture.html",
+	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]
 	            },
@@ -230,6 +233,7 @@ var log = require('./log');
 	                "child": [
 	                    "index.html",
 	                    "modifyPicture.html",
+	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]
 	            },

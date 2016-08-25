@@ -86,7 +86,10 @@
                         </li>
                         <li>
                         	<a href="modifyPicture.html" style="display: none;"> 图片标签修改</a>
-                        </li>  
+                        </li>
+                        <li>
+                        	<a href="userMachine.html" style="display: none;">查看设备信息</a>
+                        </li>
                         <li>
                         	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
                         </li>                 
@@ -332,7 +335,7 @@
 								等级
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<select class="form-group" id="userLevel">
+								<select class="form-control" id="userLevel">
 									
 								</select>
 							</div>
@@ -340,10 +343,38 @@
 								关联线路管理员
 							</div>
 							<div class="col-md-6 form-group textCenter">
-								<select  class="form-group" id="parnetId">							
+								<select  class="form-control" id="parnetId">							
 										
 								</select>
 							</div>
+							<div class="col-md-6 form-group textCenter">
+								性别
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								<select  class="form-control" id="weChatGender">							
+										<option value="1" selected="selected">男</option>
+										<option value="2" >女</option>
+								</select>
+							</div>
+							
+							<div class="col-md-6 form-group textCenter">
+								电话
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="电话" id="weChaTel">
+							</div>
+							<div class="col-md-6 form-group textCenter">
+								邮箱
+							</div>						
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="邮箱" id="weChatEmial">
+							</div>
+									<div class="col-md-6 form-group textCenter">
+								微信绑定id
+							</div>						
+							<div class="col-md-6 form-group textCenter">
+								<input type="text" class="form-control" placeholder="微信绑定id" id="weChatId">
+							</div>		
 							<div class="col-md-12 form-group textCenter">
 								<button id="createUser" class="btn btn-primary"> 创建用户</button>
 							</div>						
