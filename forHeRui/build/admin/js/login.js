@@ -13,7 +13,7 @@ $(function(){
 		console.log("userName"+userName);
 		$.ajax({
 			type:"post",
-			url:baseUrl+"/user/login",
+			url:baseUrl+"/account/login",
 			async:true,
 			dataType:"json",
 			data:{userName:userName,userPwd:userPwd},
@@ -53,7 +53,16 @@ $(function(){
 		$("#userPwd").val($.cookie("userPwd"));
 		$("#rememberMe").attr("checked",true);
 	}
-	$("#login").on("click",function(){	
+	$("#loginButton").on("click",function(){	
 		login();
+	})
+	$("#changeShow").on("click",function(){
+		if($("#erweima").is(":hidden")){
+			$("#loginDiv").hide();
+			$("#erweima").show();	
+		}else{
+			$("#loginDiv").show();
+			$("#erweima").hide();
+		}
 	})
 })

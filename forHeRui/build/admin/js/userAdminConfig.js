@@ -19,21 +19,21 @@ $(function(){
 			}
 		}
 	});
-	//初始化线路管理员
-	$.ajax({
-		type:"post",
-		url:baseUrl+"/user/ListByLevel",
-		async:true,
-		data:{"level":"lineAdmin"},
-		dataType:"json",
-		success:function(data){
-			if(data.success){				
-				$("#parnetId")			
-			}else{
-				dataError(data);
-			}	
-		}
-	});
+//	//初始化线路管理员
+//	$.ajax({
+//		type:"post",
+//		url:baseUrl+"/user/ListByLevel",
+//		async:true,
+//		data:{"level":"lineAdmin"},
+//		dataType:"json",
+//		success:function(data){
+//			if(data.success){				
+//				$("#parnetId")			
+//			}else{
+//				dataError(data);
+//			}	
+//		}
+//	});
 	
 //	var data= {"success":true,"code":0,"msg":"","data":[{"userId":1,"userLoginName":"admin","name":"何瑞","level":"superAdmin","Wechat":{"userid":"herui","name":"何瑞","department":null,"Position":"","Gender":1,"Mobile":"15726699262","Email":"","WeixinID":"wxid_0dlzp5mo11hi22","Avatar":"http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/","status":1,"extattr":null,"Disable":false},"ParnetID":1},{"userId":2,"userLoginName":"test11","name":"黎浩","level":"admin","Wechat":{"userid":"","name":"","department":null,"Position":"","Gender":1,"Mobile":"","Email":"","WeixinID":"","Avatar":"","status":4,"extattr":null,"Disable":false},"ParnetID":0},{"userId":4,"userLoginName":"lihao","name":"黎浩","level":"admin","Wechat":{"userid":"","name":"","department":null,"Position":"","Gender":1,"Mobile":"","Email":"","WeixinID":"","Avatar":"","status":4,"extattr":null,"Disable":false},"ParnetID":0}]}
 	function dataTabelInnt(data){
@@ -69,10 +69,10 @@ $(function(){
 				tdHtml2 +='<td > '+ele.name+'</td>';
 				switch(ele.wechat.gender) {
 					case 1: 
-						tdHtml2 += '<td > <select id="Wechat_Gender"><option value="1" selected="selected">男</option><option value="2">女</option></select></td>';
+						tdHtml2 += '<td > <select id="Wechat_Gender" class="form-control"><option value="1" selected="selected">男</option><option value="2">女</option></select></td>';
 						break;
 					case 2:
-						tdHtml2 += '<td ><select id="Wechat_Gender" ><option value="1" >男</option><option value="2" selected="selected">女</option></select></td>';
+						tdHtml2 += '<td ><select id="Wechat_Gender" class="form-control"><option value="1" >男</option><option value="2" selected="selected">女</option></select></td>';
 						break;
 					default:
 						tdHtml2 += '<td>出错了</td>'
@@ -83,20 +83,20 @@ $(function(){
 				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_WeixinID" type="text" value="' + ele.wechat.weixinId + '" /><span style="color:red;">必填项<span></td>';
 //				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Avatar" type="text" value="' + ele.wechat.avatar + '" /></td>';
 				//1=已关注，2=已冻结，4=未关注
-//				switch(ele.wechat.status) {
-//					case 1:
-//						tdHtml2 += '<td ><select id="Wechat_status" disabled><option value="1" selected="selected">已关注</option><option value="2">已冻结</option><option value="4">未关注</option></select></td>';
-//						break;
-//					case 2:
-//						tdHtml2 += '<td ><select id="Wechat_status" disabled><option value="1" >已关注</option><option value="2" selected="selected">已冻结</option><option value="4">未关注</option></select></td>';
-//						break;
-//					case 4:
-//						tdHtml2 += '<td ><select id="Wechat_status" disabled><option value="1" >已关注</option><option value="2" >已冻结</option><option value="4" selected="selected">未关注</option></select></td>';
-//						break;
-//					default:
-//						tdHtml2 += '<td>出错了</td>'
-//						break;
-//				}
+				switch(ele.wechat.status) {
+					case 1:
+						tdHtml2 += '<td ><select id="Wechat_status" class="form-control" disabled><option value="1" selected="selected">已关注</option><option value="2">已冻结</option><option value="4">未关注</option></select></td>';
+						break;
+					case 2:
+						tdHtml2 += '<td ><select id="Wechat_status" class="form-control" disabled><option value="1" >已关注</option><option value="2" selected="selected">已冻结</option><option value="4">未关注</option></select></td>';
+						break;
+					case 4:
+						tdHtml2 += '<td ><select id="Wechat_status" class="form-control"  disabled><option value="1" >已关注</option><option value="2" >已冻结</option><option value="4" selected="selected">未关注</option></select></td>';
+						break;
+					default:
+						tdHtml2 += '<td>出错了</td>'
+						break;
+				}
 //	
 //				tdHtml2 += '<td id="Wechat_extattr" >' + ele.wechat.extattr + '</td>';
 //				switch(ele.wechat.disable) {
@@ -114,7 +114,7 @@ $(function(){
 			
 		})
 		$('#userTable').dataTable( {
-        "aaSorting": [[ 0, "desc" ]],
+        "aaSorting": [[ 0, "asc" ]],
         "oLanguage" : {
                 "sLengthMenu": "每页显示 _MENU_ 条记录",
                 "sZeroRecords": "抱歉， 没有找到",
@@ -132,7 +132,7 @@ $(function(){
                }
     	});
     	$('#userWecatTable').dataTable( {
-        "aaSorting": [[ 0, "desc" ]],
+        "aaSorting": [[ 0, "asc" ]],
         "oLanguage" : {
                 "sLengthMenu": "每页显示 _MENU_ 条记录",
                 "sZeroRecords": "抱歉， 没有找到",
@@ -177,45 +177,58 @@ $(function(){
 	}
 	//删除用户
 	function deleteUser(userId){
-		$.ajax({
-			type:"post",
-			url:baseUrl+"/user/delete",
-			async:true,
-			data:{"userId":userId},
-			dataType:"json",
-			success:function(data){
-				if(data.success){
-					alert("删除成功 3秒后刷新页面");
-					setTimeout(function(){
-						location.reload();
-					},3000);
-				}else{
-					dataError(data);
+		if(window.confirm('你确定要删除吗？')){
+			$.ajax({
+				type:"post",
+				url:baseUrl+"/user/delete",
+				async:true,
+				data:{"userId":userId},
+				dataType:"json",
+				success:function(data){
+					if(data.success){
+						alert("删除成功 3秒后刷新页面");
+						setTimeout(function(){
+							location.reload();
+						},3000);
+					}else{
+						dataError(data);
+					}
 				}
-			}
-			
-		});
+				
+			});
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 //	重置密码
 	function resetPwdUser(userId){
-			$.ajax({
-			type:"post",
-			url:baseUrl+"/user/ResetPwd",
-			async:true,
-			data:{"userId":userId},
-			dataType:"json",
-			success:function(data){
-				if(data.success){
-					alert("重置成功 3秒后刷新页面");
-					setTimeout(function(){
-						location.reload();
-					},3000);
-				}else{
-					dataError(data);
-				}
-			}
+		if(window.confirm('你确定要重置密码吗？')){
+                 $.ajax({
+					type:"post",
+					url:baseUrl+"/user/ResetPwd",
+					async:true,
+					data:{"userId":userId},
+					dataType:"json",
+					success:function(data){
+						if(data.success){
+							alert("重置成功 3秒后刷新页面");
+							setTimeout(function(){
+								location.reload();
+							},3000);
+						}else{
+							dataError(data);
+						}
+					}
+					
+				});
+                 return true;
+              }else{
+                 //alert("取消");
+                 return false;
+             }
 			
-		});
 	}
 	//修改基本用户信息
 	function userEdit(userId,userLoginName,name){
@@ -240,7 +253,10 @@ $(function(){
 	}
 	//微信修改
 	function weChatEdit(userId,userid,name,department,position,mobile,gender,email,weixinid,avatar,extattr){
-		
+		if(mobile == "" && email == "" && weixinid == "" ){
+			alert("电话号，邮箱，微信id不能同时为空");
+			return;
+		}
 		$.ajax({
 			type:"post",
 			url:baseUrl+"/wechat/user/Edit",
@@ -322,23 +338,28 @@ $(function(){
 	}
 	//微信解绑
 	function weChatDelete(userId){
-		$.ajax({
-			type:"post",
-			url:baseUrl+"/wechat/user/delete",
-			async:true,
-			dataType:"json",
-			data:{"userId":userId},
-			success:function(data){
-				if(data.success){
-					alert("解除绑定成功 3秒后刷新页面");
-					setTimeout(function(){
-						location.reload();
-					},3000);
-				}else{
-					dataError(data);
+		if(window.confirm('你确定要解绑微信吗？')){
+			$.ajax({
+				type:"post",
+				url:baseUrl+"/wechat/user/delete",
+				async:true,
+				dataType:"json",
+				data:{"userId":userId},
+				success:function(data){
+					if(data.success){
+						alert("解除绑定成功 3秒后刷新页面");
+						setTimeout(function(){
+							location.reload();
+						},3000);
+					}else{
+						dataError(data);
+					}
 				}
-			}
-		});
+			});
+			return true;
+		}else{
+			return false;
+		}		
 	}
 	
 	$(document).on("click",".deleteEdit",function(){

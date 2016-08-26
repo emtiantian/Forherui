@@ -93,7 +93,7 @@
     }
 
     .notification-menu li:nth-child(4) {
-        display: none;
+        /*display: none;*/
     }
 
     .left-side .searchform,

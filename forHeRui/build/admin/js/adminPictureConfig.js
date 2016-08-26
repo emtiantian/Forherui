@@ -42,7 +42,7 @@ $(function(){
 		$("#userList").append(html);
 		//初始化数据table
 		$('#userTable').dataTable( {
-        "aaSorting": [[ 0, "desc" ]],
+        "aaSorting": [[ 0, "asc" ]],
         "oLanguage" : {
                 "sLengthMenu": "每页显示 _MENU_ 条记录",
                 "sZeroRecords": "抱歉， 没有找到",

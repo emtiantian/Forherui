@@ -27,31 +27,42 @@
 <div class="container">
 
     <div class="form-signin" >
-        <div class="form-signin-heading text-center">
-            <h1 class="sign-title">Sign In</h1>
-            <img src="images/login-logo.png" alt=""/>
-        </div>
-        <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="User Name" autofocus id="userName">
-            <input type="password" class="form-control" placeholder="Password" id="userPwd">
-
-            <button class="btn btn-lg btn-login btn-block" type="button" id="login">
-                <i class="fa fa-check"></i>
-            </button>
-
-            <div class="registration loginMsg" id="loginMsg">
-                
-            </div>
-            <label class="checkbox">
-                <input type="checkbox" value="remember-me" id="rememberMe"> 记住我
-                <!--<span class="pull-right">
-                    <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
-
-                </span>-->
-            </label>
-
-        </div>
-
+    	<div class="changeShow" id="changeShow"> 
+    		
+    	</div>
+    	<div id="erweima" class="form-signin-heading text-center">
+    		<h3 class="sign-title">企业二维码</h3>
+    		<div class="erweima"> 
+    		
+    		</div>
+    	</div>
+    	
+    	<div id="loginDiv">
+	        <div class="form-signin-heading text-center">
+	            <h1 class="sign-title">登&nbsp;&nbsp;录</h1>
+	            <img src="images/login-logo.png" alt=""/>
+	        </div>
+	        <div class="login-wrap">
+	            <input type="text" class="form-control" placeholder="User Name" autofocus id="userName">
+	            <input type="password" class="form-control" placeholder="Password" id="userPwd">
+	
+	            <button class="btn btn-lg btn-login btn-block" type="button" id="loginButton">
+	                <i class="fa fa-check"></i>
+	            </button>
+	
+	            <div class="registration loginMsg" id="loginMsg">
+	                
+	            </div>
+	            <label class="checkbox">
+	                <input type="checkbox" value="remember-me" id="rememberMe"> 记住我
+	                <!--<span class="pull-right">
+	                    <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
+	
+	                </span>-->
+	            </label>
+	
+	        </div>
+		</div>
         <!-- Modal -->
         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
             <div class="modal-dialog">

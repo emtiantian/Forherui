@@ -31,6 +31,7 @@ $(function(){
 					});
 					
 				})
+				$(".wrapper").show();
 			}
 		});
 	}
@@ -78,7 +79,7 @@ $(function(){
 	function loginOut(){
 		$.ajax({
 			type:"post",
-			url:baseUrl+"/user/logout",
+			url:baseUrl+"/account/logout",
 			async:true,
 			data:{},
 			dataType:"json",
@@ -101,17 +102,19 @@ $(function(){
 			alert(data.msg);
 		}
 	}
-	//102 屏幕高减102
-	
+	//102 屏幕高减102	
+	function initHeight(){
+		$(".wrapper").css("min-height",$(window).height()-102);
+	}
 	//判断是否为手机
 	
 	
 	
 	
 	
-	
-	userInit();
+	initHeight();
 	menuInit();
+	userInit();
 	
 	$("#logout").on("click",function(){
 		loginOut();

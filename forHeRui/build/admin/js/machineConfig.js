@@ -54,7 +54,7 @@ $(function(){
 				}								
 			})
 			html+='<td >'+machine+'</td>';
-			html+='<td ><button id="'+ele.lineid+'" dataName="'+ele.name+'" class="addMachine btn btn-primary">添加设备</button><button id="'+ele.lineid+'" lineName="'+ele.name+'" class="selectMachine btn btn-primary">查看设备</button></td>';			
+			html+='<td ><button id="'+ele.lineid+'" dataName="'+ele.name+'"dataCode="'+ele.lineCode+'" class="addMachine btn btn-primary">添加设备</button><button id="'+ele.lineid+'" lineName="'+ele.name+'" class="selectMachine btn btn-primary">查看设备</button></td>';			
 			$("#lineList").append("<tr>"+html+"</tr>");
 		});
 		$("#lineTable").dataTable( {
@@ -77,9 +77,10 @@ $(function(){
     	});
 	}
 	//{"lineID":"6","machines":{"machineName":"Test","code":"bj_Test5","machineComment":"你好","productComp":"沃英泰科","compID":"A0000000000000056","tower":"57#"}}
-	function crateMachineInit(id,name){
+	function crateMachineInit(id,name,code){
 		hideAll();
 		$("#lineId").val(id);
+		$("#lineCode").val(code);
 		$("#lineName").val(name);
 		$("#createMachineDiv").show();
 	}
@@ -98,11 +99,16 @@ $(function(){
 			html+='<td><input class="form-control sm" id="editmachineName" type="text" value="' + ele.machineName + '" /></td>'
 			html+='<td><input class="form-control sm" id="code" type="text" value="' + ele.code + '" /></td>'
 			html+='<td><input class="form-control sm" id="editmachineComment" type="text" value="' + ele.machineComment + '" /></td>'
-			html+='<td><input class="form-control sm" id="productComp" type="text" value="' + ele.productComp + '" /></td>'
-			html+='<td><input class="form-control sm" id="CompID" type="text" value="' + ele.CompID + '" /></td>'
-			html+='<td>' + ele.InstallUser + '</td>'
-			html+='<td>' + ele.InstallTime + '</td>'
 			html+='<td><input class="form-control sm" id="tower" type="text" value="' + ele.Tower + '" /></td>'
+			html+='<td><input class="form-control sm" id="productComp" type="text" value="' + ele.productComp + '" /></td>'
+			html+='<td><input class="form-control " id="CompID" type="text" value="' + ele.CompID + '" /></td>'
+			html+='<td>' + ele.InstallUser + '</td>'
+			if(ele.InstallTime == null){
+				html+='<td></td>'
+			}else{
+				html+='<td>' + ele.InstallTime + '</td>'
+			}			
+						
 			html+='<td ><button id="'+ele.machineId+'" dataName="'+ele.machineName+'" class="editMachine btn btn-primary">修改设备</button><button id="'+ele.machineId+'" class="deletMachine btn btn-primary">删除设备</button>'
 			if(ele.InstallUser == ""){
 				html+='<button id="'+ele.machineId+'" class="installMachine btn btn-primary" data-toggle="modal" data-target="#myModal" >安装设备</button></td>';
@@ -231,7 +237,7 @@ $(function(){
 	}
 	
 	$(document).on("click",".addMachine",function(){
-		crateMachineInit($(this).attr("id"),$(this).attr("dataName"))
+		crateMachineInit($(this).attr("id"),$(this).attr("dataName"),$(this).attr("dataCode"))
 		
 	})
 	$(document).on("click",".selectMachine",function(){

@@ -54,7 +54,7 @@ var server = app.listen(3000, function () {
 });
 
 //测试 get
-app.get('/user/login',function(req,res){
+app.get('/account/login',function(req,res){
 	
 	var user = {
 		"userName": "herui",
@@ -112,7 +112,7 @@ app.post("/user/list",function(req,res){
 	res.json(userController.userList());
 })
 //模拟用户登出
-app.post("/user/logout",function(req,res){
+app.post("/account/logout",function(req,res){
 	res.json(userController.userLogout());
 })
 //用户当前信息

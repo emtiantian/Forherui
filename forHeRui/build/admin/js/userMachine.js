@@ -98,11 +98,16 @@ $(function(){
 			html+='<td>' + ele.machineName + '</td>'
 			html+='<td>' + ele.code + '</td>'
 			html+='<td>' + ele.machineComment + '</td>'
+			html+='<td>' + ele.Tower + '</td>'
 			html+='<td>' + ele.productComp + '</td>'
 			html+='<td>' + ele.CompID + '</td>'
 			html+='<td>' + ele.InstallUser + '</td>'
-			html+='<td>' + ele.InstallTime + '</td>'
-			html+='<td>' + ele.Tower + '</td>'
+			if(ele.InstallTime == null){
+				html+='<td></td>'
+			}else{
+				html+='<td>' + ele.InstallTime + '</td>'
+			}	
+		
 //			html+='<td ><button id="'+ele.machineId+'" dataName="'+ele.machineName+'" class="editMachine btn btn-primary">修改设备</button><button id="'+ele.machineId+'" class="deletMachine btn btn-primary">删除设备</button>'
 //			if(ele.InstallUser == ""){
 //				html+='<button id="'+ele.machineId+'" class="installMachine btn btn-primary" data-toggle="modal" data-target="#myModal" >安装设备</button></td>';

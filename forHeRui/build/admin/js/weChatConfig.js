@@ -56,7 +56,7 @@ $(function(){
 //			tdHtml += '<td ><input class="form-control" id="Wechat_name" type="text" value="' + ele.name + '" /></td>';
 //			tdHtml += '<td ><input class="form-control" id="Wechat_department" type="text" value="' + ele.department + '" disabled/></td>';
 //			tdHtml += '<td ><input class="form-control" id="Wechat_Position" type="text" value="' + ele.position + '" disabled/></td>';
-			switch(ele.gender) {
+			switch(ele.gender){
 				case 1: 
 					tdHtml += '<td > <select id="Wechat_Gender" class="form-control" style="width:100px;"><option value="1" selected="selected">男</option><option value="2">女</option></select></td>';
 					break;
@@ -72,20 +72,20 @@ $(function(){
 			tdHtml += '<td ><input class="form-control" id="Wechat_WeixinID" type="text" value="' + ele.weixinId + '" /><span style="color:red;">必填项<span></td>';
 //			tdHtml += '<td ><input class="form-control" id="Wechat_Avatar" type="text" value="' + ele.avatar + '" /></td>';
 			//1=已关注，2=已冻结，4=未关注
-//			switch(ele.status) {
-//				case 1:
-//					tdHtml += '<td ><select id="Wechat_status" disabled><option value="1" selected="selected">已关注</option><option value="2">已冻结</option><option value="4">未关注</option></select></td>';
-//					break;
-//				case 2:
-//					tdHtml += '<td ><select id="Wechat_status" disabled><option value="1" >已关注</option><option value="2" selected="selected">已冻结</option><option value="4">未关注</option></select></td>';
-//					break;
-//				case 4:
-//					tdHtml += '<td ><select id="Wechat_status" disabled><option value="1" >已关注</option><option value="2" >已冻结</option><option value="4" selected="selected">未关注</option></select></td>';
-//					break;
-//				default:
-//					tdHtml += '<td>出错了</td>'
-//					break;
-//			}
+			switch(ele.status) {
+				case 1:
+					tdHtml += '<td ><select id="Wechat_status" class="form-control" disabled><option value="1" selected="selected">已关注</option><option value="2">已冻结</option><option value="4">未关注</option></select></td>';
+					break;
+				case 2:
+					tdHtml += '<td ><select id="Wechat_status" class="form-control" disabled><option value="1" >已关注</option><option value="2" selected="selected">已冻结</option><option value="4">未关注</option></select></td>';
+					break;
+				case 4:
+					tdHtml += '<td ><select id="Wechat_status" class="form-control" disabled><option value="1" >已关注</option><option value="2" >已冻结</option><option value="4" selected="selected">未关注</option></select></td>';
+					break;
+				default:
+					tdHtml += '<td>出错了</td>'
+					break;
+			}
 
 //			tdHtml += '<td id="Wechat_extattr" >' + ele.extattr + '</td>';
 //			switch(ele.Disable) {
@@ -104,6 +104,10 @@ $(function(){
 		$("#userWechat").append("<tr>"+tdHtml+"</tr>")
 	}
 	function save(){
+		if($("#Wechat_Mobile").val() == "" && $("#Wechat_Email").val() == "" &&$("#Wechat_WeixinID").val() == "" ){
+			alert("电话号，邮箱，微信id不能同时为空");
+			return;
+		}
 		$.ajax({
 			type:"post",
 			url:baseUrl+"/wechat/user/Edit",
