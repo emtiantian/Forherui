@@ -22,7 +22,19 @@
 			      
 			      var flag = false;
 			      var ctx=document.getElementById("myCanvas").getContext("2d");
-			      /**
+			      var yImg = new Image();       
+				    yImg.onload = function(){  
+				        draw(this);  
+				    };  
+				      
+				    yImg.src = './images/1.jpg';  
+				      
+				    function draw(obj){  
+				          
+				        ctx.drawImage(obj,0,0);  
+				          
+				    } 
+							      /**
 			       * Every function in this app has a corresponding command code:
 			       * --------------------------------------------------
 			       * function			command code		description
@@ -260,7 +272,8 @@
 			       */
 			      function drawRectangle(){
 	   		 			 var borderWidth  = $("#penWidth").val(); 
-	  					 ctx.fillRect(x+borderWidth,y+borderWidth,endX-x,endY-y);
+//	  					 ctx.fillRect(x+borderWidth,y+borderWidth,endX-x,endY-y);
+//	  					 ctx.fillStyle="#000000";
 					     ctx.strokeRect(x,y,endX-x,endY-y);
 					 	 $("#myCanvas").focus(); 
 					     rectTip.hide();
@@ -480,6 +493,7 @@
 					  function fillColorEventListener(e)
 					  {
 						  	var color= "#"+$(this).val();
+						  console.log("color1"+$(this).val());
 					   	   	ctx.fillStyle =color;
 					   	   	rectTip.css({"background-color":color});
 					   	   	fontTip.css({"color":color});
@@ -512,7 +526,9 @@
 				   */
 				  function saveItAsImage()
 				  {
-					  var image = $("#myCanvas").get(0).toDataURL("image/png").replace("image/png", "image/octet-stream");
+//					  var image = $("#myCanvas").get(0).toDataURL("image/png").replace("image/png", "image/octet-stream");
+					  var image = $("#myCanvas").get(0).toDataURL("image/png");
+					  console.log("获得图片了"+image);
 	    			  //locally save
 					  window.location.href=image; 
 				  }
