@@ -1,444 +1,7 @@
 $(function(){
-		
 	//基础url
 	var baseUrl = config.get("baseUrl");
-	//图片宽度
-	var imgWidth = config.get("imgWidth");
-	//图片高度
-	var imgHeight = config.get("imgHeight");
-
-
-	//生成数据1606301324_bj_test
-	var data={
-	    "picture": [
-	        {
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301324_bj_test.jpg",
-	            "id": "picture1",
-	            "info": [
-	                {
-	                    "id": "picture1_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "10%",
-	                    "left": "10%"
-	                },
-	                {
-	                    "id": "picture1_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture1_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },
-	        {
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301335_bj_test.jpg",
-	            "id": "picture2",
-	            "info": [
-	                {
-	                    "id": "picture2_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture2_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture2_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },
-	        {
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301344_bj_test.jpg",
-	            "id": "picture3",
-	            "info": [
-	                {
-	                    "id": "picture3_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture3_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture3_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },
-	        {
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301348_bj_test.jpg",
-	            "id": "picture4",
-	            "info": [
-	                {
-	                    "id": "picture4_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture4_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture4_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },
-	        {
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301413_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301421_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301459_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301506_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301525_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301647_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301653_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301705_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301715_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        },{
-	            "src": "./images/gallery/WT000000000000001/201606/30/1606301726_bj_test.jpg",
-	            "id": "picture5",
-	            "info": [
-	                {
-	                    "id": "picture5_tooltip1",
-	                    "descr": "furniture: 299$",
-	                    "top": "185px",
-	                    "left": "393px"
-	                },
-	                {
-	                    "id": "picture5_tooltip2",
-	                    "descr": "sofa: 199$",
-	                    "top": "346px",
-	                    "left": "483px"
-	                },
-	                {
-	                    "id": "picture5_tooltip3",
-	                    "descr": "silver candle: 2.99$",
-	                    "top": "461px",
-	                    "left": "556px"
-	                }
-	            ]
-	        }
-	    ]
-	}
 	
-
-	function createDate(data){
-		//var data=jQuery.parseJSON(data);
-		var imgDate=[];		
-		$.each(data.picture, function(i,ele) {	
-			var html=$("#muban").clone();
-			$(html).find(".ip_slide").attr("id",ele.id);
-			$(html).find(".ip_tooltipImg").attr("src",ele.src);		
-			$.each(ele.info,function(infoI,infoEle){
-				var toolip=$("#tooltip").clone();
-				$(toolip).find(".ip_tooltip").attr("id",infoEle.id);
-				$(toolip).find(".ip_tooltip").css({"top":infoEle.top,"left":infoEle.left});
-				$(toolip).find(".xs").html(infoEle.descr);
-				$(html).find(".ip_slide").append(toolip.html());				
-			})				
-			imgDate.push({content:html.html()});
-		});
-//		console.log(imgDate);
-		return imgDate;
-	}
-	    function mouseOverHandler(selector, animationType) {
-	    	console.log("initmouseOverHandler"+selector,+animationType)
-	    	
-	    	selector.on('touchstart', function(eventObject) {
-	    		if($(this).attr("show") == "true"){
-	    			hideTooltip($(this), animationType);
-	    			$(this).attr("show","false");
-	    		}else{
-	    			console.log("touchstart");
-					showTooltip($(this), animationType);
-					$(this).attr("show","true");
-	    		}	    						
-			});
-				
-			selector.on('mouseover', function(eventObject) {				
-				showTooltip($(this), animationType);
-			});
-			selector.on('mouseout', function(eventObject) {
-				hideTooltip($(this), animationType);
-			});
-			
-		};
-		
-		function showTooltip(selector, animationType) {
-			selector.css('z-index', '9999');
-			selector.addClass('show');
-			selector.find(".xs").css('display', 'block');
-			selector.find(".ip_descr").addClass(animationType);
-		};
-		
-		function hideTooltip(selector, animationType) {
-			selector.css('z-index', '1');
-			selector.removeClass('show');
-			selector.find(".xs").css('display', 'none');
-			selector.find(".ip_descr").removeClass(animationType);
-		};
-		
-		
-	var IS_IN_IS = new iSlider(document.getElementById('is_in_is'), null, {
-        	data:createDate(data),
-            isAutoplay: 0,
-            isLooping: 1,
-            duration: 5000,
-            animateTime: 2600,
-            isOverspread: 1,
-            isDebug:false,
-            animateType: 'fade',
-            plugins: [['dot', {locate: 'relative'}]],
-            oninitialized :function(){
-            	var animationType="btt-slide";
-				var selector=$(".ip_tooltip");
-            	mouseOverHandler(selector, animationType);
-            	
-//          	console.log("initend");
-            },      
-            onplugininitialized: function () {
-                [].slice.call(this.wrap.querySelectorAll('.islider-dot')).forEach(function (el, i) {
-                	var imgurl=$(this.data[i].content).find(".ip_tooltipImg").attr("src");              	
-                    el.style.backgroundImage = 'url(' + imgurl + ')';                                      
-                }.bind(this));             
-            },            
-      }); 
-    IS_IN_IS.on("slideChanged",function(){
-    	var animationType="btt-slide";
-		var selector=$(".ip_tooltip");
-//  	console.log("onslideChanged");    	
-    	mouseOverHandler(selector, animationType);
-    	
-    })
-    //设置图片高度
-//  .is-in-is-wrap
-	function initPictHeight(){
-		var nowWidth=$(".is-in-is-wrap").width();
-		$(".is-in-is-wrap").css("height",imgHeight*(nowWidth/imgWidth));
-		$("#imgDiv").css("height",imgHeight*(nowWidth/imgWidth)+imgHeight*(nowWidth/imgWidth)*0.12);
-	}
-    initPictHeight();
-    
 	//日期初始化
    $('.form_date').datetimepicker({
         language:  'zh-CN',
@@ -476,9 +39,125 @@ $(function(){
 	  return fmt;   
 	}
 	$('.form_date').val(new Date().format("yyyy-MM-dd"));
-    
-    //window.resize 修改图片大小
-    $(window).on("resize",function(){
-    	initPictHeight();
-    })
+	
+	//第一种显示
+	function waterFlow(parent, chirld){
+	    var wparent = document.getElementById(parent);//获取父级div, 最外级容器
+	    var allArr = getAllChirld(wparent,chirld);//获取到所有的class为box的容器div
+	    var wscreenWidth = document.documentElement.clientWidth;//获取屏幕宽度
+	    var wchirldWidth = wparent.getElementsByTagName("*");//获取所有的标签
+	    var num = Math.floor(wscreenWidth/wchirldWidth[0].offsetWidth);//这是一个Math算法, 目的是将小数转变为整数,
+	    // 从而可以知道每行最多容纳几张图片
+	    wparent.style.cssText = 'width:'+wchirldWidth[0].offsetWidth*num+'px;margin:0 auto';//固定每行摆放个数 和上下左右边距
+	    //获得每行的最小高度
+	    getMinHeightOfCols(allArr, num);
+	}
+	function getAllChirld(parent,classname){
+	    //获取所有的标签
+	    var wchirld = parent.getElementsByTagName("*");
+	    //创建数组
+	    var chirldArr = [];
+	    //遍历wchirld, 将其中className等于classname(传进来的参数)相同的标签放入数组chirldArr中
+	    for(var i = 0; i<wchirld.length; i++){
+	        if(wchirld[i].className==classname){
+	            //因为是位push所以没放进去一个, 都是在数组的最后一个
+	            chirldArr.push(wchirld[i]);
+	        }
+	    }
+	    //返回该数组
+	    return chirldArr;
+	}
+	function getMinHeightOfCols(chirdArr, num){
+	    //创建数组, 用来盛放每一行的高度
+	    var onlyOneColsArr = [];
+	    for(var i = 0; i<chirdArr.length; i++){
+	
+	        if(i<num){
+	            //num为传进来的参数, 即为每行放图片的张数, 此步骤的目的是为了将第一行每张图片的高度遍历出来存放如新数组
+	            onlyOneColsArr[i]=chirdArr[i].offsetHeight;
+	        } else {
+	            //当大于每行存放的图片个数时进入该方法, Math.min.apply这个方法是为了得到数组中的最小值
+	            var minHeightOfCols = Math.min.apply(null, onlyOneColsArr);
+	            //此方法的目的是为了得到最小高度图片的下表, 也就是在每行的第几张, 具体方法见下面
+	            var minHeightOfindex = getminIndex(onlyOneColsArr, minHeightOfCols);
+	            //定义布局方式为绝对布局
+	            chirdArr[i].style.position = "absolute";
+	            //得到下一行图片应放的高度
+	            chirdArr[i].style.top = minHeightOfCols + "px";
+	            //得到下一行图片应放于那个位置
+	            chirdArr[i].style.left = chirdArr[minHeightOfindex].offsetLeft + "px";
+	            //将两张图片高度相加得到一个新的高度用来进行下一次的计算
+	            onlyOneColsArr[minHeightOfindex] += chirdArr[i].offsetHeight;
+	        }
+	    }
+	
+	}
+	//此方法是为了进行最小高度下标的确定
+	function getminIndex(onlyOneColsArr, min){
+	    //遍历传进来的高度数组
+	        for(var i in onlyOneColsArr){
+	            //如果高度等于最小高度, 返回i即为该图片下标
+	            if(onlyOneColsArr[i] == min){
+	                return i;
+	            }
+	        }
+	}
+	
+	//第3种显示
+		function initDraggie(ele){
+			var draggie = new Draggabilly(ele,{
+				containment:".draggieSwitch"
+			});
+			draggie.on( 'dragEnd', function(event, pointer, moveVector) {
+			  console.log( 'dragEnd', this.position.x, this.position.y );		  
+			  if(istrue("img1Div",pointer)){
+			  	tihuan(this,"img1Div");
+			  }
+			  if(istrue("img2Div",pointer)){
+			  	tihuan(this,"img2Div");
+			  }
+			});
+		}
+		//判断是否到达位置
+		function istrue(id,pointer){
+			var x = $('#'+id).position().left; 
+			var y = $('#'+id).position().top; 
+			var width= $('#'+id).width();
+			var height=$('#'+id).height();
+			console.log("x"+x+"y"+y+"width"+width+"height"+height);
+			if(pointer.x>x&&pointer.x<x+width&&pointer.y>y&&pointer.y<y+height){
+				console.log("拖动到了");
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
+		//替换img
+		function tihuan(minImg,maxImg){	
+			console.dir(minImg.element);
+//			console.log($(minImg.element).find("img").attr("src"));
+			$("#"+maxImg).find("img").attr("src",$(minImg.element).find("img").attr("src"));
+			minImg.destroy();
+			setTimeout(function(){
+				$(minImg.element).attr("style"," ");
+				setTimeout(function(){
+					initDraggie(minImg.element);
+				},300);				
+			},500);
+			
+		}
+		$.each($(".draggie"), function(i,ele) {
+			initDraggie(ele);
+		});
+	
+	
+	waterFlow("container", "box");
+	suningImages().init();	
+//	suningImages().init("pics2");
+	$(".summary").on("click",function(){
+		console.log("click"+$(this).attr("data"))
+		$('.showImg').hide();
+		$("#"+$(this).attr("data")).show();
+	})
 })

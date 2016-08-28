@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="stylesheets/jquery.gridly.css" />
+		<script src="javascripts/jquery.js"></script>
+		<!--<script src="javascripts/jquery.gridly.js"></script>-->
+		<!--<script src="https://npmcdn.com/draggabilly@2.1/dist/draggabilly.pkgd.js"></script>-->
+		<script src="draggabilly.pkgd.js"></script>
+	</head>
+	<body>
+	<style type="text/css">
+	  .gridly {
+	    position: relative;
+	    width: 960px;
+	  }
+	  .brick1.small {
+	    width: 140px;
+	    height: 140px;
+	    background: red;
+	  }
+	  .brick.large {
+	    width: 300px;
+	    height: 300px;
+	    background: greenyellow;
+	  }
+	</style>
+	<div class="gridly">
+	   <div class="brick1 small">
+	  	<img src="../1/201606/30/6.jpg" width="100%"/>
+	  </div>
+	  <!--比较框-->
+	</div>
+	  <div style="width: 100%;height: auto;min-height: 400px; display: inline-block;vertical-align: top;">
+		<div style="width: 49%;height: auto;display: inline-block;background: red;min-height: 400px;vertical-align: top;" id="img1Div">
+			<img  id="img1" style="width: 100%;" />
+		</div>
+		<div style="width: 49%;height: auto;display: inline-block;background: black;min-height: 400px;vertical-align: top;" id="img2Div">
+			<img  id="img2" style="width: 100%;" />
+		</div>
+	</div>
+	
+	<script>
+//	  $('.gridly').gridly({
+//	    base: 60, // px 
+//	    gutter: 20, // px
+//	    columns: 12
+//	  });
+//	var draggable = $('.brick').draggabilly({
+//	  // options...
+//	})
+	$(function(){		
+		function initDraggie(ele){
+			var draggie = new Draggabilly(ele);
+			draggie.on( 'pointerMove', function(event, pointer, moveVector) {
+			  console.log( 'pointerMove', this.position.x, this.position.y );		  
+			  if(istrue("img1Div",pointer)){
+			  	tihuan(this,"img1Div");
+			  }
+			});
+		}
+		//判断是否到达位置
+		function istrue(id,pointer){
+			var x = $('#'+id).position().left; 
+			var y = $('#'+id).position().top; 
+			var width= $('#'+id).width();
+			var height=$('#'+id).height();
+			console.log("x"+x+"y"+y+"width"+width+"height"+height);
+			if(pointer.x>x&&pointer.x<x+width&&pointer.y>y&&pointer.y<y+height){
+				console.log("拖动到了");
+				return true;
+			}else{
+				return false;
+			}
+			
+		}
+		//替换img
+		function tihuan(minImg,maxImg){	
+			console.log("ele"+minImg.element);
+			console.log($(minImg.element).find("img").attr("src"));
+			$("#"+maxImg).find("img").attr("src",$(minImg.element).find("img").attr("src"));
+			minImg.destroy();
+			setTimeout(function(){
+				$(minImg.element).css("transform","");
+				initDraggie(minImg.element);
+			},300);
+			
+		}
+		initDraggie(".brick1");
+	})
+	
+
+	
+	</script>
+	</body>
+</html>

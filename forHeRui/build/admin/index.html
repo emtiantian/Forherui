@@ -29,9 +29,9 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
 	<!--mycss-->
-	<link href="css/iSlider.css" rel="stylesheet"/>
+	<!--<link href="css/iSlider.css" rel="stylesheet"/>
 	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
-	<link href="css/iPicture.css" rel="stylesheet"/>
+	<link href="css/iPicture.css" rel="stylesheet"/>-->
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
 	<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
@@ -209,36 +209,241 @@
 							 		<button id="createUser" class="btn btn-primary"> 搜索图片</button>
 	 						</div>
            </div>         
-            <!--<div class="state-info">              
+            <div class="state-info">              
                 <section class="panel">
                     <div class="panel-body">
-                        <div class="summary">
-                            <span>最近7天图片张数</span>
-                            <h3 class="green-txt">14(张)</h3>
+                        <div class="summary" data="showImg1">
+                            <span>展示方式</span>
+                            <h3 class="green-txt" >平铺</h3>
                         </div>
-                        <div id="expense" class="chart-bar"></div>
+                        <div class="summary" data="showImg2">
+                            <span>展示方式</span>
+                            <h3 class="green-txt" >单个</h3>
+                        </div>
+                        <div class="summary" data="showImg3">
+                            <span>展示方式</span>
+                            <h3 class="green-txt" >对比</h3>
+                        </div>
                     </div>
                 </section>
-            </div>-->
+            </div>
         </div>
         <!-- page heading end-->
 
         <!--body wrapper start-->
-        <div class="wrapper displayDiv">
-            <div class="row">  
-            	<div class="col-md-3"></div>
-                <div class="col-md-6"  id="imgDiv">
-                	<!--<div class="ui segment" style="height: 900px;padding: 0;" >
-							    	<div  id="iSlider-wrapper1" ></div>		    
-							    </div>-->
-											<div class="is-in-is-wrap">
-							            <div class="is-in-is">
-							                <div id="is_in_is" data-interaction="hover"></div>			                
-							            </div>
-							       </div>					
-            		</div> 
-		            <!--<div class="col-md-2" ></div>-->
-        		</div>
+        <div class="wrapper displayDiv" >
+            <div class="row displayDiv showImg" id="showImg1">
+			        <div class="col-sm-12">
+				        <section class="panel">
+					        <header class="panel-heading">
+					            	第一种展示
+					            <span class="tools pull-right">
+					                <a href="javascript:;" class="fa fa-chevron-down"></a>
+					                <!--<a href="javascript:;" class="fa fa-times"></a>-->
+					             </span>
+					        </header>
+					        <div class="panel-body">
+					        	<div id="container">
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test/1.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//2.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								           <img src="images/gallery/test//3.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//4.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								           <img src="images/gallery/test//5.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//6.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//7.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//8.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//9.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								           <img src="images/gallery/test//13.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//11.jpg">
+								        </div>
+								    </div>
+								    <div class="box">
+								        <div class="boximg">
+								            <img src="images/gallery/test//12.jpg">
+								        </div>
+								    </div>
+								
+								</div>
+					        </div>
+				        </section>
+			        </div>
+			</div>
+			<div class="row displayDiv showImg" id="showImg2">
+			        <div class="col-sm-12">
+				        <section class="panel">
+					        <header class="panel-heading">
+					            	第2种展示
+					            <span class="tools pull-right">
+					                <a href="javascript:;" class="fa fa-chevron-down"></a>
+					                <!--<a href="javascript:;" class="fa fa-times"></a>-->
+					             </span>
+					        </header>
+					        <div class="panel-body">
+					        	<div class="Container">
+								    <div class="image" id="bigpics" title=""><img src="images/gallery/test/1.jpg" /></div>
+								    <div class="switch">
+								    	<div class="icon1"><a href="#" title="上一个" onfocus="this.blur();">上一个</a></div>
+								        <div class="switch_center" id="pics">
+								        	<ul>
+								        	 	<li><a href="#" class="on"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/5.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/6.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/7.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/8.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/9.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/10.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/11.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/12.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/13.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/1.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a href="#"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><li>
+								            </ul>
+								      </div>
+								        <div class="icon2"><a href="#" title="下一个" onfocus="this.blur();">下一个</a></div>
+								        <div class="clear"></div>
+								    </div>								    								
+								</div>
+					        </div>
+				        </section>
+			        </div>
+			</div>
+			<div class="row displayDiv showImg" id="showImg3">
+			        <div class="col-sm-12">
+				        <section class="panel">
+					        <header class="panel-heading">
+					            	第3种展示
+					            <span class="tools pull-right">
+					                <a href="javascript:;" class="fa fa-chevron-down"></a>
+					                <!--<a href="javascript:;" class="fa fa-times"></a>-->
+					             </span>
+					        </header>
+					        <div class="panel-body">
+					        		<!--<div class="draggieSwitch">
+					        			<div style="width: 100%;height: auto;min-height: 400px; display: inline-block;vertical-align: top;margin-bottom: 50px;">
+											<div style="width: 49%;height: auto;display: inline-block;background: red;min-height: 400px;vertical-align: top;" id="img1Div">
+												<img  id="img1" style="width: 100%;" />
+											</div>
+											<div style="width: 49%;height: auto;display: inline-block;background: black;min-height: 400px;vertical-align: top;" id="img2Div">
+												<img  id="img2" style="width: 100%;" />
+											</div>
+										</div>
+								    	<div class="draggieicon1">
+								    		<a href="#" title="上一个" onfocus="this.blur();">上一个</a>
+								    	</div>
+								        <div class="switch_center" id="pics2">
+								        	<ul>
+								        	 	<li><a href="#" class="draggie"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a href="#" class="draggie"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/5.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/6.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/7.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/8.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/9.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/10.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/11.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/12.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/13.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/1.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><li>
+								            </ul>
+								      </div>
+								        <div class="draggieicon2"><a href="#" title="下一个" onfocus="this.blur();">下一个</a></div>
+								        <div class="clear"></div>
+								        
+								    </div>	-->
+								    <div class="draggieSwitch">
+					        			<div style="width: 100%;height: auto;min-height: 400px; display: inline-block;vertical-align: top;margin-bottom: 150px;">
+											<div style="width: 49%;height: auto;display: inline-block;background: red;min-height: 400px;vertical-align: top;" id="img1Div">
+												<img  id="img1" style="width: 100%;" />
+											</div>
+											<div style="width: 49%;height: auto;display: inline-block;background: black;min-height: 400px;vertical-align: top;" id="img2Div">
+												<img  id="img2" style="width: 100%;" />
+											</div>
+										</div>
+								    
+								        <div class="draggie_switch_center" id="pics2">
+								        	<ul>
+								        	 	<li><a class="draggie"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a   class="draggie"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/5.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/6.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/7.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/8.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/9.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/10.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/11.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/12.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/13.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/1.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a  class="draggie"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><li>
+								            </ul>
+								      </div>							        								        
+								    </div>	
+					        </div>
+				        </section>
+			        </div>
+			</div>
         </div>
         <!--body wrapper end-->
 
@@ -251,28 +456,6 @@
 
     </div>
     <!-- main content end-->
-    <!--模板 -->
-	<div id="muban" style="display: none;">
-		<div class="ip_slide" >
-			<!-- 本身的图片 -->
-			<img class="ip_tooltipImg" src="" width="100%" height="100%" />
-			
-		</div>
-	</div>
-	<div id="tooltip" style="display: none;">
-		<div class="ip_tooltip ip_img32" style="top: 185px; left: 393px; z-index: 1;" data-tooltipbg="bgblack" data-round="roundBgWInner" data-animationtype="btt-slide" id="picture1_tooltip1">
-				<div class="roundBgW"></div>
-				<div class="roundBgWIn"></div>
-				<div class="roundBgWInner"></div>
-				<div class="button undefined"></div>
-			<div class="descrContainer">
-				<div class="pass-btt"></div>
-				<div class="ip_descr bgblack btt-before">
-					<div class="xs" style="display: none;">furniture: 299$</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </section>
 
 
@@ -289,8 +472,8 @@
 <script src="js/easypiechart/easypiechart-init.js"></script>-->
 
 <!--Sparkline Chart-->
-<script src="js/sparkline/jquery.sparkline.js"></script>
-<script src="js/sparkline/sparkline-init.js"></script>
+<!--<script src="js/sparkline/jquery.sparkline.js"></script>
+<script src="js/sparkline/sparkline-init.js"></script>-->
 
 <!--icheck -->
 <!--<script src="js/iCheck/jquery.icheck.js"></script>
@@ -321,9 +504,9 @@
 <!--
 	图片展示插件
 -->
-<script src="js/iSlider.js"></script>
+<!--<script src="js/iSlider.js"></script>
 <script src="js/iSlider.animate.min.js"></script>
-<script src="js/iSlider.plugin.dot.js"></script>
+<script src="js/iSlider.plugin.dot.js"></script>-->
 <!--
 基础js
 -->
@@ -332,7 +515,10 @@
 
 <script src="js/util.js"></script>
 <script src="js/config.js"></script>
-
+<!--展示2 js-->
+<script type="text/javascript" src="js/images.js"></script>
+<!--展示3js-->
+<script src="js/draggabilly.pkgd.js"></script>
 <script src="js/index.js"></script>
 
 </body>

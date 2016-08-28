@@ -21,17 +21,13 @@
 
   <!--Morris Chart CSS -->
   <!--<link rel="stylesheet" href="js/morris-chart/morris.css">-->
-  	<!--图片编辑-->
-    <link href="css/style-responsive.css" rel="stylesheet">
-    <link rel="stylesheet" href="js/jquery-ui-1.11.0.custom/jquery-ui.css" />
-	<link rel="stylesheet" href="js/jquery-ui-1.11.0.custom/jquery-ui.structure.css" />
-	<link rel="stylesheet" href="js/colorpicker-master/jquery.colorpicker.css" />
-	<link rel="stylesheet" href="js/jquery-ui-1.11.0.custom/jquery-ui.theme.css" />
+
   <!--common-->
-
-    <link href="css/style.css" rel="stylesheet">
-
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
 	<!--mycss-->
+	<link href="css/iSlider.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
 	<link href="css/myCss.css" rel="stylesheet"/>
 	
 
@@ -201,107 +197,50 @@
 							</div>		
             </div>
             <div class="state-info">              
-          
+                <!--<section class="panel">
+                    <div class="panel-body">
+                        <div class="summary">
+                            <span>最近7天图片张数</span>
+                            <h3 class="green-txt">14(张)</h3>
+                        </div>
+                        <div id="expense" class="chart-bar"></div>
+                    </div>
+                </section>-->
             </div>
         </div>
         <!-- page heading end-->
 
         <!--body wrapper start-->
         <div class="wrapper displayDiv">
-<!--            <div class="row" oncontextmenu="javascript:return false">  -->
-         		<div id="dialog" title="HTML画板">	
-					<div style="font-size:14px;"> 
-					   <fieldset style="float:left;width:250px;">
-					        <legend>工具</legend>
-								<div id="toolsOptions">
-									<input type="radio" id="tools_pencil" name="toolsOption" checked="checked"><label for="tools_pencil">画笔</label> &nbsp;
-									<input type="radio" id="tools_eraser" name="toolsOption" ><label for="tools_eraser">橡皮擦</label> &nbsp;
-									<!--<input type="radio" id="tools_trash" name="toolsOption"><label 	for="tools_trash">清空</label>-->
-									<div style="border-top:1px dashed gray;margin-top:8px;padding-top:8px;"><span>
-										<button id="tools_save">save</button>&nbsp;&nbsp;&nbsp;
-										<button id="tools_undo">undo</button>&nbsp;&nbsp;&nbsp;
-										<button id="tools_redo">redo</button>
-									</span></div>
-								</div>
-				
-							</fieldset>
-							<fieldset style="float:left;">
-								<legend>多边形</legend>
-								<div><span>
-									<input type="radio" id="tools_line" name="toolsOption"><label for="tools_line">直线</label>
-									<input type="radio" id="tools_rectangle" name="toolsOption"><label for="tools_rectangle">矩形</label>
-									<input type="radio" id="tools_circle" name="toolsOption"><label for="tools_circle">文字</label>
-								</span></div>
-							</fieldset>
-							<fieldset style="float:left;width:180px;">
-					        <legend>线条设置</legend>
-					        <span style="float: left;margin-top: 6px;">线条粗细: </span>
-					             <select id="penWidth" >
-					                 <option value="1" selected>1px</option>
-					                 <option value="2">2px</option>
-					                 <option value="4">4px</option>
-					                 <option value="6">6px</option>
-					                 <option value="8">8px</option>
-					                 <option value="12">12px</option>
-					                 <option value="14">14px</option>
-					                 <option value="16">16px</option>
-					                 <option value="18">18px</option>
-					             </select>
-					            <div style="border-top:1px dashed gray;margin-top:8px;padding-top:8px;">
-					        <span>边框色:<input id="colorpicker-popup" type="text"  value="000000" style="width: 72px;display:none; "></span>&nbsp;
-					        <!--<span>填充色:<input id="colorpicker-popup2" type="text"  value="fe9810" style="width: 72px;display:none; "></span>-->
-					        </div>
-					     </fieldset>
-					    <fieldset style="float:left;width:200px;">
-					        <legend>字体设置</legend>
-					        <span><span style="float: left;margin-top: 6px;">字体大小: </span>
-					        		<select id="fontSize"  >
-						                 <option value="8px" selected>8px</option>
-						                 <option value="10px">10px</option>
-						                 <option value="12px">12px</option>
-						                 <option value="14px">14px</option>
-						                 <option value="16px">16px</option>
-						                 <option value="18px">18px</option>
-						                 <option value="20px">20px</option>
-						                 <option value="22px">22px</option>
-						                 <option value="24px">24px</option>
-						                 <option value="26px">26px</option>
-						                 <option value="28px">28px</option>
-						                 <option value="30px">30px</option>
-						                 <option value="32px">32px</option>
-						                 <option value="34px">34px</option>
-						                 <option value="36px">36px</option>
-					             </select>
-					             </span>
-					             <br/>
-					        <span><span style="float: left;margin-top: 6px;">字体选择:</span>	        		
-					        		<select id="fontType" style="top:20px;" >
-						                 <option value="宋体" >宋体</option>
-						                 <option value="微软雅黑">微软雅黑</option>
-						                 <option value="仿宋">仿宋</option>
-						                 <option value="Arial" selected>Arial</option>
-						                 <option value="Consolas">Consolas</option>
-					             </select>
-					        </span>
-					        <span style="font-weight:bold;"><input type="checkbox" id="boldOption" name="fontOption"><label for="boldOption">B</label></span>
-					        <span style="font-style: italic;"><input type="checkbox" id="italicOption" name="italicOption"><label for="italicOption">I</label></span>
-					     </fieldset>
-					     
-					     <div style="clear:both;"></div>
-					</div>
-				   
-				   <div style="background:white;position:relative;" id="container">
-				     <div id="temp" style="border:1px solid gray;width:1px;height:1px;position:absolute;display:none;"></div>
-					
-					<canvas id="myCanvas" width="1600" height="1200" class="container_pencil">
-					  
-					</canvas>
-					</div>
-					<span id="show" style="display:none;"></span>
-				
-				
-				</div>
-        	<!--</div>-->
+            <div class="row">  
+            	<div class="col-md-1" >
+		            <!--<button type="button" class="btn btn-info btn-lg btn-block">修改标签</button>-->
+		        </div>
+                <div class="col-md-10" >
+					<div id="slideshow">
+						<div id="iPicture">
+							<!--<div class="slide">
+								<div id="picture1" style="background: url('./images/gallery/image1.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture2" style="background: url('./images/gallery/image2.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture3" style="background: url('./images/gallery/image3.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture4" style="background: url('./images/gallery/image4.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div><br/>
+							<div class="slide">
+								<div id="picture5" style="background: url('./images/gallery/image5.jpg') no-repeat scroll 0 0 #393737; width: 900px; height: 528px;position: relative; margin:0 auto;"></div>
+							</div>-->
+						</div>
+					</div>					
+            	</div> 
+		        <div class="col-md-1" >
+		            <!--<button type="button" class="btn btn-info btn-lg btn-block">修改标签</button>-->
+		        </div>
+        	</div>
         </div>
         <!--body wrapper end-->
 
@@ -367,18 +306,12 @@
 
 <!--Dashboard Charts-->
 <!--<script src="js/dashboard-chart-init.js"></script>-->
-
-<!--图片编辑-->
-<script type="text/javascript" src="js/jquery-ui-1.11.0.custom/jquery-ui.js"></script>
-<script type="text/javascript" src="js/anyLine.js"></script>
-<script type="text/javascript" src="js/colorpicker-master/jquery.colorpicker.js"></script>
-<script type="text/javascript" src="js/colorpicker-master/parts/jquery.ui.colorpicker-rgbslider.js"></script>
-<script type="text/javascript" src="js/json2.js"></script>
-<script type="text/javascript" src="js/canvas.js"></script>
 <!--myjs-->
+<!--<script src="js/jquery.json.min.js"></script>-->
 <script src="js/config.js"></script>
 <script src="js/util.js"></script>
-<!--<script src="js/modifPicture.js"></script>-->
+<script type="text/javascript" src="js/jQuery.iPicture.js"></script>
+<script src="js/modifPicture2.js"></script>
 
 
 </body>
