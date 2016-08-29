@@ -622,5 +622,5 @@
 			      }
        
        })(); 
-       mycanvas.initImg("./images/1.jpg");
+       mycanvas.initImg("./images/14.jpg");
     });

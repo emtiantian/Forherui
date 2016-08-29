@@ -76,11 +76,11 @@ var suningImages = function(){
 				var e = e || window.event ;
 				posx = e.clientX ;
 				if(posx>document.documentElement.clientWidth/2){
-					box.css('cursor','url(http://img.baidu.com/img/image/mousedown.cur),pointer');
+					box.css('cursor','url(images/next.cur),pointer');
 					console.log("下一页");
 					box.attr('title','下一页');
 				}else{
-					box.css('cursor','url(http://img.baidu.com/img/image/mouseup.cur),pointer');
+					box.css('cursor','url(images/pev.cur),pointer');
 					console.log("上一页");
 					box.attr('title','上一页');
 				}
