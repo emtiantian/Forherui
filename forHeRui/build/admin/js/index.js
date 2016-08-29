@@ -109,7 +109,8 @@ $(function(){
 				containment:".draggieSwitch"
 			});
 			draggie.on( 'dragEnd', function(event, pointer, moveVector) {
-			  console.log( 'dragEnd', this.position.x, this.position.y );		  
+				console.log(pointer);
+			  console.log( 'dragEnd', pointer.x, pointer.y );		  
 			  if(istrue("img1Div",pointer)){
 			  	tihuan(this,"img1Div");
 			  }
