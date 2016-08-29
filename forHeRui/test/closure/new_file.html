@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="a">40</button>
+		<button id="b">查看</button>
+	</body>
+	<script>
+		function outer(){
+	     	var localVal = 30;
+	     	document.getElementById("a").click(function(){
+	     		localVal = 40;
+	     	})
+			function inner(){					
+			          console.log(localVal);
+			     }
+		     return {innerfun:inner};
+		}
+		var func = outer();
+		func.innerfun();//30
+		document.getElementById("b").click(function(){
+				console.log("点击b了")
+	     		func.innerfun();//40
+	     	})
+	</script>
+</html>

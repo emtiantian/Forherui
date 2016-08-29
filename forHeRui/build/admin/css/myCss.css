@@ -384,8 +384,15 @@ canvas {
 .ui-selectmenu-text {
 	font-size: 12px;
 }
-
-
+.state-info-left{
+	position: absolute;
+	top: 20px;
+	left: 15px;
+}
+.summary-left{
+	float: left;
+    margin-right: 20px;
+}
 /*屏幕适配*/	
  @media (max-width: 780px){
  	.dataTables_length {

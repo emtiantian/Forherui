@@ -12,7 +12,7 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 //				console.log(data);
-				console.dir(data.data);			
+//				console.dir(data.data);			
 				$.each(data.data,function(i,ele){								
 					$.each(ele,function(childI,childEle){
 							var father=$("#menu_"+childEle.parent)

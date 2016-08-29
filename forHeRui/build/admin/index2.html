@@ -9,17 +9,33 @@
   <link rel="shortcut icon" href="#" type="image/png">
 
   <title>微拍推送平台</title>
+  <!--icheck-->
+  <!--<link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+  -->
 
+
+
+  <!--dashboard calendar-->
+  <!--<link href="css/clndr.css" rel="stylesheet">-->
+
+  <!--Morris Chart CSS -->
+  <!--<link rel="stylesheet" href="js/morris-chart/morris.css">-->
+  	
 
   <!--common-->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
 	<!--mycss-->
+	<!--<link href="css/iSlider.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
+	<link href="css/iPicture.css" rel="stylesheet"/>-->
 	<link href="css/myCss.css" rel="stylesheet"/>
+	
 	<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
-	<!--右键菜单-->
-	<link href="css/context.bootstrap.css" rel="stylesheet"/>
-	<link href="css/context.standalone.css" rel="stylesheet"/>
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
@@ -193,32 +209,23 @@
 							 		<button id="createUser" class="btn btn-primary"> 搜索图片</button>
 	 						</div>
            </div> -->
-           <div class="state-info-left">              
+           <div class="state-info" style="position: absolute;top: 20px;">              
                 <section class="panel">
                     <div class="panel-body">
-                        <div class="summary-left">
-                           <select class="form-control input-sm m-bot15">
-								<option selected="selected">线路 1</option>
-								<option>线路 2</option>
-								<option>线路 3</option>
-							</select>
-                        </div>
-                        <div class="summary-left" >
+                        <div class="summary" data="showImg1">
                             <select class="form-control input-sm m-bot15">
-									<option selected="selected">机器 1</option>
-									<option>机器 2</option>
-									<option>机器 3</option>
-							</select> 
+															<option selected="selected">线路 1</option>
+															<option>线路 2</option>
+															<option>线路 3</option>
+														</select>
                         </div>
-                        <div class="summary-left">
-                           <div class="selectUldiv" >		
-							 	<input size="16" type="text" value="" readonly class="form_date form-control">								
-	 						</div>
+                        <div class="summary" data="showImg2">
+                            <span>展示方式</span>
+                            <h3 class="green-txt" >单个</h3>
                         </div>
-                        <div class="summary-left" >
-                           <div class="selectUldiv" >		
-							 	<button id="createUser" class="btn btn-primary"> 搜索图片</button>
-	 						</div>
+                        <div class="summary" data="showImg3">
+                            <span>展示方式</span>
+                            <h3 class="green-txt" >对比</h3>
                         </div>
                     </div>
                 </section>
@@ -245,7 +252,7 @@
         <!-- page heading end-->
 
         <!--body wrapper start-->
-        <div class="wrapper displayDiv"  style="padding-top: 75px;">
+        <div class="wrapper displayDiv" >
             <div class="row displayDiv showImg" id="showImg1">
 			        <div class="col-sm-12">
 				        <section class="panel">
@@ -259,7 +266,7 @@
 					        <div class="panel-body">
 					        	<div id="container">
 								    <div class="box">
-								        <div class="boximg context">
+								        <div class="boximg">
 								            <img src="images/gallery/test/1.jpg">
 								        </div>
 								    </div>
@@ -340,7 +347,7 @@
 								    <div class="switch">
 								    	<div class="icon1"><a href="#" title="上一个" onfocus="this.blur();">上一个</a></div>
 								        <div class="switch_center" id="pics">
-								        	<ul id="container2">
+								        	<ul>
 								        	 	<li><a href="#" class="on"><img src="images/gallery/test/2.jpg" /></a></li>
 								                <li><a href="#"><img src="images/gallery/test/3.jpg" /></a></li>
 								                <li><a href="#"><img src="images/gallery/test/4.jpg" /></a></li>
@@ -380,7 +387,46 @@
 					                <!--<a href="javascript:;" class="fa fa-times"></a>-->
 					             </span>
 					        </header>
-					        <div class="panel-body">					 
+					        <div class="panel-body">
+					        		<!--<div class="draggieSwitch">
+					        			<div style="width: 100%;height: auto;min-height: 400px; display: inline-block;vertical-align: top;margin-bottom: 50px;">
+											<div style="width: 49%;height: auto;display: inline-block;background: red;min-height: 400px;vertical-align: top;" id="img1Div">
+												<img  id="img1" style="width: 100%;" />
+											</div>
+											<div style="width: 49%;height: auto;display: inline-block;background: black;min-height: 400px;vertical-align: top;" id="img2Div">
+												<img  id="img2" style="width: 100%;" />
+											</div>
+										</div>
+								    	<div class="draggieicon1">
+								    		<a href="#" title="上一个" onfocus="this.blur();">上一个</a>
+								    	</div>
+								        <div class="switch_center" id="pics2">
+								        	<ul>
+								        	 	<li><a href="#" class="draggie"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a href="#" class="draggie"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/5.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/6.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/7.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/8.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/9.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/10.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/11.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/12.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/13.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/1.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/2.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/3.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/4.jpg" /></a></li>
+								                <li><a href="#"class="draggie"><img src="images/gallery/test/14.jpg" /></a></li>
+								                <li><li>
+								            </ul>
+								      </div>
+								        <div class="draggieicon2"><a href="#" title="下一个" onfocus="this.blur();">下一个</a></div>
+								        <div class="clear"></div>
+								        
+								    </div>	-->
 								    <div class="draggieSwitch">
 					        			<div style="width: 100%;height: auto;min-height: 400px; display: inline-block;vertical-align: top;margin-bottom: 150px;">
 											<div style="width: 49%;height: auto;display: inline-block;background: red;min-height: 400px;vertical-align: top;" id="img1Div">
@@ -391,8 +437,8 @@
 											</div>
 										</div>
 								    
-								        <div class="draggie_switch_center" >
-								        	<ul id='container3'>
+								        <div class="draggie_switch_center" id="pics2">
+								        	<ul>
 								        	 	<li><a class="draggie"><img src="images/gallery/test/2.jpg" /></a></li>
 								                <li><a   class="draggie"><img src="images/gallery/test/3.jpg" /></a></li>
 								                <li><a  class="draggie"><img src="images/gallery/test/4.jpg" /></a></li>
@@ -494,8 +540,6 @@
 <script type="text/javascript" src="js/images.js"></script>
 <!--展示3js-->
 <script src="js/draggabilly.pkgd.js"></script>
-<!--右键菜单-->
-<script src="js/context.js"></script>
 <script src="js/index.js"></script>
 
 </body>

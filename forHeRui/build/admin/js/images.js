@@ -8,13 +8,13 @@ var suningImages = function(){
 	
 	return{
 		init:function(id){
-			console.dir(image)
+//			console.dir(image)
 			if(id != undefined){
 				image = $("#"+id);
 				ul = image.find('ul');
 				btn = image.find('li');
 			}		
-			console.dir(image)
+//			console.dir(image)
 			var that = this ;
 			var posx ;
 			var posy ;

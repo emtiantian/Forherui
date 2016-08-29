@@ -1,6 +1,8 @@
 $(function(){
 	//基础url
 	var baseUrl = config.get("baseUrl");
+	//右键菜单class
+	var contextClass="context";
 	
 	//日期初始化
    $('.form_date').datetimepicker({
@@ -39,6 +41,31 @@ $(function(){
 	  return fmt;   
 	}
 	$('.form_date').val(new Date().format("yyyy-MM-dd"));
+	
+	//第一种展示初始化
+	$("#container1").html("");
+	$("#container2").html("");
+	$("#container3").html("");
+	function initShow1(data){				
+		$("#container1").append('<div class="box"><div class="boximg '+contextClass+'" data-imgId="'+data.id+'"> <img src="'+data.src+'"></div></div>');							   
+	}
+	function initShow2(data,isFirst){
+		if(isFirst){
+			$("#container2").append('<li class="'+contextClass+'" data-imgId="'+data.id+'"><a href="#" class="on"><img src="images/gallery/test/2.jpg" /></a></li>');
+		}else{
+			$("#container2").append('<li><a href="#" ><img src="images/gallery/test/2.jpg" /></a></li>');
+		}
+		
+	}
+	function initShow3(data){
+		$("#container3").append();
+	}
+	
+	
+	
+	
+	
+	
 	
 	//第一种显示
 	function waterFlow(parent, chirld){
@@ -109,8 +136,8 @@ $(function(){
 				containment:".draggieSwitch"
 			});
 			draggie.on( 'dragEnd', function(event, pointer, moveVector) {
-				console.log(pointer);
-			  console.log( 'dragEnd', pointer.x, pointer.y );		  
+				console.dir(pointer);
+			  console.log( 'dragEnd', pointer.pageX, pointer.pageY );		  
 			  if(istrue("img1Div",pointer)){
 			  	tihuan(this,"img1Div");
 			  }
@@ -121,12 +148,12 @@ $(function(){
 		}
 		//判断是否到达位置
 		function istrue(id,pointer){
-			var x = $('#'+id).position().left; 
-			var y = $('#'+id).position().top; 
+			var x = $('#'+id).offset().left; 
+			var y = $('#'+id).offset().top; 
 			var width= $('#'+id).width();
 			var height=$('#'+id).height();
 			console.log("x"+x+"y"+y+"width"+width+"height"+height);
-			if(pointer.x>x&&pointer.x<x+width&&pointer.y>y&&pointer.y<y+height){
+			if(pointer.pageX>x&&pointer.pageX<x+width&&pointer.pageY>y&&pointer.pageY<y+height){
 				console.log("拖动到了");
 				return true;
 			}else{
@@ -150,15 +177,44 @@ $(function(){
 		}
 		$.each($(".draggie"), function(i,ele) {
 			initDraggie(ele);
+		});	
+		context.init({
+		  fadeSpeed: 100,
+		  filter: function ($obj){},
+		  above: 'auto',
+		  preventDoubleContext: true,
+		  compress: false
 		});
+		var thisSelf=context.attach('.context',[{
+			  header: '图片标注'
+			},{
+		
+		    text: '图片标注',
+		    action: function(e,selector){
+		    	console.log(context.thisSelf());
+//		    	for (var prop in this) {
+//				console.log("属性名："+prop)
+//				}
+//		    	console.log(context.thisSelf);
+//		    	console.log("className"+$(thisSelf).attr("class"));
+		    	e.preventDefault();
+		        alert('Do Something');
+		    }
+		}] );
+		
 	
 	
+	
+	//第一种展示
 	waterFlow("container", "box");
+	//第2中展示
 	suningImages().init();	
 //	suningImages().init("pics2");
+	//第3中展示
 	$(".summary").on("click",function(){
 		console.log("click"+$(this).attr("data"))
 		$('.showImg').hide();
 		$("#"+$(this).attr("data")).show();
 	})
+	$("#showImg1").show();
 })
