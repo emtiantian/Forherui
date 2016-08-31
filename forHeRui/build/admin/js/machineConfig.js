@@ -223,7 +223,7 @@ $(function(){
 			async:true,
 			dataType:"json",
 			data:{"machineId":machineId,"user":user},
-			success:function(){
+			success:function(data){
 				if(data.success){
 					alert("安装设备成功 3秒后刷新")
 					setTimeout(function(){
