@@ -11,9 +11,8 @@ $(function(){
 			data:{},
 			dataType:"json",
 			success:function(data){
-//				console.log(data);
-//				console.dir(data.data);			
-				$.each(data.data,function(i,ele){								
+				if(data.success){
+					$.each(data.data,function(i,ele){								
 					$.each(ele,function(childI,childEle){
 							var father=$("#menu_"+childEle.parent)
 //							console.dir(father.find("ul>li>a"));
@@ -32,6 +31,16 @@ $(function(){
 					
 				})
 				$(".wrapper").show();
+				}else{
+					//在初始化menu的时候 判断是否登录
+					if(data.code == 2){
+						alert("未登录！请重新登录")
+						location.href='login.html';
+					}else{
+						alert(data.msg);
+					}
+				}
+				
 			}
 		});
 	}
@@ -97,14 +106,14 @@ $(function(){
 	}
 	
 	//错误处理
-	function dataError(data){
-		if(data.code == 2){
-			alert("未登录！请重新登录")
-			location.href='login.html';
-		}else{
-			alert(data.msg);
-		}
-	}
+//	function dataError(data){
+//		if(data.code == 2){
+////			alert("未登录！请重新登录")
+//			location.href='login.html';
+//		}else{
+//			alert(data.msg);
+//		}
+//	}
 	//102 屏幕高减102	
 	function initHeight(){
 		$(".wrapper").css("min-height",$(window).height()-102);
@@ -126,7 +135,7 @@ $(function(){
 //错误处理
 	function dataError(data){
 		if(data.code == 2){
-			alert("未登录！请重新登录")
+//			alert("未登录！请重新登录")
 			location.href='login.html';
 		}else{
 			alert(data.msg);

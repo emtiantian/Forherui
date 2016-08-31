@@ -5,6 +5,8 @@ $(function(){
 	var contextClass="context";
 	// 机器数据
 	var machineList=[];
+	//防止重复提交
+	var isImgSave = false;
 	
 	//日期初始化
    $('.form_date').datetimepicker({
@@ -164,7 +166,21 @@ $(function(){
 						    action: function(e,selector){
 						    	console.log(context.thisSelf());
 						    	console.log("imgId"+$(context.thisSelf()).attr("imgId"));
-						    	//点击菜单初始化 画板
+						    	//点击菜单初始化 画板 并修改canvas 宽高
+						    	console.log(getImgNaturalStyle($(context.thisSelf()).find("img")[0]));
+						    	var imgNatural = getImgNaturalStyle($(context.thisSelf()).find("img")[0])
+						    	//重置宽高
+						    	$("#myCanvas").attr("width",imgNatural[0])
+						    	$("#myCanvas").attr("height",imgNatural[1])
+						    	$("#myCanvas").css("width",imgNatural[0]);
+						    	$("#myCanvas").css("height",imgNatural[1]);
+						  
+						    	$(".ui-wrapper").css("width",imgNatural[0]);
+						    	$(".ui-wrapper").css("height",imgNatural[1]);
+//								var canvasDiv = document.getElementById("myCanvas");
+//								canvasDiv.width = imgNatural[0]
+//								canvasDiv.height = imgNatural[1]
+								
 						    	var canvas = mycanvas();
 						    	//替换画板中的图片 和 图片id
 						    	canvas.initImg($(context.thisSelf()).attr("imgId"),$(context.thisSelf()).find("img").attr("src"));
@@ -183,6 +199,22 @@ $(function(){
 			}
 		});
 	}
+	//获得图片宽高
+	      function getImgNaturalStyle(img,callback) {
+                var nWidth, nHeight
+                if (img.naturalWidth) { // 现代浏览器
+                    nWidth = img.naturalWidth
+                    nHeight = img.naturalHeight
+                } else {  // IE6/7/8
+                    var imgae = new Image();
+                    image.src = img.src;
+                    image.onload = function(){
+                        callback(image.width, image.height)
+                    }
+                }
+                return [nWidth, nHeight]
+            }
+	//初始化 下拉列表
 	function initSelect(data){
 		$("#lineList").html("");
 		$("#machineList").html("");
@@ -216,24 +248,31 @@ $(function(){
 		});
 	}
 	function saveImg(data){
-		$.ajax({
-			type:"post",
-			url:baseUrl+"/picture/infoEdit",
-			async:true,
-			data:data,
-			dataType:"json",
-			success:function(d){
-				if(d.success){
-					//替换图片
-					$("#container").find("#"+data.imgId).find("img").attr("src",d.data.url);
-					$("#container2").find("#"+data.imgId).find("img").attr("src",d.data.url);
-					$("#container3").find("#"+data.imgId).find("img").attr("src",d.data.url);
-					alert("修改成功");
-				}else{
-					dataError(d);
+		if(!isImgSave){
+			isImgSave = true
+			$.ajax({
+				type:"post",
+				url:baseUrl+"/picture/infoEdit",
+				async:true,
+				data:data,
+				dataType:"json",
+				success:function(d){
+					if(d.success){
+						//替换图片
+						$("#container").find("[imgId |= "+data.imgId+"]").find("img").attr("src",d.data.url);				
+						$("#container2").find("[imgId |= "+data.imgId+"]").find("img").attr("src",d.data.url);
+						$("#container3").find("[imgId |= "+data.imgId+"]").find("img").attr("src",d.data.url);
+						isImgSave = false
+						alert("修改成功");
+					}else{
+						dataError(d);
+					}
 				}
-			}
-		});
+			});
+		}else{
+			alert("正在修改请稍后");
+		}
+		
 	}
 	
 	
