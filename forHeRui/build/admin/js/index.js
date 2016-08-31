@@ -191,6 +191,7 @@ $(function(){
 		
 		    text: '图片标注',
 		    action: function(e,selector){
+		    	console.log(e.target);
 		    	console.log(context.thisSelf());
 //		    	for (var prop in this) {
 //				console.log("属性名："+prop)

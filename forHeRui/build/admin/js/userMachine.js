@@ -97,9 +97,9 @@ $(function(){
 			html+='<td>'+lineName+'</td>';
 			html+='<td>' + ele.machineName + '</td>'
 			html+='<td>' + ele.code + '</td>'
-			html+='<td>' + ele.machineComment + '</td>'
-			html+='<td>' + ele.Tower + '</td>'
+			html+='<td>' + ele.machineComment + '</td>'			
 			html+='<td>' + ele.productComp + '</td>'
+			html+='<td>' + ele.Tower + '</td>'
 			html+='<td>' + ele.CompID + '</td>'
 			html+='<td>' + ele.InstallUser + '</td>'
 			if(ele.InstallTime == null){
