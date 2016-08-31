@@ -102,7 +102,7 @@ var log = require('./log');
 	                "parent": "index",
 	                "child": [
 	                    "index.html",
-	                    "modifyPicture.html",
+//	                    "modifyPicture.html",
 	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]
@@ -153,7 +153,7 @@ var log = require('./log');
 	                "parent": "index",
 	                "child": [
 	                    "index.html",
-	                    "modifyPicture.html",
+//	                    "modifyPicture.html",
 	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]
@@ -198,7 +198,7 @@ var log = require('./log');
 	                "parent": "index",
 	                "child": [
 	                    "index.html",
-	                    "modifyPicture.html",
+//	                    "modifyPicture.html",
 	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]
@@ -232,7 +232,7 @@ var log = require('./log');
 	                "parent": "index",
 	                "child": [
 	                    "index.html",
-	                    "modifyPicture.html",
+//	                    "modifyPicture.html",
 	                    "userMachine.html",
 	                    "chartPicture.html"
 	                ]

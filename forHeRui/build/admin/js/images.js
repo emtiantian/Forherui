@@ -77,11 +77,11 @@ var suningImages = function(){
 				posx = e.clientX ;
 				if(posx>document.documentElement.clientWidth/2){
 					box.css('cursor','url(images/next.cur),pointer');
-					console.log("下一页");
+//					console.log("下一页");
 					box.attr('title','下一页');
 				}else{
 					box.css('cursor','url(images/pev.cur),pointer');
-					console.log("上一页");
+//					console.log("上一页");
 					box.attr('title','上一页');
 				}
 			});
@@ -110,8 +110,10 @@ var suningImages = function(){
 		loadimg:function(i){
 			box.html('<div class="loading"></div>');
 			var src = btn.eq(i).find('img').attr('src');
+			var imgId = btn.eq(i).find('img').attr('imgId');
 			var maxlen = src.length ;
 //			newsrc = src.slice(0,maxlen-4)+"f.jpg";
+			$("#bigpics").attr('imgId',imgId);
 			newsrc = src;
 			box.html('<img src = ' +newsrc+'  />' ).find('img').hide();
 			box.find('img').fadeIn(250);

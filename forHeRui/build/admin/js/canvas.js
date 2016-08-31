@@ -2,9 +2,10 @@
  * 
  */
 
-    $(function(){
+   
     
 	var mycanvas=(function(){
+					$("#dialog").show();
 			      var x,y,endX,endY;
 		    	  
 			      //undo redo
@@ -12,11 +13,11 @@
 		    	  var cStep = -1;
 		    	  
 		    	  // simulate line rectangle input dialog when you interact with the UI
-			      var lineTip = $("#container").appendLine({width:"1px",type:"solid",color:"red",beginX:0,beginY:0,endX:1,endY:1});
+			      var lineTip = $("#planContainer").appendLine({width:"1px",type:"solid",color:"red",beginX:0,beginY:0,endX:1,endY:1});
 			      var rectTip = $(" <div style='border:1px solid gray;width:1px;height:1px;position:absolute;display:none;'></div>");
 			      var fontTip =$("<textarea rows='3' cols='20' style='background:transparent;position:absolute;display:none;'></textarea>"); 
-			      $("#container").append(rectTip);
-			      $("#container").append(fontTip);
+			      $("#planContainer").append(rectTip);
+			      $("#planContainer").append(fontTip);
 			      
 			      
 			      
@@ -82,7 +83,7 @@
 			    	  }	
 			      });
 			      
-			      $("#container").mousemove(mouseMoveEventHandler);
+			      $("#planContainer").mousemove(mouseMoveEventHandler);
 			      
 			      /**
 			       * In different function circumstances, the Mouse Move Event should be handled in different behalf.
@@ -194,7 +195,7 @@
 			      }
 			      
 			      
-			      $("#container").mousedown(function(e){
+			      $("#planContainer").mousedown(function(e){
 			    	  
 			    	  	// set mousedown flag for mousemove event
 			             flag=true;
@@ -213,7 +214,8 @@
 				      					   var borderColor = "#"+ $("#colorpicker-popup").val();
 				      					   var borderWidth  = $("#penWidth").val()+"px"; 
 				      					   var sr = borderColor +" "+borderWidth+ " solid";
-				      					   var backgroundColor ="#"+$("#colorpicker-popup2").val();
+//				      					   var backgroundColor ="#"+$("#colorpicker-popup2").val();
+				      					   var backgroundColor = "";
 				      					   rectTip.css({
 				      						   "border": sr,
 				      						   "background-color":backgroundColor
@@ -225,7 +227,7 @@
 						 }
 			      });
 			      
-			      $("#container").mouseup(function(e){
+			      $("#planContainer").mouseup(function(e){
 			      
 			            flag=false;
 			            
@@ -487,10 +489,9 @@
 					  
 					  function fillColorEventListener(e)
 					  {
-						  	var color= "#"+$(this).val();
-						  console.log("color1"+$(this).val());
+						  	var color= "#"+$(this).val();						
 					   	   	ctx.fillStyle =color;
-					   	   	rectTip.css({"background-color":color});
+//					   	   	rectTip.css({"background-color":color});
 					   	   	fontTip.css({"color":color});
 					  }
 					  
@@ -505,16 +506,19 @@
 			    	  var type = $("#fontType").val();
 			    	  var color = "#" +$("#colorpicker-popup2").val();
 			    	  
-			    	  var fontWeight = $("#boldOption").get(0).checked;
-			    	  fontWeight = fontWeight ? "bold" : " ";
+//			    	  var fontWeight = $("#boldOption").get(0).checked;
+//			    	  fontWeight = fontWeight ? "bold" : " ";
+			    	  //默认为加粗
+			    	 var fontWeight = "bold"
 			    	  
-			    	  var fontItalic =$("#italicOption").get(0).checked;
-			    	  fontItalic = fontItalic ? " italic " : " ";
+//			    	  var fontItalic =$("#italicOption").get(0).checked;
+//			    	  fontItalic = fontItalic ? " italic " : " ";
+			    	  var fontItalic= ""
 			    	  ctx.font = fontItalic+ fontWeight+" " +size+" "+type;
 			    	  fontTip.css({"font-size":size,"font-family":type,color:color,"font-style":fontItalic,"font-weight":fontWeight});
 			      }
 				  
-				  $("#tools_save").click(saveItAsImage);
+//				  $("#tools_save").click(saveItAsImage);
 				  
 				  /**
 				   * save canvas content as image
@@ -523,9 +527,10 @@
 				  {
 //					  var image = $("#myCanvas").get(0).toDataURL("image/png").replace("image/png", "image/octet-stream");
 					  var image = $("#myCanvas").get(0).toDataURL("image/png");
-					  console.log("获得图片了"+image);
+					  console.log("图片id:"+$("#modifyImg").val());
 	    			  //locally save
-					  window.location.href=image; 
+//					  window.location.href=image; 
+					  return {"imgId":$("#modifyImg").val(),"image":image,"desc":" "}
 				  }
 				  
 				  
@@ -610,17 +615,17 @@
 			        
 			      }
 			      return {
-			      	initImg :function(src){
+			      	initImg :function(imgId,src){
 			      			clearCanvas();
 			      		    var yImg = new Image();       
 						    yImg.onload = function(){  
 						        draw(this);  
 						    };  
-						      
+						    $("#modifyImg").val(imgId); 
 						    yImg.src = src;  
-			      	}
+						    
+			      	},
+			      	save : saveItAsImage
 			      }
        
-       })(); 
-       mycanvas.initImg("./images/1.jpg");
-    });
+       }); 

@@ -48,6 +48,9 @@ $(function(){
 				if(data.success){						
 					$("#userName").html(data.data.name+"（"+data.data.userLoginName+"）");
 					$("#userImg").attr("src",data.data.wechat.avatar);
+					//添加当前用户等级
+					$("body").append('<input type="hidden" id="loginUserLevel" value="'+data.data.level+'" />')
+					$("body").append('<input type="hidden" id="loginUserId" value="'+data.data.userId+'" />')
 					switch (data.data.level){
 						case "superAdmin":
 							$("#userLevel").append("<option value='user' selected='selected'>用户</option>")

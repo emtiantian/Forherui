@@ -9,7 +9,8 @@ var wechatController = require("./wechat");
 var lineController = require("./line");
 //mcahine控制器
 var machineController = require("./machine");
-
+//picture控制器
+var pictureController = require("./pictrue");
 
 
 
@@ -169,4 +170,10 @@ app.post("/Line/create",function(req,res){
 //模拟机器
 app.post('/machine/list',function(req,res){
 	res.json(machineController.machineList());
+})
+
+
+//模拟照片列表
+app.post('/picture/show',function(req,res){
+	res.json(pictureController.pictureList());
 })
