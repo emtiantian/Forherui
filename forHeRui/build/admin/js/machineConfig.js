@@ -188,9 +188,9 @@ $(function(){
 			async:true,
 			dataType:"json",
 			data:{"lineID":lineId,"machines":machines},
-			succsee:function(data){
+			success:function(data){
 				if(data.success){
-					alert("创建设备成功 id：" + data.data)
+					alert("创建设备成功 ")
 				}else{
 					dataError(data);
 				}

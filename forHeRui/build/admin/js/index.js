@@ -147,6 +147,10 @@ $(function(){
 					//初始化下拉菜单
 					initSelect(data);
 					//初始化 图片展示
+					if($("#machineList").val() == "" || $("#machineList").val() == undefined || $("#machineList").val() == null){
+						alert("没有权限查看任何线路");
+						return;
+					}
 					getImgData($("#machineList").val(),$("#date").val());
 					//初始化菜单
 					//管理员可用
@@ -286,12 +290,14 @@ $(function(){
 	    if(wchirldWidth[0] == undefined){
 	    	$("#showImg0").show();
 //	    	alert("数据有误");
+	    }else{
+		    var num = Math.floor(wscreenWidth/wchirldWidth[0].offsetWidth);//这是一个Math算法, 目的是将小数转变为整数,
+		    // 从而可以知道每行最多容纳几张图片
+		    wparent.style.cssText = 'width:'+wchirldWidth[0].offsetWidth*num+'px;margin:0 auto';//固定每行摆放个数 和上下左右边距
+		    //获得每行的最小高度
+		    getMinHeightOfCols(allArr, num);
 	    }
-	    var num = Math.floor(wscreenWidth/wchirldWidth[0].offsetWidth);//这是一个Math算法, 目的是将小数转变为整数,
-	    // 从而可以知道每行最多容纳几张图片
-	    wparent.style.cssText = 'width:'+wchirldWidth[0].offsetWidth*num+'px;margin:0 auto';//固定每行摆放个数 和上下左右边距
-	    //获得每行的最小高度
-	    getMinHeightOfCols(allArr, num);
+	    
 	}
 	function getAllChirld(parent,classname){
 	    //获取所有的标签

@@ -55,7 +55,7 @@ $(function(){
 			dataType:"json",
 			success:function(data){
 				if(data.success){						
-					$("#userName").html(data.data.name+"（"+data.data.userLoginName+"）");
+					$("#userName").html(data.data.name+"（"+data.data.level+"）");
 					$("#userImg").attr("src",data.data.wechat.avatar);
 					//添加当前用户等级
 					$("body").append('<input type="hidden" id="loginUserLevel" value="'+data.data.level+'" />')
@@ -68,12 +68,12 @@ $(function(){
 							$("#userLineAdmin").show();
 							break;
 						case "admin":
-							$("#userLevel").append("<option value='user' selected='selected'>>用户</option>")
+							$("#userLevel").append("<option value='user' selected='selected'>用户</option>")
 							$("#userLevel").append("<option value='lineAdmin'>线路管理员</option>")						
 							$("#userLineAdmin").show();
 							break;
 						case "lineAdmin":
-							$("#userLevel").append("<option value='user' selected='selected'>>用户</option>")					
+							$("#userLevel").append("<option value='user' selected='selected'>用户</option>")					
 							$("#userLineAdmin").hide();
 							break;	
 						default:

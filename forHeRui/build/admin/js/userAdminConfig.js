@@ -294,15 +294,15 @@ $(function(){
 //					},3000);
 					$.ajax({
 						type:"post",
-						url:"",
+						url:baseUrl+"/wechat/user/create",
 						async:true,
 						dataType:"json",
 						data:{"user":data.data.userId,"mobile":weChaTel,"gender":weChatGender,"email":weChatEmial,"weixinid":weChatId},
 						success:function(){
 							alert("创建成功 3秒后刷新页面");
-							setTimeout(function(){
-								location.reload();
-							},3000);
+//							setTimeout(function(){
+//								location.reload();
+//							},3000);
 						}
 					});
 				}else{
@@ -326,7 +326,7 @@ $(function(){
 				$.each(data.data, function(i,ele) {
 					if(i == 0){
 						//第一个默认选中
-						html+='<option value="'+ele.userId+'" selected="selected">'+ele.name+'</option>'
+						html+='<option value="'+ele.userId+'" selected="selected" >'+ele.name+'</option>'
 					}else{
 						html+='<option value="'+ele.userId+'">'+ele.name+'</option>'
 					}

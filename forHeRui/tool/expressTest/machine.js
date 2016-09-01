@@ -48,5 +48,17 @@ function machineList(){
 	
 	return success;
 }
-
+function machineCreate(){
+	var success= 
+	{
+	"success": true,
+	"code": 0,
+	"msg": "",
+	"data": {
+		"success": true
+	}
+	}
+	return success;
+}
 exports.machineList = machineList;
+exports.machineCreate = machineCreate;

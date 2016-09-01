@@ -294,7 +294,7 @@ $(function(){
 //					},3000);
 					$.ajax({
 						type:"post",
-						url:"",
+						url:baseUrl+"/wechat/user/create",
 						async:true,
 						dataType:"json",
 						data:{"user":data.data.userId,"mobile":weChaTel,"gender":weChatGender,"email":weChatEmial,"weixinid":weChatId},

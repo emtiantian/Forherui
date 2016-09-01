@@ -4,15 +4,15 @@ $(function(){
 	function initEditPwd(){
 		$.ajax({
 			type:"post",
-			url:baseUrl+"/user/list",
+			url:baseUrl+"/user/get",
 			async:true,
 			dataType:"json",
 			data:{},
 			success:function(data){
 				if(data.success){
-					$("#userNameEdit").val(data.data[0].name);
-					console.log("name"+data.data[0].name);
-					$("#userId").val(data.data[0].userId);
+					$("#userNameEdit").val(data.data.name);
+					console.log("name"+data.data.name);
+					$("#userId").val(data.data.userId);
 				}else{
 					dataError(data);
 				}

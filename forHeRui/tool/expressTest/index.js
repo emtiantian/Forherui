@@ -171,7 +171,9 @@ app.post("/Line/create",function(req,res){
 app.post('/machine/list',function(req,res){
 	res.json(machineController.machineList());
 })
-
+app.post('/machine/create',function(req,res){
+	res.json(machineController.machineCreate());
+})
 
 //模拟照片列表
 app.post('/picture/show',function(req,res){
