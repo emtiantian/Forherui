@@ -1,7 +1,7 @@
 $(function(){
 	//基础url
 	var baseUrl = config.get("baseUrl");
-	
+	var  pwd = config.get("pwd");
 	//菜单管理
 	function menuInit(){
 		$.ajax({
@@ -60,6 +60,8 @@ $(function(){
 					//添加当前用户等级
 					$("body").append('<input type="hidden" id="loginUserLevel" value="'+data.data.level+'" />')
 					$("body").append('<input type="hidden" id="loginUserId" value="'+data.data.userId+'" />')
+					//
+					$("#createPwd").val(pwd);
 					switch (data.data.level){
 						case "superAdmin":
 							$("#userLevel").append("<option value='user' selected='selected'>用户</option>")

@@ -80,7 +80,7 @@ $(function(){
 				}
 				tdHtml2 += '<td ><input class="form-control sm"  id="Wechat_Mobile" type="text" value="' + ele.wechat.mobile + '" /></td>';
 				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Email" type="text" value="' + ele.wechat.email + '" /></td>';
-				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_WeixinID" type="text" value="' + ele.wechat.weixinId + '" /><span style="color:red;">必填项<span></td>';
+				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_WeixinID" type="text" value="' + ele.wechat.weixinId + '" /></td>';
 //				tdHtml2 += '<td ><input class="form-control sm" id="Wechat_Avatar" type="text" value="' + ele.wechat.avatar + '" /></td>';
 				//1=已关注，2=已冻结，4=未关注
 				switch(ele.wechat.status) {

@@ -61,6 +61,7 @@ var log = require('./log');
 			},
 			{
 				"line":{
+					"lineId": "13",
 					"lineCode":"13",
 					"lineName":"线路2",
 					"select":true
@@ -102,39 +103,23 @@ var log = require('./log');
 	                "parent": "index",
 	                "child": [
 	                    "index.html",
-//	                    "modifyPicture.html",
 	                    "userMachine.html",
-	                    "chartPicture.html"
+//	                    "chartPicture.html"
 	                ]
-	            },
-	            {
-	                "parent": "user",
-	                "child": [
-	                    "pictureConfig.html",
-	                    "weChatConfig.html",
-	                    "editPwd.html"
-	                ]
-	            },
-//	            {
-//	                "parent": "weChat",
-//	                "child": [
-//	                    "weChatUser.html"
-//	                ]
-//	            },
+	            },	            
 //	            {
 //	            	"parent":"lineAdmin",
 //	            	"child":[
 //	            		"userPictureConfig.html",
 //	            		"userConfig.html"
+//						"lineAdminlevelConfig.html"	
 //	            	]
 //	            },
 	            {
 	            	"parent":"admin",
 	            	"child":[
-	            		"adminPictureConfig.html",
-//	            		"lineMachineConfig.html",
-	            		"userAdminConfig.html",
-//	            		"menuConfig.html",
+	            		"adminPictureConfig.html",	            		
+	            		"adminlevelConfig.html",
 	            		"lineConfig.html",
 	            		"machineConfig.html"
 	            	]
@@ -144,114 +129,111 @@ var log = require('./log');
 	            	"child":[
 	            		"adminConfig.html"
 	            	]
+	            },
+	            {
+	                "parent": "user",
+	                "child": [
+	                    "userAdminConfig.html"
+	                ]
+	            },
+	            {
+	                "parent": "self",
+	                "child": [
+	                    "pictureConfig.html",
+	                    "weChatConfig.html",
+	                    "editPwd.html"
+	                ]
 	            }
 	        ]
 	    },
 	    "admin":{
-	    	"menuList": [
+	        "menuList": [
 	            {
 	                "parent": "index",
 	                "child": [
 	                    "index.html",
-//	                    "modifyPicture.html",
 	                    "userMachine.html",
-	                    "chartPicture.html"
+//	                    "chartPicture.html"
 	                ]
+	            },	            
+	            {
+	            	"parent":"admin",
+	            	"child":[
+	            		"adminPictureConfig.html",	            		
+	            		"adminlevelConfig.html",
+	            		"lineConfig.html",
+	            		"machineConfig.html"
+	            	]
 	            },
 	            {
 	                "parent": "user",
+	                "child": [
+	                    "userAdminConfig.html"
+	                ]
+	            },
+	            {
+	                "parent": "self",
 	                "child": [
 	                    "pictureConfig.html",
 	                    "weChatConfig.html",
 	                    "editPwd.html"
 	                ]
-	            },
-//	            {
-//	                "parent": "weChat",
-//	                "child": [
-//	                    "weChatUser.html"
-//	                ]
-//	            },
-//	            {
-//	            	"parent":"lineAdmin",
-//	            	"child": [
-//	            		"userPictureConfig.html",
-//	            		"userConfig.html"
-//	            	]
-//	            },
-	            {
-	            	"parent":"admin",
-	            	"child":[
-	            		"adminPictureConfig.html",
-//	            		"lineMachineConfig.html",
-	            		"userAdminConfig.html",
-//	            		"menuConfig.html",
-	            		"lineConfig.html",
-	            		"machineConfig.html"
-	            	]
 	            }
 	        ]
 	    },
 	    "lineAdmin":{
-	    	"menuList": [
+	        "menuList": [
 	            {
 	                "parent": "index",
 	                "child": [
 	                    "index.html",
-//	                    "modifyPicture.html",
 	                    "userMachine.html",
-	                    "chartPicture.html"
+//	                    "chartPicture.html"
 	                ]
-	            },
-	            {
-	                "parent": "user",
-	                "child": [
-	                    "pictureConfig.html",
-	                    "weChatConfig.html",
-	                    "editPwd.html"
-	                ]
-	            },
-//	            {
-//	                "parent": "weChat",
-//	                "child": [
-//	                    "weChatUser.html"
-//	                ]
-//	            },
+	            },	            
 	            {
 	            	"parent":"lineAdmin",
 	            	"child":[
 	            		"userPictureConfig.html",
-	            		"userConfig.html"
+	            		"userConfig.html",
+						"lineAdminlevelConfig.html"	
 	            	]
-	            }
-	        ]
-	    },
-	    "user":{
-	    	"menuList": [
-	            {
-	                "parent": "index",
-	                "child": [
-	                    "index.html",
-//	                    "modifyPicture.html",
-	                    "userMachine.html",
-	                    "chartPicture.html"
-	                ]
 	            },
 	            {
 	                "parent": "user",
+	                "child": [
+	                    "userAdminConfig.html"
+	                ]
+	            },
+	            {
+	                "parent": "self",
 	                "child": [
 	                    "pictureConfig.html",
 	                    "weChatConfig.html",
 	                    "editPwd.html"
 	                ]
-	            },
-//	            {
-//	                "parent": "weChat",
-//	                "child": [
-//	                    "weChatUser.html"
-//	                ]
-//	            }
-	        ]    
+	            }
+	        ]
+	    },
+	    "user":{
+	        "menuList": [
+	            {
+	                "parent": "index",
+	                "child": [
+	                    "index.html",
+	                    "userMachine.html",
+//	                    "chartPicture.html"
+	                ]
+	            },	            
+	            {
+	                "parent": "self",
+	                "child": [
+	                    "pictureConfig.html",
+	                    "weChatConfig.html",
+	                    "editPwd.html"
+	                ]
+	            }
+	        ]
 	    }
 	}
 	var userListJson=[{

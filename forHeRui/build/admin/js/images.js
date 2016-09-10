@@ -111,7 +111,7 @@ var suningImages = function(){
 			box.html('<div class="loading"></div>');
 			var src = btn.eq(i).find('img').attr('src');
 			var imgId = btn.eq(i).find('img').attr('imgId');
-			var maxlen = src.length ;
+//			var maxlen = src.length ;
 //			newsrc = src.slice(0,maxlen-4)+"f.jpg";
 			$("#bigpics").attr('imgId',imgId);
 			newsrc = src;

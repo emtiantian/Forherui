@@ -54,6 +54,7 @@ $(function(){
 				}								
 			})
 			html+='<td >'+machine+'</td>';
+			
 			html+='<td ><button id="'+ele.lineid+'" lineName="'+ele.name+'" class="selectMachine btn btn-primary">查看设备</button></td>';			
 			$("#lineList").append("<tr>"+html+"</tr>");
 		});
@@ -107,7 +108,7 @@ $(function(){
 			}else{
 				html+='<td>' + ele.InstallTime + '</td>'
 			}	
-		
+			html+='<td >在线</td>';
 //			html+='<td ><button id="'+ele.machineId+'" dataName="'+ele.machineName+'" class="editMachine btn btn-primary">修改设备</button><button id="'+ele.machineId+'" class="deletMachine btn btn-primary">删除设备</button>'
 //			if(ele.InstallUser == ""){
 //				html+='<button id="'+ele.machineId+'" class="installMachine btn btn-primary" data-toggle="modal" data-target="#myModal" >安装设备</button></td>';

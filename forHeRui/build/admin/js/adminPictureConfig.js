@@ -82,7 +82,8 @@ $(function(){
 		$("#userLine").html("");
 		var htmlselect=$("#selectMuban").clone();
 		if(adminLine.data){
-			$.each(adminLine.data,function(i,ele){
+			//替换为选中用户的数据
+			$.each(data.data,function(i,ele){
 				var htmlselect=$("#selectMuban").clone();
 				$.each(ele.machine, function(i2,ele2) {
 					console.log(ele.line.lineName);
@@ -116,7 +117,7 @@ $(function(){
 			})
 			
 			$('#userLine').multiSelect({
-				selectableHeader: "<label>管理员可选线路&机器</label><input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
+				selectableHeader: "<label>用户可选线路&机器</label><input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
 			    selectionHeader: "<label>用户已选线路&机器</label><input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
 			    afterInit: function (ms) {
 			        var that = this,
@@ -209,6 +210,5 @@ $(function(){
 		}else{
 			alert("正在获取数据 请稍后");
 		}
-	
 	})
 })

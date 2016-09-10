@@ -15,10 +15,6 @@
   <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
   <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">-->
-  	  <!--dynamic table-->
-  <!--<link href="js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
-  <link href="js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
-  <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />-->
 
   	
 
@@ -30,7 +26,6 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/jQuery.iPicture.css"/>
 	<link href="css/iPicture.css" rel="stylesheet"/>-->
 	<link href="css/myCss.css" rel="stylesheet"/>
-	<!--multi-select-->
 	<link rel="stylesheet" type="text/css" href="js/jquery-multi-select/css/multi-select.css" />
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -53,31 +48,11 @@
             		输电线路通道可视化平台
             </a>
         </div>
-
         <div class="logo-icon text-center">
             <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
         </div>
         <!--logo and iconic logo end-->
-
         <div class="left-side-inner">
-
-            <!-- visible to small devices only -->
-            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
-                <div class="media logged-user">
-                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
-                    <div class="media-body">
-                        <h4><a href="#">John Doe</a></h4>
-                        <span>"Hello There..."</span>
-                    </div>
-                </div>
-
-                <h5 class="left-nav-title">Account Information</h5>
-                <ul class="nav nav-pills nav-stacked custom-nav">      
-                  <li><a href="#"><i class="fa fa-cog"></i> <span>个人设置</span></a></li>
-                  <li><a href="#"><i class="fa fa-sign-out"></i> <span id="logout">登出</span></a></li>
-                </ul>
-            </div>-->
-
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li class="menu-list " id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>监测信息查询</span></a>
@@ -95,17 +70,17 @@
                 </li>
                 <li class="menu-list nav-active" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-cog"></i> <span>设备管理</span></a>
                     <ul class="sub-menu-list">
-                        <li class="active" ><a href="userPictureConfig.html" style="display: none;"> 用户接收图片管理</a></li>
+                        <li><a href="userPictureConfig.html" style="display: none;"> 用户接收图片管理</a></li>
                         <li><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
-                        <li><a href="lineAdminlevelConfig.html"  style="display: none;"> 权限管理</a></li>
+                        <li class="active"><a href="lineAdminlevelConfig.html"  style="display: none;"> 权限管理</a></li>
                     </ul>
                 </li>             
-                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cog"></i> <span>设备管理</span></a>
+                <li class="menu-list "  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cog"></i> <span>设备管理</span></a>
                      <ul class="sub-menu-list">
                         <li><a href="adminPictureConfig.html"  style="display: none;"> 用户微信接收图片管理</a></li> 
                       	<li><a href="lineConfig.html"  style="display: none;"> 线路管理</a></li> 
                         <li><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>     
-                        <li><a href="adminlevelConfig.html"  style="display: none;"> 权限管理</a></li>
+                        <li  ><a href="adminlevelConfig.html"  style="display: none;"> 权限管理</a></li>
                         <!--<li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>-->                                                             
                     </ul>
                 </li>
@@ -128,7 +103,6 @@
                </li>              
             </ul>
             <!--sidebar nav end-->
-
         </div>
     </div>
     <!-- left side end-->
@@ -156,7 +130,7 @@
                         <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
                             <img src="images/photos/user-avatar.png" alt=""  id="userImg"/>
                             <!--John Doe-->                           		
-                            <span id="userName">何瑞（管理员）<span>
+                            <span id="userName"><span>
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-usermenu pull-right">                         
@@ -178,12 +152,13 @@
         <!-- page heading end-->
 
         <!--body wrapper start-->
-        <div class="wrapper  displayDiv">    	
-            <div class="row">              		
-               <div class="col-sm-12" >
-            		<section class="panel displayDiv" id="pictureConfig">
+        <div class="wrapper displayDiv">
+            <div class="row">  
+            		
+              <div class="col-md-12"  id="imgDiv">
+								<section class="panel displayDiv" id="pictureConfig">
             			<header class="panel-heading">
-                            	用户接收微信图片管理 
+                            	用户线路管理
                               <span class="tools pull-right">
                                 <a class="fa fa-chevron-down" href="javascript:;"></a>
                                 <!--<a class="fa fa-times" href="javascript:;"></a>-->
@@ -192,27 +167,27 @@
                         <div class="panel-body">
                         	<div class="form-horizontal ">
                         		<div class="form-group">
-                        			<label class="control-label col-md-3">被修改用户:<span id="selectUserName">何瑞啊啊</span></label>		                          
+		                           <label class="control-label col-md-3">被修改用户:<span id="selectUserName">何瑞啊啊</span></label>		
 		                            <div class="col-md-9">
 		                            		<input type="hidden" value="" id="userId" />
 		                                <select multiple="multiple" class="multi-select" id="userLine"
 		                                        name="userLine[]" style="display: none;">
-		                           
+		                           						
 		                                </select>
-		                            </div>
-		                          
+		                            </div>	                          
 		                        </div>
                         	</div>
-                        </div>  
+                        </div> 
                         <div class="row">
-							        		<div class="col-md-3">
-														<button id="userLineSave" class="btn btn-primary">保存</button>
-													</div>
-							        	</div>
+								        		<div class="col-md-3">
+															<button id="userLineSave" class="btn btn-primary">保存</button>
+														</div>
+								        	</div>								      
             		</section>
-            	</div>	      
+            	</div> 
+		      
         	</div>
-        <div class="row">
+        	<div class="row">
         <div class="col-sm-12">
         <section class="panel">
         <header class="panel-heading">
@@ -250,17 +225,9 @@
         </section>
         </div>
 				</div>
- 
-        	
         </div>
-       
         <!--body wrapper end-->
-	    <!--select模板-->
-	    <div id="selectMuban" style="display: none;">
-	    	<optgroup label="NFC EAST">
-			                                       
-			</optgroup>
-	    </div>
+
         <!--footer section start-->
         <footer>
             2016 &copy; 北京沃英泰科电子信息技术有限公司
@@ -272,7 +239,12 @@
     <!-- main content end-->
 
 </section>
-
+  <!--select模板-->
+	    <div id="selectMuban" style="display: none;">
+	    	<optgroup label="NFC EAST">
+			                                       
+				</optgroup>
+	    </div>
 
 <!-- Placed js at the end of the document so the pages load faster -->
 <script src="js/jquery-1.10.2.min.js"></script>
@@ -282,7 +254,13 @@
 <script src="js/modernizr.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 
+<!--multi-select-->
+<script type="text/javascript" src="js/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="js/jquery-multi-select/js/jquery.quicksearch.js"></script>
 
+<!--dynamic table-->
+<script type="text/javascript" language="javascript" src="js/advanced-datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
 
 <!--Sparkline Chart-->
 <script src="js/sparkline/jquery.sparkline.js"></script>
@@ -291,22 +269,13 @@
 
 <script src="js/scripts.js"></script>
 
+
 <!--
 基础js
 -->
-<!--multi-select-->
-<script type="text/javascript" src="js/jquery-multi-select/js/jquery.multi-select.js"></script>
-<script type="text/javascript" src="js/jquery-multi-select/js/jquery.quicksearch.js"></script>
-
-<!--dynamic table-->
-<script type="text/javascript" language="javascript" src="js/advanced-datatable/js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
-<!--dynamic table initialization -->
-<!--<script src="js/dynamic_table_init.js"></script>-->
-
 <script src="js/util.js"></script>
 <script src="js/config.js"></script>
-<script src="js/userPictureConfig.js"></script>
+<script src="js/adminlevelConfig.js"></script>
 
 
 </body>

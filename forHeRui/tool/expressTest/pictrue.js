@@ -88,5 +88,7 @@ function pictureList(){
 		}
 	}
 	return success;
+//var	error= {"success":true,"code":0,"msg":"","data":{"picture":[]}}
+//	return error;
 }
 exports.pictureList =  pictureList;

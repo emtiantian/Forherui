@@ -8,7 +8,7 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>微拍推送平台</title>
+  <title>输电线路通道可视化平台</title>
 
   <!--icheck-->
   <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
@@ -45,7 +45,7 @@
         <div class="logo ">
             <a href="index.html" class="logoIndex">
             	<!--<img src="images/logo.png" alt="">-->
-            		微拍推送平台
+            		输电线路通道可视化平台
             </a>
         </div>
 
@@ -75,56 +75,52 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="menu-list nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>首页</span></a>
+                <li class="menu-list nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>监测信息查询</span></a>
                 	<ul class="sub-menu-list">
                         <li  >
-                        	<a href="index.html" style="display: none;"> 图片展示</a>
-                        </li>
+                        	<a href="index.html" style="display: none;"> 线路监控</a>
+                        </li>                  
                         <li>
-                        	<a href="modifyPicture.html" style="display: none;"> 图片标签修改</a>
-                        </li> 
-                        <li>
-                        	<a href="userMachine.html" style="display: none;">查看设备信息</a>
+                        	<a href="userMachine.html" style="display: none;">设备列表</a>
                         </li>
                         <li class="active">
                         	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
-                        </li>                 
+                        </li>                          
                     </ul>
                 </li>
-                <li class="menu-list" id="menu_user" style="display: none;"><a href=""><i class="fa fa-laptop"></i> <span>管理</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="pictureConfig.html" style="display: none;">接收图片管理</a></li>
-                        <li><a href="weChatConfig.html" style="display: none;"> 微信绑定管理</a></li>               
-                        <li><a href="editPwd.html" style="display: none;"> 修改密码</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list" id="menu_weChat" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>微信管理</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="weChatUser.html" style="display: none;"> 用户微信管理</a></li>                                                     
-                    </ul>
-                </li>
-                <li class="menu-list" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-book"></i> <span>线路管理员管理</span></a>
+                <li class="menu-list" id="menu_lineAdmin" style="display: none;"><a href=""><i class="fa fa-cog"></i> <span>设备管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="userPictureConfig.html" style="display: none;"> 用户接收图片管理</a></li>
                         <li><a href="userConfig.html" style="display: none;"> 用户管理</a></li>
+                        <li><a href="lineAdminlevelConfig.html"  style="display: none;"> 权限管理</a></li>
                     </ul>
                 </li>             
-                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>管理员</span></a>
+                <li class="menu-list"  id="menu_admin" style="display: none;"><a href=""><i class="fa fa-cog"></i> <span>设备管理</span></a>
                      <ul class="sub-menu-list">
-                        <li><a href="adminPictureConfig.html"  style="display: none;"> 用户接收图片管理</a></li> 
+                        <li><a href="adminPictureConfig.html"  style="display: none;"> 用户微信接收图片管理</a></li> 
                       	<li><a href="lineConfig.html"  style="display: none;"> 线路管理</a></li> 
-                        <li><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>                        
-                        <li class="active"><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>
-                        <!--<li><a href="menuConfig.html"  style="display: none;"> 菜单管理</a></li>-->                    
+                        <li><a href="machineConfig.html"  style="display: none;"> 设备管理</a></li>     
+                        <li><a href="adminlevelConfig.html"  style="display: none;"> 权限管理</a></li>
+                        <!--<li><a href="userAdminConfig.html"  style="display: none;"> 用户管理</a></li>-->                                                             
+                    </ul>
+                </li>
+                <li class="menu-list" id="menu_user" style="display: none;"><a href=""><i class="fa fa-users"></i> <span>用户管理</span></a>
+                    <ul class="sub-menu-list">                       
+                        <li><a href="userAdminConfig.html"  style="display: none;">用户管理</a></li>                    
                     </ul>
                 </li>
 								<li class="menu-list" id="menu_superAdmin" style="display: none;"><a href=""><i class="fa fa-cogs"></i> <span>超级管理员</span></a>
                     <ul class="sub-menu-list">                       
                         <li><a href="adminConfig.html"  style="display: none;"> 管理员管理</a></li>                    
                     </ul>
-                </li>
-
-              
+               </li>              
+							 <li class="menu-list" id="menu_self" style="display: none;"><a href=""><i class="fa fa-user"></i> <span>个人设置</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="pictureConfig.html" style="display: none;">微信接收图片管理</a></li>
+                        <li><a href="weChatConfig.html" style="display: none;"> 微信绑定管理</a></li>               
+                        <li><a href="editPwd.html" style="display: none;"> 个人信息</a></li>
+                    </ul>
+               </li>              
             </ul>
             <!--sidebar nav end-->
 

@@ -80,6 +80,7 @@ $(function(){
 					//初始化显示
 					//第1种展示
 					waterFlow("container", "box");
+					
 					//第2种展示
 					suningImages().init();	
 					//第3种展示
@@ -87,13 +88,26 @@ $(function(){
 						initDraggie(ele);
 					});	
 					//显示控制
-					$(".summary").on("click",function(){
+					$(".mySummary").on("click",function(){
 	//					console.log("click"+$(this).attr("data"))
-						$('.showImg').hide();
-						$("#"+$(this).attr("data")).show();
+						if(!$("#showImg0").is(":hidden")){
+							console.log("当前没有图片不切换")
+						}else{
+							$('.showImg').hide();
+							//替换显示图片						
+							$("#"+$(this).attr("data")).show();
+							changeImg($(this));
+						}																	
 					})
 					//默认显示第一个
-					$("#showImg1").show();
+					if(!$("#showImg0").is(":hidden")){
+						console.log("当前没有图片应该不显示第一种展示")
+						changeImg("");
+					}else{
+						$("#showImg1").show();
+						changeImg($(".mySummary[data =showImg1]"));
+						console.log("1111111"+$("#container").width());
+					}					
 				}else{
 					dataError(data);
 				}
@@ -107,10 +121,11 @@ $(function(){
 //	$("#container3").html("");
 
 	function initShow1(data,isShowMenu){
+		var width = show1Width(3);
 		if(isShowMenu){
-			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'"></div></div>');	
+			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'"  class="imgClick" style="width:'+width+'px;" ></div></div>');	
 		}else{
-			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'"></div></div>');	
+			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'" class="imgClick" ></div></div>');	
 		}
 								   
 	}
@@ -387,6 +402,7 @@ $(function(){
 //			console.log($(minImg.element).find("img").attr("src"));
 			$("#"+maxImg).find("img").attr("src",$(minImg.element).find("img").attr("src"));
 			$("#"+maxImg).attr("imgId",$(minImg.element).find("img").attr("imgId"));
+			$("#"+maxImg).css("background","none");
 			minImg.destroy();
 			setTimeout(function(){
 				$(minImg.element).attr("style"," ");
@@ -396,8 +412,26 @@ $(function(){
 			},500);
 			
 		}
+		//替换图标
+		function changeImg(ele){
+			
+			//隐藏
+			$.each($(".mySummary"),function(i,ele1){
+				$(ele1).find("img").attr("src",$(ele1).find("img").attr("src").replace("_1","_2"));
+			});
+			//显示
+			$(ele).find("img").attr("src",$(ele).find("img").attr("src").replace("_2","_1"));
+			
+		}
+		//初始化第一种展示 为给定个数
+		function show1Width(num){
+			var width = $("#container").parent().parent().parent().parent().parent().parent().width()-60;
+//			console.log($("#container").parent().parent().parent().parent().parent().parent().width());
+//			console.log("width"+width);
+			var imgWidth = parseInt((width - 11*2-11*(num-1)*2)/num );	
+			return  imgWidth;
+		}
 		
-
 		
 	
 		//根据当前登录人 初始化 线路列表 及 图片	 和菜单
@@ -406,5 +440,34 @@ $(function(){
 		$("#seachImg").on("click",function(){
 			//重新初始化 图片
 			getImgData($("#machineList").val(),$("#date").val());
+		})
+		
+		window.onresize=function(){
+			var width = show1Width(3);
+			$.each($("#container").find("img"),function(i,ele){
+				$(ele).css("width",width);
+			})
+			
+		}
+		$(document).on("click",".imgClick",function(){
+			if($(this).attr("src") == null || $(this).attr("src") == undefined ){
+				
+			}else{
+				window.open($(this).attr("src"));
+			}			
+		})
+		$(".toggle-btn").on("click",function(){
+//			console.log("11")
+			var width = show1Width(3);
+			$.each($("#container").find("img"),function(i,ele){
+				$(ele).css("width",width);
+			})
+//			console.log($(".myState-info").css("margin-right"));
+			if($(".myState-info").css("margin-right") == "255px"){
+				$(".myState-info").css("margin-right",67);
+			}else{
+				$(".myState-info").css("margin-right",255);
+			}
+			
 		})
 })

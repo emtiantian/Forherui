@@ -82,7 +82,8 @@ $(function(){
 		$("#userLine").html("");
 		var htmlselect=$("#selectMuban").clone();
 		if(adminLine.data){
-			$.each(adminLine.data,function(i,ele){
+			//替换为用户
+			$.each(data.data,function(i,ele){
 				var htmlselect=$("#selectMuban").clone();
 				$.each(ele.machine, function(i2,ele2) {
 					console.log(ele.line.lineName);

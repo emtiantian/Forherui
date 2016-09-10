@@ -393,6 +393,40 @@ canvas {
 	float: left;
     margin-right: 20px;
 }
+
+.logo a {
+	font-size: 16px;
+}
+.myFixed{
+	position: fixed;
+}
+.myState-info{
+	margin-right: 255px; top: 0px;
+}
+.summary{
+	cursor: pointer;
+}
+.mySummary{
+	width: 32px;
+}
+.form-control{
+	min-width: 70px;
+}
+.dataTables_wrapper{
+	overflow-x: auto;
+}
+.dataTable{
+	min-width: 900px;
+}
+.sorting_asc{
+	min-width: 100px;
+}
+.sorting{
+	min-width: 100px;
+}
+..sticky-header.left-side-collapsed .myState-info {
+    margin-right: 67px;
+}
 /*屏幕适配*/	
  @media (max-width: 780px){
  	.dataTables_length {
@@ -426,4 +460,16 @@ canvas {
  		width: 100%;
  		height: auto;
  	}
+ 	.myPanel{
+ 		margin-bottom: 0;
+ 	}
+ 	.myState-info{
+ 		margin-top: 0!important;
+ 	}
+ 	.wrapperIndex{
+ 		margin-top: 100px;
+ 	}
+ 	.dataTable{
+		min-width: none;
+	}
  }
