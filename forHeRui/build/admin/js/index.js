@@ -252,6 +252,7 @@ $(function(){
 			changeList(machineList,$(this).val());
 		})
 	}
+	//2级联动
 	function changeList(machineList,lineid){
 		$("#machineList").html("");
 		$.each(machineList,function(i,ele){
