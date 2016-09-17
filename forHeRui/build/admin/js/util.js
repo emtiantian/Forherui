@@ -44,6 +44,34 @@ $(function(){
 			}
 		});
 	}
+	function crateMenu(data){
+//		<li class="menu-list nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>监测信息查询</span></a>
+//              	<ul class="sub-menu-list">
+//                      <li class="active" >
+//                      	<a href="index.html" style="display: none;"> 线路监控</a>
+//                      </li>                  
+//                      <li>
+//                      	<a href="userMachine.html" style="display: none;">设备列表</a>
+//                      </li>
+//                      <li>
+//                      	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
+//                      </li>                          
+//                  </ul>
+//              </li>
+	var html = '';
+	$.each(data, function(i,ele) {
+		
+	});
+                
+	}
+	//获取页面名称
+	function pageName()
+     {
+         var strUrl=location.href;
+         var arrUrl=strUrl.split("/");
+         var strPage=arrUrl[arrUrl.length-1];
+         return strPage;
+     }
 	//{"userId":1,"userLoginName":"admin","name":"何瑞","level":"superAdmin","wechat":{"userId":"herui","name":"何瑞","department":null,"position":"","gender":1,"mobile":"15726699262","email":"","weixinId":"wxid_0dlzp5mo11hi22","avatar":"http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/","status":1,"extattr":null,"disable":false},"ParnetID":1}}
 	//用户初始化
 	function userInit(){

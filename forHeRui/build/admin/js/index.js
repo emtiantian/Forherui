@@ -87,6 +87,11 @@ $(function(){
 					$.each($(".draggie"), function(i,ele) {
 						initDraggie(ele);
 					});	
+					//添加底部说明
+					var info = new showImg({
+						selector:".imgInfo",
+						showValue:"info"
+					})
 					//显示控制
 					$(".mySummary").on("click",function(){
 	//					console.log("click"+$(this).attr("data"))
@@ -123,21 +128,24 @@ $(function(){
 	function initShow1(data,isShowMenu){
 		var width = show1Width(3);
 		if(isShowMenu){
-			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'"  class="imgClick" style="width:'+width+'px;" ></div></div>');	
+			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'"   info="图片id：'+data.id+'" class="imgClick imgInfo" style="width:'+width+'px;" ></div></div>');	
 		}else{
-			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'" class="imgClick" ></div></div>');	
+			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'" info="图片id：'+data.id+'" class="imgClick imgInfo" ></div></div>');	
 		}
 								   
 	}
+	
 	function initShow2(data,isShowMenu,isFirst){
 		if(isFirst){
 //			$("#container2").append('<li class="'+contextClass+'" data-imgId="'+data.id+'"><a href="#" class="on"><img src="'+data.src+'" /></a></li>');
-			$("#container2").append('<li><a href="#" class="on" ><img src="'+data.url+'" imgId="'+data.id+'"/></a></li>');
+			$("#container2").append('<li><a href="#" class="on" ><img src="'+data.url+'" imgId="'+data.id+'" info="图片id：'+data.id+'"/></a></li>');
 			$("#bigpics").attr("class","image "+contextClass);
 			$("#bigpics").find("img").attr("src",data.url)
+			$("#bigpics").find("img").attr("class","imgClick");		
 			$("#bigpics").attr("imgId",data.id)
+			$("#bigpics").find("img").attr("info","图片id:"+data.id);
 		}else{
-			$("#container2").append('<li><a href="#" ><img src="'+data.url+'" imgId="'+data.id+'" /></a></li>');
+			$("#container2").append('<li><a href="#" ><img src="'+data.url+'" imgId="'+data.id+'" info="图片id：'+data.id+'"/></a></li>');
 		}
 		
 	}
@@ -147,7 +155,7 @@ $(function(){
 			$("#img1").parent().attr("class",contextClass);
 			$("#img2").parent().attr("class",contextClass);
 		}	
-		$("#container3").append('<li ><a class="draggie"><img src="'+data.url+'" imgId="'+data.id+'"/></a></li>');	
+		$("#container3").append('<li ><a class="draggie"><img src="'+data.url+'" imgId="'+data.id+'" info="图片id：'+data.id+'"/></a></li>');	
 	}
 	//初始化 线路列表
 	function initLineList(userId){
@@ -400,18 +408,20 @@ $(function(){
 		//替换img
 		function tihuan(minImg,maxImg){	
 			console.dir(minImg.element);
+			$("#"+maxImg).parent().css("min-height",0);
+			$("#"+maxImg).css("min-height",0);
 //			console.log($(minImg.element).find("img").attr("src"));
-			$("#"+maxImg).find("img").attr("src",$(minImg.element).find("img").attr("src"));
+			$("#"+maxImg).find("img").attr("src",$(minImg.element).find("img").attr("src")).attr("info",$(minImg.element).find("img").attr("info"));
 			$("#"+maxImg).attr("imgId",$(minImg.element).find("img").attr("imgId"));
-			$("#"+maxImg).css("background","none");
+			$("#"+maxImg).css("background","none");			
+			$("#"+maxImg).find("#info").html($(minImg.element).find("img").attr("info")).show();
 			minImg.destroy();
 			setTimeout(function(){
 				$(minImg.element).attr("style"," ");
 				setTimeout(function(){
 					initDraggie(minImg.element);
 				},300);				
-			},500);
-			
+			},500);			
 		}
 		//替换图标
 		function changeImg(ele){
@@ -433,7 +443,7 @@ $(function(){
 			return  imgWidth;
 		}
 		
-		
+
 	
 		//根据当前登录人 初始化 线路列表 及 图片	 和菜单
 		initLineList($("#loginUserId").val());
@@ -454,9 +464,14 @@ $(function(){
 			if($(this).attr("src") == null || $(this).attr("src") == undefined ){
 				
 			}else{
-				window.open($(this).attr("src"));
+				//window.open($(this).attr("src"));
+				new imgBack({
+					selector:"1",
+					ele:$(this),
+				});
 			}			
 		})
+		
 		$(".toggle-btn").on("click",function(){
 //			console.log("11")
 			var width = show1Width(3);

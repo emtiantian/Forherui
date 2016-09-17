@@ -236,6 +236,205 @@ var log = require('./log');
 	        ]
 	    }
 	}
+	menuListJson1 = {
+		"superAdmin": {
+	        "menuList": [
+	            {
+	                "parent": {"key":"#","value":"监测信息查询"},
+	                "child": [
+	                	{"key":"index.html","value":"线路监控"},
+	                    {"key":"userMachine.html","value":"设备列表"},
+//	                    {"key":"chartPicture.html","value":"图片统计信息"},
+	                ]
+	            },	            
+//	            {
+//	            	"parent":{"key":"#","value":"设备管理"},
+//	            	"child":[
+//	            		{"key":"userPictureConfig.html","value":"用户微信接收图片管理"},
+//	            		{"key":"userConfig.html","value":"用户管理"},
+//						{"key":"lineAdminlevelConfig.html","value":"权限管理"},
+//	            	]
+//	            },
+	            {
+	            	"parent":{"key":"#","value":"设备管理"},
+	            	"child":[
+	            		{"key":"adminPictureConfig.html","value":"用户微信接收图片管理"},	 
+	            		{"key":"lineConfig.html","value":"线路管理"},	 
+	            		{"key":"machineConfig.html","value":"设备管理"},	 
+	            		{"key":"adminlevelConfig.html","value":"权限管理"},	 	            	
+	            	]
+	            },
+	            {
+	            	"parent":{"key":"#","value":"管理员管理"},
+	            	"child":[            		
+	            		{"key":"adminConfig.html","value":"管理员管理"}
+	            	]
+	            },
+	            {
+	                "parent": {"key":"#","value":"用户管理"},
+	                "child": [
+	                   {"key":"userAdminConfig.html","value":"用户管理"}
+	                ]
+	            },
+	            {
+	                "parent": {"key":"#","value":"个人设置"},
+	                "child": [
+	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
+	                    {"key":"editPwd.html","value":"个人信息"},
+	                ]
+	            }
+	        ]
+	    },
+	    "admin": {
+	        "menuList": [
+	            {
+	                "parent": {"key":"#","value":"监测信息查询"},
+	                "child": [
+	                	{"key":"index.html","value":"线路监控"},
+	                    {"key":"userMachine.html","value":"设备列表"},
+//	                    {"key":"chartPicture.html","value":"图片统计信息"},
+	                ]
+	            },	            
+//	            {
+//	            	"parent":{"key":"#","value":"设备管理"},
+//	            	"child":[
+//	            		{"key":"userPictureConfig.html","value":"用户微信接收图片管理"},
+//	            		{"key":"userConfig.html","value":"用户管理"},
+//						{"key":"lineAdminlevelConfig.html","value":"权限管理"},
+//	            	]
+//	            },
+	            {
+	            	"parent":{"key":"#","value":"设备管理"},
+	            	"child":[
+	            		{"key":"adminPictureConfig.html","value":"用户微信接收图片管理"},	 
+	            		{"key":"lineConfig.html","value":"线路管理"},	 
+	            		{"key":"machineConfig.html","value":"设备管理"},	 
+	            		{"key":"adminlevelConfig.html","value":"权限管理"},	 	            	
+	            	]
+	            },
+//	            {
+//	            	"parent":{"key":"#","value":"管理员管理"},
+//	            	"child":[            		
+//	            		{"key":"adminConfig.html","value":"管理员管理"}
+//	            	]
+//	            },
+	            {
+	                "parent": {"key":"#","value":"用户管理"},
+	                "child": [
+	                   {"key":"userAdminConfig.html","value":"用户管理"}
+	                ]
+	            },
+	            {
+	                "parent": {"key":"#","value":"个人设置"},
+	                "child": [
+	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
+	                    {"key":"editPwd.html","value":"个人信息"},
+	                ]
+	            }
+	        ]
+	    },
+	    "lineAdmin": {
+	        "menuList": [
+	            {
+	                "parent": {"key":"#","value":"监测信息查询"},
+	                "child": [
+	                	{"key":"index.html","value":"线路监控"},
+	                    {"key":"userMachine.html","value":"设备列表"},
+//	                    {"key":"chartPicture.html","value":"图片统计信息"},
+	                ]
+	            },	            
+//	            {
+//	            	"parent":{"key":"#","value":"设备管理"},
+//	            	"child":[
+//	            		{"key":"userPictureConfig.html","value":"用户微信接收图片管理"},
+//	            		{"key":"userConfig.html","value":"用户管理"},
+//						{"key":"lineAdminlevelConfig.html","value":"权限管理"},
+//	            	]
+//	            },
+//	            {
+//	            	"parent":{"key":"#","value":"设备管理"},
+//	            	"child":[
+//	            		{"key":"adminPictureConfig.html","value":"用户微信接收图片管理"},	 
+//	            		{"key":"lineConfig.html","value":"线路管理"},	 
+//	            		{"key":"machineConfig.html","value":"设备管理"},	 
+//	            		{"key":"adminlevelConfig.html","value":"权限管理"},	 	            	
+//	            	]
+//	            },
+//	            {
+//	            	"parent":{"key":"#","value":"管理员管理"},
+//	            	"child":[            		
+//	            		{"key":"adminConfig.html","value":"管理员管理"}
+//	            	]
+//	            },
+	            {
+	                "parent": {"key":"#","value":"用户管理"},
+	                "child": [
+	                   {"key":"userAdminConfig.html","value":"用户管理"}
+	                ]
+	            },
+	            {
+	                "parent": {"key":"#","value":"个人设置"},
+	                "child": [
+	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
+	                    {"key":"editPwd.html","value":"个人信息"},
+	                ]
+	            }
+	        ]
+	    },
+	    "user": {
+	        "menuList": [
+	            {
+	                "parent": {"key":"#","value":"监测信息查询"},
+	                "child": [
+	                	{"key":"index.html","value":"线路监控"},
+	                    {"key":"userMachine.html","value":"设备列表"},
+//	                    {"key":"chartPicture.html","value":"图片统计信息"},
+	                ]
+	            },	            
+//	            {
+//	            	"parent":{"key":"#","value":"设备管理"},
+//	            	"child":[
+//	            		{"key":"userPictureConfig.html","value":"用户微信接收图片管理"},
+//	            		{"key":"userConfig.html","value":"用户管理"},
+//						{"key":"lineAdminlevelConfig.html","value":"权限管理"},
+//	            	]
+//	            },
+//	            {
+//	            	"parent":{"key":"#","value":"设备管理"},
+//	            	"child":[
+//	            		{"key":"adminPictureConfig.html","value":"用户微信接收图片管理"},	 
+//	            		{"key":"lineConfig.html","value":"线路管理"},	 
+//	            		{"key":"machineConfig.html","value":"设备管理"},	 
+//	            		{"key":"adminlevelConfig.html","value":"权限管理"},	 	            	
+//	            	]
+//	            },
+//	            {
+//	            	"parent":{"key":"#","value":"管理员管理"},
+//	            	"child":[            		
+//	            		{"key":"adminConfig.html","value":"管理员管理"}
+//	            	]
+//	            },
+//	            {
+//	                "parent": {"key":"#","value":"用户管理"},
+//	                "child": [
+//	                   {"key":"userAdminConfig.html","value":"用户管理"}
+//	                ]
+//	            },
+	            {
+	                "parent": {"key":"#","value":"个人设置"},
+	                "child": [
+	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
+	                    {"key":"editPwd.html","value":"个人信息"},
+	                ]
+	            }
+	        ]
+	    },
+	}
+	
 	var userListJson=[{
 	"userId": 1,
 	"userLoginName": "admin",

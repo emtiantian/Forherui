@@ -190,7 +190,7 @@
 											</div>
 											<div class="summary-left">
 												<div class="selectUldiv">
-													<button id="seachImg" class="btn btn-primary"> 搜索图片</button>
+													<button id="seachImg" class="btn btn-default"> <i class="fa fa-search"></i></button>
 												</div>
 											</div>
 										</div>
@@ -324,18 +324,20 @@
 					        </header>
 					        <div class="panel-body">
 					        	<div class="Container">
-								    <div class="image " id="bigpics" title=""><img src=""/></div>
-								    <div class="switch">
-								    	<div class="icon1"><a href="#" title="上一个" onfocus="this.blur();">上一个</a></div>
-								        <div class="switch_center" id="pics">
-								        	<ul id="container2">
-								  
-								            </ul>
-								      </div>
-								        <div class="icon2"><a href="#" title="下一个" onfocus="this.blur();">下一个</a></div>
-								        <div class="clear"></div>
-								    </div>								    								
-								</div>
+									    <div class="image " id="bigpics" title=""><img src="" class="imgInfo"/></div>
+										    <div class="switch">
+										    	<div class="icon1"><a href="#" title="上一个" onfocus="this.blur();">上一个</a></div>
+										        <div class="switch_center" id="pics">
+										        	<ul id="container2">
+										  
+										            </ul>
+										      </div>
+										        <div class="icon2"><a href="#" title="下一个" onfocus="this.blur();">下一个</a></div>
+										        <div class="clear"></div>
+										    </div>								    								
+										</div>
+										<div id="next" style="position: absolute;top: 40%;right: 10%;width: 5%;cursor: pointer;text-align：right;"><img src="images/next.png" width="100%"></div>
+										<div id="prev" style="position: absolute;top: 40%;left:10%;width: 5%;cursor: pointer;"> <img src="images/prev.png" width="100%"></div>
 					        </div>
 				        </section>
 			        </div>
@@ -353,11 +355,13 @@
 					        <div class="panel-body">					 
 								    <div class="draggieSwitch">
 					        			<div style="width: 100%;height: auto;min-height: 400px; display: inline-block;vertical-align: top;margin-bottom: 30px;">
-											<div style="width: 49%;height: auto;display: inline-block;background: red;min-height: 400px;vertical-align: top;" id="img1Div">
+											<div style="position:relative; width: 49%;height: auto;display: inline-block;background: red;min-height: 400px;vertical-align: top;" id="img1Div">
 												<img  id="img1" style="width: 100%;" class="imgClick"/>
+												<div id="info" class="info" style="display: none;"></div>
 											</div>
-											<div style="width: 49%;height: auto;display: inline-block;background: black;min-height: 400px;vertical-align: top;" id="img2Div">
+											<div style="position: relative;width: 49%;height: auto;display: inline-block;background: black;min-height: 400px;vertical-align: top;" id="img2Div">
 												<img  id="img2" style="width: 100%;" class="imgClick"/>
+												<div id="info" class="info" style="display: none;"></div>
 											</div>
 										</div>
 								    
@@ -477,6 +481,7 @@
 
     </div>
     <!-- main content end-->
+
 </section>
 
 
@@ -549,8 +554,10 @@
 <script type="text/javascript" src="js/colorpicker-master/parts/jquery.ui.colorpicker-rgbslider.js"></script>
 <script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript" src="js/canvas.js"></script>
-
-
+<!--照片详细信息-->
+<script src="js/showImg.js"></script>
+<!--照片点击放大-->
+<script src="js/imgBack.js"></script>
 <script src="js/index.js"></script>
 
 </body>

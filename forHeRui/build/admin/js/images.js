@@ -51,40 +51,57 @@ var suningImages = function(){
 			
 			
 			var index = 0 ;
-			box.click(function(e){
-				var e = e || window.event ;
-				posx = e.clientX ;
-				//判断鼠标位置，鼠标位置大于图片1/2处加
-				if(posx>document.documentElement.clientWidth/2){
-					index++;
+			$(box).parent().parent().find("#next").click(function(){
+				index++;
 					if(index>=len)
 					{
 						index=0;
 						ul.stop().animate({marginLeft: 0 },300);
 					}
 					that.next(index);
-				}else{
-					index--;
+			})
+			$(box).parent().parent().find("#prev").click(function(){
+				index--;
 					if(index<0){
 						index=len-1;
 						ul.stop().animate({marginLeft: -86*parseInt(index/7)*7 },300);
 					};
 					that.prev(index);
-				}	
-				e.preventDefault();
-			}).mousemove(function(e){
-				var e = e || window.event ;
-				posx = e.clientX ;
-				if(posx>document.documentElement.clientWidth/2){
-					box.css('cursor','url(images/next.cur),pointer');
-//					console.log("下一页");
-					box.attr('title','下一页');
-				}else{
-					box.css('cursor','url(images/pev.cur),pointer');
-//					console.log("上一页");
-					box.attr('title','上一页');
-				}
-			});
+			})
+//			box.click(function(e){
+//				var e = e || window.event ;
+//				posx = e.clientX ;
+//				//判断鼠标位置，鼠标位置大于图片1/2处加
+//				if(posx>document.documentElement.clientWidth/2){
+//					index++;
+//					if(index>=len)
+//					{
+//						index=0;
+//						ul.stop().animate({marginLeft: 0 },300);
+//					}
+//					that.next(index);
+//				}else{
+//					index--;
+//					if(index<0){
+//						index=len-1;
+//						ul.stop().animate({marginLeft: -86*parseInt(index/7)*7 },300);
+//					};
+//					that.prev(index);
+//				}	
+//				e.preventDefault();
+//			}).mousemove(function(e){
+//				var e = e || window.event ;
+//				posx = e.clientX ;
+//				if(posx>document.documentElement.clientWidth/2){
+//					box.css('cursor','url(images/next.cur),pointer');
+////					console.log("下一页");
+//					box.attr('title','下一页');
+//				}else{
+//					box.css('cursor','url(images/pev.cur),pointer');
+////					console.log("上一页");
+//					box.attr('title','上一页');
+//				}
+//			});
 			
 			$(document).keyup(function(e){
 				var e = e || window.event ;
@@ -111,12 +128,15 @@ var suningImages = function(){
 			box.html('<div class="loading"></div>');
 			var src = btn.eq(i).find('img').attr('src');
 			var imgId = btn.eq(i).find('img').attr('imgId');
+			var imgInfo =  btn.eq(i).find('img').attr('Info');
 //			var maxlen = src.length ;
 //			newsrc = src.slice(0,maxlen-4)+"f.jpg";
 			$("#bigpics").attr('imgId',imgId);
+		
 			newsrc = src;
-			box.html('<img src = ' +newsrc+'  />' ).find('img').hide();
+			box.html('<img src = ' +newsrc+'  class="imgClick imgInfo" info= "'+imgInfo+'" /><div id="info" class="info"> '+imgInfo+'</div>' ).find('img').hide();
 			box.find('img').fadeIn(250);
+			
 		},
 		addbk:function(i){
 			btn.eq(i).find('a').addClass('on').parent().siblings().find('a').removeClass('on');
