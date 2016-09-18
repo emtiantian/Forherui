@@ -11,9 +11,9 @@ $(function(){
 			data:{},
 			dataType:"json",
 			success:function(data){
-				if(data.success){				
-				crateMenu(data);
-				$(".wrapper").show();
+				if(data.success){
+					crateMenu(data);
+					$(".wrapper").show();
 				}else{
 					//在初始化menu的时候 判断是否登录
 					if(data.code == 2){
@@ -99,7 +99,6 @@ $(function(){
          var strPage=arrUrl[arrUrl.length-1]; 
          return strPage;
      }
-	//{"userId":1,"userLoginName":"admin","name":"何瑞","level":"superAdmin","wechat":{"userId":"herui","name":"何瑞","department":null,"position":"","gender":1,"mobile":"15726699262","email":"","weixinId":"wxid_0dlzp5mo11hi22","avatar":"http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/","status":1,"extattr":null,"disable":false},"ParnetID":1}}
 	//用户初始化
 	function userInit(){
 		$.ajax({

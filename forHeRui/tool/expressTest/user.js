@@ -239,6 +239,12 @@ var log = require('./log');
 	menuListJson = {
 		"superAdmin": {
 	        "menuList": [
+	        	{
+	        		"parent": {"key":"#","value":"实时监控下"},
+	                "child": [
+	                	{"key":"realTime.html","value":"线路监控"},
+	                ]	        		
+	        	},
 	            {
 	                "parent": {"key":"#","value":"监测信息查询"},
 	                "child": [
