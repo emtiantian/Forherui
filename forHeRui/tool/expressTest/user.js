@@ -236,7 +236,7 @@ var log = require('./log');
 	        ]
 	    }
 	}
-	menuListJson1 = {
+	menuListJson = {
 		"superAdmin": {
 	        "menuList": [
 	            {

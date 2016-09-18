@@ -11,25 +11,8 @@ $(function(){
 			data:{},
 			dataType:"json",
 			success:function(data){
-				if(data.success){
-					$.each(data.data,function(i,ele){								
-					$.each(ele,function(childI,childEle){
-							var father=$("#menu_"+childEle.parent)
-//							console.dir(father.find("ul>li>a"));
-							father.show();
-						$.each(father.find("ul>li>a"),function(childI2,childEle2){
-//							console.dir(childEle2)
-							//each 之后的jquery对象不再是jquery对象
-//							console.log("子页面名字"+$(childEle2).html());
-							$.each(childEle.child,function(childI3,childEle3){
-								if($(childEle2).attr("href") == childEle3){
-									$(childEle2).show();
-								}
-							})
-						})
-					});
-					
-				})
+				if(data.success){				
+				crateMenu(data);
 				$(".wrapper").show();
 				}else{
 					//在初始化menu的时候 判断是否登录
@@ -45,31 +28,75 @@ $(function(){
 		});
 	}
 	function crateMenu(data){
-//		<li class="menu-list nav-active" id="menu_index" style="display: none;"><a href="index.html"><i class="fa fa-laptop"></i> <span>监测信息查询</span></a>
-//              	<ul class="sub-menu-list">
-//                      <li class="active" >
-//                      	<a href="index.html" style="display: none;"> 线路监控</a>
-//                      </li>                  
-//                      <li>
-//                      	<a href="userMachine.html" style="display: none;">设备列表</a>
-//                      </li>
-//                      <li>
-//                      	<a href="chartPicture.html" style="display: none;"> 图片统计信息</a>
-//                      </li>                          
-//                  </ul>
-//              </li>
-	var html = '';
-	$.each(data, function(i,ele) {
+		var html = '';		
+		var pagename = pageName();
+		$.each(data.data.menuList, function(i,ele) {
+			var parentshow = "";
+			var childshow = "active";
+			var childHtml = "";
+			$.each(ele.child, function(i2,ele2) {
+				console.log("pageName"+pagename+"ele2.key"+ele2.key+"是否相等"+(pagename == ele2.key));
+				console.log();
+				if(pagename == ele2.key){
+					childshow = "active";
+					parentshow = "nav-active";					
+				}else{
+					childshow = ""					
+				}
+				childHtml += '<li class="'+childshow+'" ><a href="'+ele2.key+'">'+ele2.value+'</a></li>'
+			});
+			html +='<li class="menu-list '+parentshow+'"><a href="'+ele.parent.key+'"><i class="fa fa-laptop"></i> <span>'+ele.parent.value+'</span></a><ul class="sub-menu-list">'+childHtml+"</ul></li>";		
+		});
 		
-	});
-                
+		$(".custom-nav").html(html);
+		    // Toggle Left Menu
+		   jQuery('.menu-list > a').click(function() {
+		      
+		      var parent = jQuery(this).parent();
+		      var sub = parent.find('> ul');
+		      
+		      if(!jQuery('body').hasClass('left-side-collapsed')) {
+		         if(sub.is(':visible')) {
+		            sub.slideUp(200, function(){
+		               parent.removeClass('nav-active');
+		               jQuery('.main-content').css({height: ''});
+		               mainContentHeightAdjust();
+		            });
+		         } else {
+		            visibleSubMenuClose();
+		            parent.addClass('nav-active');
+		            sub.slideDown(200, function(){
+		                mainContentHeightAdjust();
+		            });
+		         }
+		      }
+		      return false;
+		   });
+		
+		   function visibleSubMenuClose() {
+		      jQuery('.menu-list').each(function() {
+		         var t = jQuery(this);
+		         if(t.hasClass('nav-active')) {
+		            t.find('> ul').slideUp(200, function(){
+		               t.removeClass('nav-active');
+		            });
+		         }
+		      });
+		   }
+		
+		   function mainContentHeightAdjust() {
+		      // Adjust main content height
+		      var docHeight = jQuery(document).height();
+		      if(docHeight > jQuery('.main-content').height())
+		         jQuery('.main-content').height(docHeight);
+		   }   
 	}
 	//获取页面名称
 	function pageName()
      {
-         var strUrl=location.href;
+         var strUrl=window.location.pathname;
          var arrUrl=strUrl.split("/");
-         var strPage=arrUrl[arrUrl.length-1];
+         var strPage=arrUrl[arrUrl.length-1]; 
          return strPage;
      }
 	//{"userId":1,"userLoginName":"admin","name":"何瑞","level":"superAdmin","wechat":{"userId":"herui","name":"何瑞","department":null,"position":"","gender":1,"mobile":"15726699262","email":"","weixinId":"wxid_0dlzp5mo11hi22","avatar":"http://shp.qpic.cn/bizmp/JpotibjdTtfkPsJEatibCtNXib4Xj1tBYwX0GAWVKgugTPm4lgVyOhNyA/","status":1,"extattr":null,"disable":false},"ParnetID":1}}
