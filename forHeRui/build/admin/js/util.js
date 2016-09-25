@@ -35,20 +35,62 @@ $(function(){
 			var childshow = "active";
 			var childHtml = "";
 			$.each(ele.child, function(i2,ele2) {
-				console.log("pageName"+pagename+"ele2.key"+ele2.key+"是否相等"+(pagename == ele2.key));
-				console.log();
+				//console.log("pageName"+pagename+"ele2.key"+ele2.key+"是否相等"+(pagename == ele2.key));
+				//console.log();
 				if(pagename == ele2.key){
 					childshow = "active";
 					parentshow = "nav-active";					
 				}else{
 					childshow = ""					
 				}
-				childHtml += '<li class="'+childshow+'" ><a href="'+ele2.key+'">'+ele2.value+'</a></li>'
-			});
-			html +='<li class="menu-list '+parentshow+'"><a href="'+ele.parent.key+'"><i class="fa fa-laptop"></i> <span>'+ele.parent.value+'</span></a><ul class="sub-menu-list">'+childHtml+"</ul></li>";		
+				childHtml += '<li class="'+childshow+'" ><a href="'+ele2.key+'">'+ele2.value+'</a></li>'				
+			});			
+			html +='<li class="menu-list '+parentshow+'"><a href="'+ele.parent.key+'"><i class="fa fa-laptop"></i> <span>'+ele.parent.value+'</span></a><ul class="sub-menu-list" id="'+ele.parent.id+'">'+childHtml+"</ul></li>";		
+		});	
+		$(".custom-nav").html(html);
+	}
+	function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+	//初始化 线路菜单
+	function initLineMenu(userId){
+		$("#realTime").html("");
+		$.ajax({
+			type:"post",
+			url:baseUrl+"/Line/lineList",
+			async:true,
+			data:{"userId":userId},
+			dataType:"json",
+			success:function(data){
+				if(data.success) {
+					var pagelineId =  GetQueryString("lineId")
+					$.each(data.data, function(i, ele) {
+						if(pagelineId == null && pageName()=="realTime.html"){
+							if(i == 0) {
+								$("#realTime").append('<li class="active"><a href="realTime.html?lineId=' + ele.lineid + '" >' + ele.name + '</a></li>');
+								location.href="realTime.html?lineId="+ele.lineid;
+							} else {
+								$("#realTime").append('<li><a href="realTime.html?lineId=' + ele.lineid + '" >' + ele.name + '</a></li>');
+							}
+						}else{
+							if(pagelineId == ele.lineid) {
+							$("#realTime").append('<li class="active"><a href="realTime.html?lineId=' + ele.lineid + '" >' + ele.name + '</a></li>');
+							//初始化图片
+							} else {
+								$("#realTime").append('<li><a href="realTime.html?lineId=' + ele.lineid + '" >' + ele.name + '</a></li>');
+							}
+						}
+						
+					})
+				} else {
+					
+				}
+			}
 		});
 		
-		$(".custom-nav").html(html);
 		    // Toggle Left Menu
 		   jQuery('.menu-list > a').click(function() {
 		      
@@ -91,6 +133,10 @@ $(function(){
 		         jQuery('.main-content').height(docHeight);
 		   }   
 	}
+	//header-section
+	function addTitle(){
+		$(".header-section").append('<div class="myTitle">输电线路通道可视化平台 </div>');
+	}
 	//获取页面名称
 	function pageName()
      {
@@ -114,6 +160,7 @@ $(function(){
 					//添加当前用户等级
 					$("body").append('<input type="hidden" id="loginUserLevel" value="'+data.data.level+'" />')
 					$("body").append('<input type="hidden" id="loginUserId" value="'+data.data.userId+'" />')
+					initLineMenu(data.data.userId)
 					//
 					$("#createPwd").val(pwd);
 					switch (data.data.level){
@@ -183,7 +230,7 @@ $(function(){
 	initHeight();
 	menuInit();
 	userInit();
-	
+	addTitle();
 	$("#logout").on("click",function(){
 		loginOut();
 	})

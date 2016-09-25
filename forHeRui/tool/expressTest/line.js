@@ -14,7 +14,19 @@ function lineList(){
 	 			"code": "bj_Test2",
 	 			"machineName": "Test"
 	 		}]
-	 	}]
+	 	},
+	 	{
+	 		"lineid": 7,
+	 		"name": "测试线路3",
+	 		"comments": "测试线路2说明",
+	 		"lineCode": "线路编码3",
+	 		"machine": [{
+	 			"machineId": 11,
+	 			"code": "bj_Test2",
+	 			"machineName": "Test"
+	 		}]
+	 	}
+	 	]
 	}
 	 return success
 	

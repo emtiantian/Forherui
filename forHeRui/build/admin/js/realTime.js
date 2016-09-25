@@ -1,5 +1,5 @@
 $(function(){
-	//基础url
+		//基础url
 	var baseUrl = config.get("baseUrl");
 	//右键菜单class
 	var contextClass="context";
@@ -7,7 +7,10 @@ $(function(){
 	var machineList=[];
 	//防止重复提交
 	var isImgSave = false;
-	
+	//当前线路名称
+	var lineName = "";
+	//
+	var expires=config.get("expires");
 	//日期初始化
    $('.form_date').datetimepicker({
         language:  'zh-CN',
@@ -45,8 +48,10 @@ $(function(){
 	  return fmt;   
 	}
 	$('.form_date').val(new Date().format("yyyy-MM-dd"));
-	
-	function getImgData(machineid,dateTime){
+	function getImgDataforLine(data){
+		
+	}
+	function getImgData(machineid,machineName,dateTime){
 		//先隐藏提示
 		$("#showImg0").hide();
 		
@@ -66,15 +71,16 @@ $(function(){
 					$("#container3").html("");
 					//初始化页面
 					$.each(data.data.picture, function(i,ele) {
+						var info = "线路:"+lineName+" 设备："+machineName+" 时间："+ele.time;
 						if(i == 0){
 							//显示菜单
-							initShow1(ele,true)
-							initShow2(ele,true,true)
-							initShow3(ele,true)
+							initShow1(ele,true,info)
+							initShow2(ele,true,true,info)
+							initShow3(ele,true,info)
 						}else{
-							initShow1(ele,true)
-							initShow2(ele,true,false)
-							initShow3(ele,true)
+							initShow1(ele,true,info)
+							initShow2(ele,true,false,info)
+							initShow3(ele,true,info)
 						}				
 					});
 					//初始化显示
@@ -111,7 +117,7 @@ $(function(){
 					}else{
 						$("#showImg1").show();
 						changeImg($(".mySummary[data =showImg1]"));
-						console.log("1111111"+$("#container").width());
+//						console.log("1111111"+$("#container").width());
 					}					
 				}else{
 					dataError(data);
@@ -125,37 +131,37 @@ $(function(){
 //	$("#container2").html("");
 //	$("#container3").html("");
 
-	function initShow1(data,isShowMenu){
+	function initShow1(data,isShowMenu,info){
 		var width = show1Width(3);
 		if(isShowMenu){
-			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'"   info="线路：'+$("#lineList").find("option:selected").text()+' 设备：'+$("#machineList").find("option:selected").text()+' 时间：'+data.time+'" class="imgClick imgInfo" style="width:'+width+'px;" ></div></div>');	
+			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'"   info="'+info+'" class="imgClick imgInfo" style="width:'+width+'px;" ></div></div>');	
 		}else{
-			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'" info="线路：'+$("#lineList").find("option:selected").text()+' 设备：'+$("#machineList").find("option:selected").text()+' 时间：'+data.time+'" class="imgClick imgInfo" ></div></div>');	
+			$("#container").append('<div class="box"><div class="boximg '+contextClass+'" imgId="'+data.id+'"> <img src="'+data.url+'" info="'+info+'" class="imgClick imgInfo" ></div></div>');	
 		}
 								   
 	}
 	
-	function initShow2(data,isShowMenu,isFirst){
+	function initShow2(data,isShowMenu,isFirst,info){
 		if(isFirst){
 //			$("#container2").append('<li class="'+contextClass+'" data-imgId="'+data.id+'"><a href="#" class="on"><img src="'+data.src+'" /></a></li>');
-			$("#container2").append('<li><a href="#" class="on" ><img src="'+data.url+'" imgId="'+data.id+'" info="线路：'+$("#lineList").find("option:selected").text()+' 设备：'+$("#machineList").find("option:selected").text()+' 时间：'+data.time+'"  /></a></li>');
+			$("#container2").append('<li><a href="#" class="on" ><img src="'+data.url+'" imgId="'+data.id+'" info="'+info+'"  /></a></li>');
 			$("#bigpics").attr("class","image "+contextClass);
 			$("#bigpics").find("img").attr("src",data.url)
 			$("#bigpics").find("img").attr("class","imgClick imgInfo");		
 			$("#bigpics").attr("imgId",data.id)
-			$("#bigpics").find("img").attr("info","线路:"+$("#lineList").find("option:selected").text()+" 设备："+$("#machineList").find("option:selected").text()+" 时间："+data.time);
+			$("#bigpics").find("img").attr("info",info);
 		}else{
-			$("#container2").append('<li><a href="#" ><img src="'+data.url+'" imgId="'+data.id+'" info="线路：'+$("#lineList").find("option:selected").text()+',设备：'+$("#machineList").find("option:selected").text()+' 时间：'+data.time+'"/></a></li>');
+			$("#container2").append('<li><a href="#" ><img src="'+data.url+'" imgId="'+data.id+'" info="'+info+'"/></a></li>');
 		}
 		
 	}
 	
-	function initShow3(data,isShowMenu){
+	function initShow3(data,isShowMenu,info){
 		if(isShowMenu){
 			$("#img1").parent().attr("class",contextClass);
 			$("#img2").parent().attr("class",contextClass);
 		}	
-		$("#container3").append('<li ><a class="draggie"><img src="'+data.url+'" imgId="'+data.id+'" info="线路：'+$("#lineList").find("option:selected").text()+' 设备：'+$("#machineList").find("option:selected").text()+' 时间：'+data.time+'"/></a></li>');	
+		$("#container3").append('<li ><a class="draggie"><img src="'+data.url+'" imgId="'+data.id+'" info="'+info+'"/></a></li>');	
 	}
 	//初始化 线路列表
 	function initLineList(userId){
@@ -170,11 +176,11 @@ $(function(){
 					//初始化下拉菜单
 					initSelect(data);
 					//初始化 图片展示
-					if($("#machineList").val() == "" || $("#machineList").val() == undefined || $("#machineList").val() == null){
-						alert("没有权限查看任何线路");
-						return;
-					}
-					getImgData($("#machineList").val(),data.time);
+//					if($("#machineList").val() == "" || $("#machineList").val() == undefined || $("#machineList").val() == null){
+//						alert("没有权限查看任何线路");
+//						return;
+//					}
+					getImgData($("#machineList").val(),$("#date").val());
 					//初始化菜单
 					//管理员可用
 					if($("#loginUserLevel").val() == "superAdmin" || $("#loginUserLevel").val() == "admin" || $("#loginUserLevel").val() == "lineAdmin" ){
@@ -241,6 +247,7 @@ $(function(){
                 }
                 return [nWidth, nHeight]
             }
+	
 	//初始化 下拉列表
 	function initSelect(data){
 		$("#lineList").html("");
@@ -442,15 +449,242 @@ $(function(){
 			var imgWidth = parseInt((width - 11*2-11*(num-1)*2)/num );	
 			return  imgWidth;
 		}
-		
-
+		//获取页面参数	
+		function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+//{
+//	"success": true,
+//	"code": 0,
+//	"msg": "",
+//	"data": {
+//		"picture": [{
+//			"machine": {
+//				"machineId": 10,
+//				"code": "bj_test1",
+//				"machineName": "等到"
+//			},
+//			"picture": {
+//				"id": 31,
+//				"pictureWidth": 908,
+//				"pictureHeight": 908,
+//				"size": 167799,
+//				"url": "../UpLoad/Modify/bj_test1/201609/201609141724.jpg",
+//				"time": "2016-09-14T17:00:04",
+//				"info": null
+//			}
+//		}, {
+//			"machine": {
+//				"machineId": 4,
+//				"code": "bj_test",
+//				"machineName": "测试设备"
+//			},
+//			"picture": null
+//		}]
+//	}
+//}		
+		function getLineName(lineId){
+			var lineName = "";
+			$.ajax({
+				type:"post",
+				url:baseUrl+"/Line/lineList",
+				async:false,
+				data:{"userId":$("#loginUserId").val()},
+				dataType:"json",
+				success:function(data){
+					if(data.success) {
+						$.each(data.data, function(i, ele) {
+							if(ele.lineid == lineId){
+								lineName = ele.name;	
+								
+							}						
+						})
+					} else {
+						
+					}
+				}
+			});
+			return lineName;
+		}
+		function initall(lineId){
+			$.ajax({
+				type:"post",
+				url:baseUrl+"/picture/showline",
+				async:true,
+				data:{"lineId":lineId},
+				dataType:"json",
+				success:function(data){
+					$(".myPanel-body").html("");
+					//先隐藏提示
+					$("#showImg0").hide();
+					//先隐藏
+					$('.showImg').hide();
+					//删除原来的数据
+					$("#container").html("");
+					$("#container2").html("");
+					$("#container3").html("");
+					$(".myPanel-body").append('<button class="btn btn-info machineButton" type="button" style="width: 61px;" id="all" data="all">全部</button>');
+					lineName  =  getLineName(lineId);
+					$.each(data.data.picture,function(i,ele){
+						//添加按钮						
+						$(".myPanel-body").append('<button class="btn btn-default machineButton" type="button" data="'+ele.machine.machineId+'">'+ele.machine.machineName+'</button>')	
+						if(ele.picture !== null){
+							var info = "线路:"+lineName+" 设备："+ele.machine.machineName+" 时间："+ele.picture.time;
+							//初始化图片
+//							console.dir($("#lineid"+lineId));
+							if(i == 0){
+								//显示菜单
+								initShow1(ele.picture,true,info)
+								initShow2(ele.picture,true,true,info)
+								initShow3(ele.picture,true,info)
+							}else{
+								initShow1(ele.picture,true,info)
+								initShow2(ele.picture,true,false,info)
+								initShow3(ele.picture,true,info)
+							}
+						}else{
+//							console.log('picture为空');
+						}
+					})
+					//记录点击了那个按钮啊
+					if($.cookie("usermachine") != "null" && $.cookie("usermachine") != undefined ){	
+						console.dir($(".machineButton"));
+						$('.machineButton').each(function (i,ele) {  
+					       console.log($.cookie("usermachine") +":"+$(ele).attr("data"));
+							if($(ele).attr("data") == $.cookie("usermachine")){
+								console.log($(ele).attr("data"));
+								if($.cookie("usermachine") == "all"){
+									
+								}else{
+									$(ele).click();
+								}								
+							}
+					   });  				
+					}
+					//初始化显示
+					//第1种展示
+					waterFlow("container", "box");
+					
+					//第2种展示
+					suningImages().init();	
+					//第3种展示
+					$.each($(".draggie"), function(i,ele) {
+						initDraggie(ele);
+					});	
+					//添加底部说明
+					var info = new showImg({
+						selector:".imgInfo",
+						showValue:"info"
+					})
+					//显示控制
+					$(".mySummary").on("click",function(){
+	//					console.log("click"+$(this).attr("data"))
+						if(!$("#showImg0").is(":hidden")){
+							console.log("当前没有图片不切换")
+						}else{
+							$('.showImg').hide();
+							//替换显示图片						
+							$("#"+$(this).attr("data")).show();
+							changeImg($(this));
+						}																	
+					})
+					//默认显示第一个
+					if(!$("#showImg0").is(":hidden")){
+						console.log("当前没有图片应该不显示第一种展示")
+						changeImg("");
+					}else{
+						$("#showImg1").show();
+						changeImg($(".mySummary[data =showImg1]"));
+						//console.log("1111111"+$("#container").width());
+					}
+					
+					//右键菜单初始化
+					if($("#loginUserLevel").val() == "superAdmin" || $("#loginUserLevel").val() == "admin" || $("#loginUserLevel").val() == "lineAdmin" ){
+						context.init({
+						  fadeSpeed: 100,
+						  filter: function ($obj){},
+						  above: 'auto',
+						  preventDoubleContext: true,
+						  compress: false
+						});
+						context.attach('.context',[{
+							  header: '图片标注'
+							},{
+						
+						    text: '图片标注',
+						    action: function(e,selector){
+						    	console.log(context.thisSelf());
+						    	console.log("imgId"+$(context.thisSelf()).attr("imgId"));
+						    	//点击菜单初始化 画板 并修改canvas 宽高
+						    	console.log(getImgNaturalStyle($(context.thisSelf()).find("img")[0]));
+						    	var imgNatural = getImgNaturalStyle($(context.thisSelf()).find("img")[0])
+						    	//重置宽高
+						    	$("#myCanvas").attr("width",imgNatural[0])
+						    	$("#myCanvas").attr("height",imgNatural[1])
+						    	$("#myCanvas").css("width",imgNatural[0]);
+						    	$("#myCanvas").css("height",imgNatural[1]);
+						  
+						    	$(".ui-wrapper").css("width",imgNatural[0]);
+						    	$(".ui-wrapper").css("height",imgNatural[1]);
+//								var canvasDiv = document.getElementById("myCanvas");
+//								canvasDiv.width = imgNatural[0]
+//								canvasDiv.height = imgNatural[1]
+								
+						    	var canvas = mycanvas();
+						    	//替换画板中的图片 和 图片id
+						    	canvas.initImg($(context.thisSelf()).attr("imgId"),$(context.thisSelf()).find("img").attr("src"));
+						    	$("#tools_save").click(function(){	
+						    		console.log(canvas.save());
+						    		saveImg(canvas.save());
+						    	});						    	
+						    	e.preventDefault();
+						    }
+						}] );
+					}
+				}
+			});
+		}
 	
 		//根据当前登录人 初始化 线路列表 及 图片	 和菜单
-		initLineList($("#loginUserId").val());
+//		initLineList($("#loginUserId").val());
+		//根据页面参数初始化  设备列表 及图片 和菜单		
+		var myurl=GetQueryString("lineId");		
+		if(myurl !=null && myurl.toString().length>0)
+		{	
+		   initall(GetQueryString("lineId"));
+		}else{
+			console.log("获取页面参数失败")
+		}
 		
-		$("#seachImg").on("click",function(){
-			//重新初始化 图片
-			getImgData($("#machineList").val(),$("#date").val());
+		
+//		$("#seachImg").on("click",function(){
+//			//重新初始化 图片
+//			getImgData($("#machineList").val(),$("#date").val());
+//			
+////			new Date().format("yyyy-MM-dd")
+//		})
+		$(document).on("click",".machineButton",function(e){
+			if($(e.target).attr("data") == "all"){
+				console.log("11");
+				location.reload();
+				$.cookie("usermachine","all",{expires:expires,path:"/"})
+			}else{
+				$.each($(".machineButton"),function(i,ele){
+					if($(ele).attr("data") != "all"){
+						$(ele).attr("class","btn btn-default machineButton")
+					}else{
+						$(ele).attr("class","btn btn-all machineButton")
+					}
+					
+				})
+				$(e.target).attr("class","btn btn-info machineButton");
+				getImgData($(e.target).attr("data"),$(e.target).html(),new Date().format("yyyy-MM-dd"));
+				$.cookie("usermachine",$(e.target).attr("data"),{expires:expires,path:"/"})
+			}
+			
 		})
 		
 		window.onresize=function(){
@@ -486,4 +720,19 @@ $(function(){
 			}
 			
 		})
+		if($.cookie("userlineid") == GetQueryString("lineId")){
+			
+		}else{
+			$.cookie("userlineid",GetQueryString("lineId"),{expires:expires,path:"/"})
+			$.cookie("usermachine","null",{expires:expires,path:"/"})
+		}
+		
+		
+  		
+  		//修改下方图片位置
+  		setInterval(function(){
+  			$(".myPanel").height();
+  			$(".wrapperIndex ").css("padding-top",$(".myPanel").height());
+  		},500)
+  		
 })

@@ -52,7 +52,7 @@
 //			}
 //			
 //		});
-			console.log(self.showValue);
+//			console.log(self.showValue);
 			innerHtml = $(ele).attr(self.showValue);
   		$(ele).parent().find("#info").remove();	
   		$(ele).parent().append($(div).html(innerHtml));

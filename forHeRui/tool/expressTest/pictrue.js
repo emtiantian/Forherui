@@ -91,4 +91,39 @@ function pictureList(){
 //var	error= {"success":true,"code":0,"msg":"","data":{"picture":[]}}
 //	return error;
 }
+function pictureShowline(){
+	var success = {
+	"success": true,
+	"code": 0,
+	"msg": "",
+	"data": {
+		"picture": [{
+			"machine": {
+				"machineId": 10,
+				"code": "bj_test1",
+				"machineName": "等到"
+			},
+			"picture": {
+				"id": 31,
+				"pictureWidth": 908,
+				"pictureHeight": 908,
+				"size": 167799,
+				"url": "images/gallery/test//9.jpg",
+				"time": "2016-09-14T17:00:04",
+				"info": null
+			}
+		}, {
+			"machine": {
+				"machineId": 4,
+				"code": "bj_test",
+				"machineName": "测试设备"
+			},
+			"picture": null
+		}]
+	}
+}
+	return success;
+}
+
 exports.pictureList =  pictureList;
+exports.pictureShowline = pictureShowline;

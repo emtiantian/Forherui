@@ -96,7 +96,7 @@ app.get('/account/login',function(req,res){
 
 
 //模拟用户登录 
-app.post('/user/login',function(req,res){
+app.post('/account/login',function(req,res){
 	res.json( userController.userLogin(jsonStr));
 })
 
@@ -178,4 +178,8 @@ app.post('/machine/create',function(req,res){
 //模拟照片列表
 app.post('/picture/show',function(req,res){
 	res.json(pictureController.pictureList());
+})
+
+app.post('/picture/showline',function(req,res){
+	res.json(pictureController.pictureShowline());
 })

@@ -240,7 +240,7 @@ var log = require('./log');
 		"superAdmin": {
 	        "menuList": [
 	        	{
-	        		"parent": {"key":"#","value":"实时监控下"},
+	        		"parent": {"key":"#","value":"实时监控","id":"realTime"},
 	                "child": [
 	                	{"key":"realTime.html","value":"线路监控"},
 	                ]	        		
@@ -262,30 +262,31 @@ var log = require('./log');
 //	            	]
 //	            },
 	            {
-	            	"parent":{"key":"#","value":"设备管理"},
+	            	"parent":{"key":"#","value":"管理"},
 	            	"child":[
 	            		{"key":"adminPictureConfig.html","value":"用户微信接收图片管理"},	 
 	            		{"key":"lineConfig.html","value":"线路管理"},	 
 	            		{"key":"machineConfig.html","value":"设备管理"},	 
-	            		{"key":"adminlevelConfig.html","value":"权限管理"},	 	            	
+	            		{"key":"adminlevelConfig.html","value":"权限管理"},	
+	            		{"key":"userAdminConfig.html","value":"用户管理"},
 	            	]
 	            },
-	            {
-	            	"parent":{"key":"#","value":"管理员管理"},
-	            	"child":[            		
-	            		{"key":"adminConfig.html","value":"管理员管理"}
-	            	]
-	            },
-	            {
-	                "parent": {"key":"#","value":"用户管理"},
-	                "child": [
-	                   {"key":"userAdminConfig.html","value":"用户管理"}
-	                ]
-	            },
+//	            {
+//	            	"parent":{"key":"#","value":"管理员管理"},
+//	            	"child":[            		
+//	            		{"key":"adminConfig.html","value":"管理员管理"}
+//	            	]
+//	            },
+//	            {
+//	                "parent": {"key":"#","value":"用户管理"},
+//	                "child": [
+//	                   {"key":"userAdminConfig.html","value":"用户管理"}
+//	                ]
+//	            },
 	            {
 	                "parent": {"key":"#","value":"个人设置"},
 	                "child": [
-	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"pictureConfig.html","value":"个人微信接收图片管理"},
 	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
 	                    {"key":"editPwd.html","value":"个人信息"},
 	                ]
@@ -294,6 +295,12 @@ var log = require('./log');
 	    },
 	    "admin": {
 	        "menuList": [
+	        	{
+	        		"parent": {"key":"#","value":"实时监控","id":"realTime"},
+	                "child": [
+	                	{"key":"realTime.html","value":"线路监控"},
+	                ]	        		
+	        	},
 	            {
 	                "parent": {"key":"#","value":"监测信息查询"},
 	                "child": [
@@ -310,13 +317,14 @@ var log = require('./log');
 //						{"key":"lineAdminlevelConfig.html","value":"权限管理"},
 //	            	]
 //	            },
-	            {
-	            	"parent":{"key":"#","value":"设备管理"},
+	              {
+	            	"parent":{"key":"#","value":"管理"},
 	            	"child":[
 	            		{"key":"adminPictureConfig.html","value":"用户微信接收图片管理"},	 
 	            		{"key":"lineConfig.html","value":"线路管理"},	 
 	            		{"key":"machineConfig.html","value":"设备管理"},	 
-	            		{"key":"adminlevelConfig.html","value":"权限管理"},	 	            	
+	            		{"key":"adminlevelConfig.html","value":"权限管理"},	
+	            		{"key":"userAdminConfig.html","value":"用户管理"},
 	            	]
 	            },
 //	            {
@@ -325,16 +333,16 @@ var log = require('./log');
 //	            		{"key":"adminConfig.html","value":"管理员管理"}
 //	            	]
 //	            },
-	            {
-	                "parent": {"key":"#","value":"用户管理"},
-	                "child": [
-	                   {"key":"userAdminConfig.html","value":"用户管理"}
-	                ]
-	            },
+//	            {
+//	                "parent": {"key":"#","value":"用户管理"},
+//	                "child": [
+//	                   {"key":"userAdminConfig.html","value":"用户管理"}
+//	                ]
+//	            },
 	            {
 	                "parent": {"key":"#","value":"个人设置"},
 	                "child": [
-	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"pictureConfig.html","value":"个人微信接收图片管理"},
 	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
 	                    {"key":"editPwd.html","value":"个人信息"},
 	                ]
@@ -343,6 +351,12 @@ var log = require('./log');
 	    },
 	    "lineAdmin": {
 	        "menuList": [
+	        	{
+	        		"parent": {"key":"#","value":"实时监控","id":"realTime"},
+	                "child": [
+	                	{"key":"realTime.html","value":"线路监控"},
+	                ]	        		
+	        	},
 	            {
 	                "parent": {"key":"#","value":"监测信息查询"},
 	                "child": [
@@ -375,7 +389,7 @@ var log = require('./log');
 //	            	]
 //	            },
 	            {
-	                "parent": {"key":"#","value":"用户管理"},
+	                "parent": {"key":"#","value":"管理"},
 	                "child": [
 	                   {"key":"userAdminConfig.html","value":"用户管理"}
 	                ]
@@ -383,7 +397,7 @@ var log = require('./log');
 	            {
 	                "parent": {"key":"#","value":"个人设置"},
 	                "child": [
-	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"pictureConfig.html","value":"个人微信接收图片管理"},
 	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
 	                    {"key":"editPwd.html","value":"个人信息"},
 	                ]
@@ -392,6 +406,12 @@ var log = require('./log');
 	    },
 	    "user": {
 	        "menuList": [
+	        	{
+	        		"parent": {"key":"#","value":"实时监控","id":"realTime"},
+	                "child": [
+	                	{"key":"realTime.html","value":"线路监控"},
+	                ]	        		
+	        	},
 	            {
 	                "parent": {"key":"#","value":"监测信息查询"},
 	                "child": [
@@ -432,7 +452,7 @@ var log = require('./log');
 	            {
 	                "parent": {"key":"#","value":"个人设置"},
 	                "child": [
-	                    {"key":"pictureConfig.html","value":"用户微信接收图片管理"},
+	                    {"key":"pictureConfig.html","value":"个人微信接收图片管理"},
 	                    {"key":"weChatConfig.html","value":"微信绑定管理"},
 	                    {"key":"editPwd.html","value":"个人信息"},
 	                ]

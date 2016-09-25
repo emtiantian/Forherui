@@ -26,6 +26,8 @@
 	<link rel="stylesheet" href="js/jquery-ui-1.11.0.custom/jquery-ui.structure.css" />
 	<link rel="stylesheet" href="js/colorpicker-master/jquery.colorpicker.css" />
 	<link rel="stylesheet" href="js/jquery-ui-1.11.0.custom/jquery-ui.theme.css" />
+	<!--树桩列表-->
+	<link rel="stylesheet" href="css/bootstrap-treeview.css" />
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
@@ -170,34 +172,11 @@
         	<div style="width: 100%;z-index: 10;position: fixed;">
 							<div class="state-info-left" style="position: static;">
 									<section class="panel myPanel">
-										<div class="panel-body">
-											<div class="summary-left">
-												<select class="form-control input-sm m-bot15" id="lineList">
-													<option selected="selected">线路 1</option>
-													<option>线路 2</option>
-													<option>线路 3</option>
-												</select>
-											</div>
-											<div class="summary-left">
-												<select class="form-control input-sm m-bot15" id="machineList">
-													<option selected="selected">机器 1</option>
-													<option>机器 2</option>
-													<option>机器 3</option>
-												</select>
-											</div>
-											<div class="summary-left">
-												<div class="selectUldiv">
-													<input size="16" type="text" value="" readonly class="form_date form-control" id='date'>
-												</div>
-											</div>
-											<div class="summary-left">
-												<div class="selectUldiv">
-													<button id="seachImg" class="btn btn-default" style="border-color: #ffffff;"> <i class="fa fa-search"></i></button>
-												</div>
-											</div>
+										<div class="panel-body myPanel-body">
+											
 										</div>
 									</section>
-										<div class="state-info myState-info" style="margin-right: 255px;">
+										<div class="state-info myState-info" >
 										<section class="panel">
 											<div class="panel-body">
 												<div class="summary">
@@ -496,12 +475,16 @@
 <script src="js/config.js"></script>
 <script src="js/util.js"></script>
 
+<!--树列表-->
+<script src="js/bootstrap-treeview.js"></script>
 <!--展示2 js-->
 <script type="text/javascript" src="js/images.js"></script>
 <!--展示3js-->
 <script src="js/draggabilly.pkgd.js"></script>
 <!--右键菜单-->
 <script src="js/context.js"></script>
+<!--cookie-->
+<script src="js/jquery.cookie.js"></script>
 <!--图片编辑-->
 <script type="text/javascript" src="js/jquery-ui-1.11.0.custom/jquery-ui.js"></script>
 <script type="text/javascript" src="js/anyLine.js"></script>
@@ -513,7 +496,7 @@
 <script src="js/showImg.js"></script>
 <!--照片点击放大-->
 <script src="js/imgBack.js"></script>
-<script src="js/index.js"></script>
 
+<script src="js/realTime.js"></script>
 </body>
 </html>

@@ -430,12 +430,27 @@ canvas {
 }
 .sorting_asc{
 	min-width: 100px;
+	text-align: center;
 }
 .sorting{
 	min-width: 100px;
+	text-align: center;
+}
+.myiconButton{
+	font-size: 12px;
+    padding: 7px!important;
 }
 .sticky-header.left-side-collapsed .myState-info {
     margin-right: 67px;
+}
+.form-control[readonly]{
+	cursor: auto;
+}
+.myTitle{
+	line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold ;
 }
 /*照片点击放大*/
 .fixedDiv{
@@ -468,6 +483,21 @@ canvas {
 	cursor: pointer;	
 	font-family: inherit;
 	background: #000000;
+}
+.myPanel-body{
+	margin-right: 530px;
+}
+.btn-all{
+	background: darkgray;
+    border-color: darkgray;
+    color: #FFFFFF;
+}
+.myTr th{
+	text-align: center;
+}
+.textRight{
+	text-align: right!important;
+	line-height: 34px;
 }
 /*屏幕适配*/	
  @media (max-width: 780px){
@@ -513,5 +543,11 @@ canvas {
  	}
  	.dataTable{
 		min-width: none;
+	}
+	.myPanel-body{
+		margin-right: 0;
+	}
+	.phoneHidden{
+		display: none;	
 	}
  }

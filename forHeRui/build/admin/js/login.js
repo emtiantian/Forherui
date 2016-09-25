@@ -21,8 +21,13 @@ $(function(){
 				console.log("data"+data);
 				if(data.success){
 					if(data.data.login){
-						//登录成功
-						location.href="index.html";
+						if($.cookie("userlineid") == "null"){
+							//登录成功
+							location.href="realTime.html";
+						}else{
+							location.href="realTime.html?lineId="+$.cookie("userlineid");
+						}
+						
 					}else{
 						//登录失败
 						$("#loginMsg").html("用户名或密码错误");
