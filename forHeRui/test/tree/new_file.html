@@ -45,7 +45,12 @@
         <div style="sel"></div>
         <script>
         	setTimeout(function(){},500);
-        	$(document).on("change","",function(){});
+//      	$(document).on("change","",function(){});
+        	var a = "a_1"
+        	var b=[]
+        	alert(a.split("_")[0])
+        	b.push({"group":a.split("_")[0],"prop":{"name":123}})
+        	console.dir(b)
         </script>
 	</body>
 </html>

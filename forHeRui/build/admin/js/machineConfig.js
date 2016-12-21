@@ -115,7 +115,7 @@ $(function(){
 			}else{
 				html+='</td>'
 			}
-			$("#machineList").append("<tr>"+html+"</tr>");		
+			$("#machineList").append("<tr>"+html+"</tr>");
 		});
 		
 		
