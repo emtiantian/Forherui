@@ -5,7 +5,7 @@ forHeRui/tool/testPost/node_modules
 forHeRui/tool/expressTest/log.txt
 forHeRui/tool/deploymentTool/node_modules
 forHeRui/tool/deploymentTool/*.log
-
+forHeRui/test/*
 forHeRui/build/admin/js/pictureConfig_BACKUP_7900.js
 forHeRui/build/admin/js/pictureConfig_BASE_7900.js
 forHeRui/build/admin/js/pictureConfig_LOCAL_7900.js
