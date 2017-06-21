@@ -1,7 +1,7 @@
 // 加载File System读写模块  
 var fs = require('fs');  
 // 加载编码转换模块  
-var iconv = require('iconv-lite');
+//var iconv = require('iconv-lite');
 // 加载时间格式化
 var moment = require("moment");
 
